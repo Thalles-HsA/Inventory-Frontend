@@ -1,9 +1,18 @@
-import React from 'react'
+require("dotenv").config();
 
-const app = () => {
-  return (
-    <div>app</div>
-  )
-}
+const express = require("express");
 
-export default app
+const port = process.env.PORT;
+
+const app = express();
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("A API está funcionando!");
+});
+
+app.listen(port, () => {
+  console.log(`App rodando na porta ${port}`);
+});
+
