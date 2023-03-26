@@ -2,6 +2,16 @@
 
 Este é um projeto de ERP online que estou desenvolvendo voltado para vendedores do Mercado Livre. Como desenvolvedor júnior em busca da minha primeira vaga, estou criando este projeto como uma carta de apresentação do meu trabalho. Meu objetivo é demonstrar minhas habilidades na construção de um aplicativo completo, desde a concepção até a implementação.
 
+## Processo de Desenvolvimento
+
+No processo de desenvolvimento do meu aplicativo, eu sigui uma abordagem iterativa e incremental. Primeiramente, começei com o planejamento, onde defini os objetivos do projeto, as funcionalidades que serão desenvolvidas e as tecnologias que serão utilizadas. Para isso, utilizei o Trello uma ferramentas de gerenciamento de projetos.
+
+Em seguida, criei um esboço do design do aplicativo, definindo as telas, componentes e fluxos de navegação. Utilizei o figma uma ferramentas de design para criar protótipos de alta fidelidade, que me ajudam a visualizar como o aplicativo ficará antes mesmo de começar a codificar.
+
+Com o design definido, começei a codificação, sempre seguindo as melhores práticas de desenvolvimento de software e utilizando as tecnologias escolhidas. Durante a codificação, utilizei ferramentas de versionamento de código como o Git e o Github para manter o controle de versões e colaboração com outros desenvolvedores.
+
+Começei a codificação pelo backend, onde os primeiros passos foram fazer todo a parte de autenticação do usuário começando pelo cadastro, passando pelo login e por fim terminando com o logout.
+
 ## Visão Geral
 
 Este projeto visa fornecer aos vendedores do Mercado Livre uma solução completa para gerenciar suas operações de vendas, desde o controle de estoque até a emissão de notas fiscais e a gestão de pedidos. O ERP também permitirá que os vendedores gerenciem seus clientes e façam análises de desempenho.
@@ -84,7 +94,6 @@ module.exports = conn;
  
 > **ATENÇÃO:** Para manter as suas configurações seguras, é importante não compartilhar estes arquivos publicamente no GitHub ou em qualquer outro lugar.
 
-
 ## Contribuição
 
 Este projeto foi criado por mim, Thalles Henrique, um desenvolvedor júnior em busca de minha primeira vaga como desenvolvedor FullStack. Se você gostou deste projeto e quer contribuir para seu desenvolvimento, sinta-se à vontade para abrir uma issue ou enviar uma pull request.
@@ -96,3 +105,16 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE par
 ## Contato
 
 Para entrar em contato comigo, envie um e-mail para thsa.henrique@gmail.com ou abra uma issue neste repositório. Estou disponível para discutir oportunidades de trabalho e projetos de colaboração.
+
+## Próximas etapas
+
+As próximas etapas do desenvolvimento incluem:
+
+- Desenvolvimento do frontend de todo o processo de autenticação.
+- Codificação do backend do restante da aplicação.
+- Desenvolvimento do frontend do restante da aplicação.
+- Implementação da logica para o controle de estoque.
+- Integração com a API do Mercado Livre.
+- Adicionar recursos de análise de dados para permitir que os vendedores tomem decisões informadas com base em seus dados de vendas.
+
+Estou ansioso para continuar a desenvolver este aplicativo e adicionar ainda mais recursos para ajudar os vendedores do Mercado Livre a gerenciar suas operações de vendas com eficiência.
