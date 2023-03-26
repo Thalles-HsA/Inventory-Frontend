@@ -44,7 +44,7 @@ Lembrando que as pastas frontend e backend são projetos separados, lembre-se de
 
 Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo ao seu banco de dados MongoDB, você precisará configurar as seguintes variáveis de ambiente:
 
-1. Criar um arquivo .env na raiz do seu projeto e definir as variáveis lá.
+1. Criar um arquivo .env na raiz do seu projeto backend e definir as variáveis lá.
     exemplo de configuração do .env: 
 
     ```javascript
@@ -53,7 +53,7 @@ Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo
     DB_PASS= Sua senha no MongoDB
     ```
 
-2. Dentro da pasta config você deve criar um arquivo chamado "db.js" e colocar as seguintes configurações
+2. Dentro da pasta backend/config você deve criar um arquivo chamado "db.js" e colocar as seguintes configurações
 
 ```javascript
 //importando o mongoose
@@ -82,12 +82,12 @@ module.exports = conn;
 
 ```
  
-> ATENÇÃO: Para manter as suas configurações seguras, é importante não compartilhar estes arquivos publicamente no GitHub ou em qualquer outro lugar.
+> **ATENÇÃO:** Para manter as suas configurações seguras, é importante não compartilhar estes arquivos publicamente no GitHub ou em qualquer outro lugar.
 
 
 ## Contribuição
 
-Este projeto foi criado por mim, Thalles Henrique, um desenvolvedor júnior em busca de minha primeira vaga como desenvolvedor fullStack. Se você gostou deste projeto e quer contribuir para seu desenvolvimento, sinta-se à vontade para abrir uma issue ou enviar uma pull request.
+Este projeto foi criado por mim, Thalles Henrique, um desenvolvedor júnior em busca de minha primeira vaga como desenvolvedor FullStack. Se você gostou deste projeto e quer contribuir para seu desenvolvimento, sinta-se à vontade para abrir uma issue ou enviar uma pull request.
 
 ## Licença
 
