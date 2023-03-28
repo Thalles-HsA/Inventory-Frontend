@@ -11,7 +11,7 @@ app.use(express.json());
 //Conexão com o banco de dados
 require("./config/db.js")
 
-// rota simples de teste
+// Rota simples de teste
 app.get("/", (req, res) => {
   res.send("A API está funcionando!");
 });

@@ -2,6 +2,10 @@
 
 Este é um projeto de ERP online que estou desenvolvendo voltado para vendedores do Mercado Livre. Como desenvolvedor júnior em busca da minha primeira vaga, estou criando este projeto como uma carta de apresentação do meu trabalho. Meu objetivo é demonstrar minhas habilidades na construção de um aplicativo completo, desde a concepção até a implementação.
 
+## Visão Geral
+
+Este projeto visa fornecer aos vendedores do Mercado Livre uma solução completa para gerenciar suas operações de vendas, desde o controle de estoque até a emissão de notas fiscais e a gestão de pedidos. O ERP também permitirá que os vendedores gerenciem seus clientes e façam análises de desempenho.
+
 ## Processo de Desenvolvimento
 
 No processo de desenvolvimento do meu aplicativo, eu sigui uma abordagem iterativa e incremental. Primeiramente, começei com o planejamento, onde defini os objetivos do projeto, as funcionalidades que serão desenvolvidas e as tecnologias que serão utilizadas. Para isso, utilizei o Trello uma ferramentas de gerenciamento de projetos.
@@ -11,10 +15,6 @@ Em seguida, criei um esboço do design do aplicativo, definindo as telas, compon
 Com o design definido, começei a codificação, sempre seguindo as melhores práticas de desenvolvimento de software e utilizando as tecnologias escolhidas. Durante a codificação, utilizei ferramentas de versionamento de código como o Git e o Github para manter o controle de versões e colaboração com outros desenvolvedores.
 
 Começei a codificação pelo backend, onde os primeiros passos foram fazer todo a parte de autenticação do usuário começando pelo cadastro, passando pelo login e por fim terminando com o logout.
-
-## Visão Geral
-
-Este projeto visa fornecer aos vendedores do Mercado Livre uma solução completa para gerenciar suas operações de vendas, desde o controle de estoque até a emissão de notas fiscais e a gestão de pedidos. O ERP também permitirá que os vendedores gerenciem seus clientes e façam análises de desempenho.
 
 ## Funcionalidades
 
