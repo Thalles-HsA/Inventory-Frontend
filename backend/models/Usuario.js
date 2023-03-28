@@ -31,8 +31,6 @@ const usuarioSchema = new Schema({
             return this.tipo === "cpf";
         },
     },
-
-
     razaoSocial: {
         type: String,
         required: function () {

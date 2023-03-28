@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 const cpfCnpjValidator = require('cpf-cnpj-validator');
 
-const usuarioValidation = () => {
+const validacaoDeUsuario = () => {
   return [
     body('email')
       .isEmail()
@@ -60,6 +60,41 @@ const usuarioValidation = () => {
   ];
 };
 
+const validacaoDeLogin = () => {
+  return [
+    body("email")
+      .isString()
+      .withMessage("O e-mail é obrigatório.")
+      .isEmail()
+      .withMessage("Insira um e-mail válido"),
+    body("senha")
+      .isString()
+      .withMessage("A senha é obrigatória."),
+  ];
+};
+
+const atualizacaoDeUsuario = () => {
+  return [
+    body("nome")
+      .if(body('tipo').equals('cpf'))
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("O nome precisa ter no mínimo 3 caracteres."),
+      body("razaoSocial")
+      .if(body('tipo').equals('cnpj'))
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("A razão social precisa ter no mínimo 3 caracteres."),
+    body("senha")
+      .optional()
+      .isLength({ min: 5 })
+      .withMessage("A senha precisa de no mínimo 5 caracteres."),
+  ];
+};
+
+
 module.exports = {
-  usuarioValidation,
+  validacaoDeUsuario,
+  validacaoDeLogin,
+  atualizacaoDeUsuario,
 };
