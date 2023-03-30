@@ -16,7 +16,7 @@ const gerarToken = (id) => {
 // Registrando e Logando o Usuário
 
 const registrar = async (req, res) => {
-    const { tipo, email, senha, nome, cpf, razaoSocial, cnpj, inscricaoEstadual, inscricaoMunicipal, cnae, atividadePrincipal, regimeTributario, tamanhoDaEmpresa, segmento, faturamentoDoUltimoAno, logradouro, numero, bairro, cidade, estado, cep, pessoaDeContato, telefone, celular, site } = req.body;
+    const { tipo, email, senha, nome, cpf, razaoSocial, cnpj, logradouro, numero, bairro, cidade, estado, cep } = req.body;
 
     // check if usuario exists
     const usuario = await Usuario.findOne({ email });

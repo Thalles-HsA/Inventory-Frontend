@@ -1,24 +1,35 @@
-// Configurações das variaveis vindo do arquivo .env
-require("dotenv").config(); 
+require("dotenv").config();
+
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+
 const port = process.env.PORT;
 
-// importando e criando o objeto do express
-const express = require("express");
 const app = express();
 
+// Config JSON and form data response
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-//Conexão com o banco de dados
-require("./config/db.js")
+// Solve CORS
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
-// Rota simples de teste
+// Upload directory
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// db connection
+require("./config/db.js");
+
+// test route
 app.get("/", (req, res) => {
-  res.send("A API está funcionando!");
+  res.send("API Working!");
 });
 
-// Rotas
-const router = require("./routes/Router.js")
-app.use(router)
+// routes
+const router = require("./routes/Router.js");
+
+app.use(router);
 
 app.listen(port, () => {
   console.log(`App rodando na porta ${port}`);

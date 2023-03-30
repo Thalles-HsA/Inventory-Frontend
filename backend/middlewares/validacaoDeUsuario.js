@@ -7,31 +7,22 @@ const validacaoDeUsuario = () => {
       .isEmail()
       .withMessage('E-mail inválido.'),
     body('senha')
+      .isString()
+      .withMessage("A senha é obrigatória.")
       .isLength({ min: 6 })
       .withMessage('A senha deve ter pelo menos 6 caracteres.'),
+    body("confirmarSenha")
+      .isString()
+      .withMessage("A confirmação de senha é obrigatória.")
+      .custom((value, { req }) => {
+        if (value != req.body.senha) {
+          throw new Error("As senhas não são iguais.");
+        }
+        return true;
+      }),
     body('tipo')
       .isString()
       .withMessage('O tipo é obrigatório.'),
-    body('logradouro')
-      .isString()
-      .withMessage('O logradouro é obrigatório.'),
-    body('numero')
-      .isString()
-      .withMessage('O número é obrigatório.'),
-    body('complemento')
-      .optional(),
-    body('bairro')
-      .isString()
-      .withMessage('O bairro é obrigatório.'),
-    body('cidade')
-      .isString()
-      .withMessage('A cidade é obrigatória.'),
-    body('estado')
-      .isString()
-      .withMessage('O estado é obrigatório.'),
-    body('cep')
-      .isString()
-      .withMessage('O CEP é obrigatório.'),
     body('cpf')
       .if(body('tipo').equals('cpf'))
       .notEmpty()
@@ -56,6 +47,26 @@ const validacaoDeUsuario = () => {
       .withMessage('A razão social é obrigatório.')
       .isLength({ min: 3 })
       .withMessage('A razão social deve ter no minimo 3 caracteres'),
+    body('logradouro')
+      .isString()
+      .withMessage('O logradouro é obrigatório.'),
+    body('numero')
+      .isString()
+      .withMessage('O número é obrigatório.'),
+    body('complemento')
+      .optional(),
+    body('bairro')
+      .isString()
+      .withMessage('O bairro é obrigatório.'),
+    body('cidade')
+      .isString()
+      .withMessage('A cidade é obrigatória.'),
+    body('estado')
+      .isString()
+      .withMessage('O estado é obrigatório.'),
+    body('cep')
+      .isString()
+      .withMessage('O CEP é obrigatório.'),
 
   ];
 };
@@ -80,7 +91,7 @@ const atualizacaoDeUsuario = () => {
       .optional()
       .isLength({ min: 3 })
       .withMessage("O nome precisa ter no mínimo 3 caracteres."),
-      body("razaoSocial")
+    body("razaoSocial")
       .if(body('tipo').equals('cnpj'))
       .optional()
       .isLength({ min: 3 })
