@@ -1,13 +1,24 @@
+/* Navbar toda */
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 8rem;
+    margin: 2rem 5rem;
+
 }
 
 .navbar img {
     width: 2rem;
     padding: 1rem;
+}
+
+.navbar a {
+    color: #000;
+}
+
+.navbar h1 {
+    margin: 0;
 }
 
 .nav-logo {
@@ -16,19 +27,20 @@
     padding: 0;
 }
 
-.navbar h1 {
-    margin: 0;
-}
+/* Menus e icones */
 
 .nav-link,
-.nav-auth {
+.nav-auth,
+.nav-auth-svg,
+.nav-link-auth {
     display: flex;
     align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
     text-align: center;
+    cursor: pointer;
 }
+
+/* Menus não autenticado */
 
 .nav-link li:not(:last-child) a {
     margin-right: 1.5rem;
@@ -36,9 +48,10 @@
 
 .nav-link a {
     position: relative;
-    padding: 2rem 1rem 0.5rem;
+    padding: 1rem;
     font-size: 1rem;
 }
+
 
 .nav-link a::before {
     content: "";
@@ -46,7 +59,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;
+    width: 30%;
     height: 2px;
     transition: all 0.3s ease-out;
 }
@@ -55,18 +68,96 @@
     background-color: #000;
 }
 
-.nav-auth a{
+/* Menu autenticado */
+
+.nav-link-auth a {
+    position: relative;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.nav-link-auth li:not(:last-child) a {
+    margin-right: 1.5rem;
+}
+
+.underline::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    transition: all 0.3s ease-out;
+}
+
+.underline::before {
+    background-color: #000;
+}
+
+.underline {
+    font-weight: 700;
+}
+
+/* login registrar */
+
+.nav-auth a {
     padding: 1rem 1.5rem;
     color: #1778f2;
     border-radius: 1.5rem;
-    transition: all 0.3s ease-out;    
+    transition: all 0.3s ease-out;
 }
 
 .nav-auth .active {
     background-color: #fff;
 }
 
-.nav-auth svg{
+
+
+/* Icones quando logado */
+
+.nav-auth-svg a {
+    padding: 1rem 1.5rem;
+    color: #1778f2;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease-out;
+}
+
+.nav-auth-svg svg {
     font-size: 24px;
-    color: red;
+    color: #1778f2;
+    cursor: pointer;
+}
+
+/* Submenu */
+
+.submenu {
+    display: block;
+    position: absolute;
+    margin: 0.95rem 0 0 0;
+    text-align: left;
+    padding: 10px;
+    list-style: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.submenu li {
+    padding: 20px 20px 20px 0;
+    border-radius: 10px;
+}
+
+.submenu li:hover {
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a.active {
+    font-weight: 700 !important;
 }
