@@ -1,7 +1,7 @@
 import './App.css';
 
 // Router
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 // Components
@@ -26,7 +26,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="container">
+        <div className='container-auth'>
           <Router auth={auth} />
         </div>
         <Footer />

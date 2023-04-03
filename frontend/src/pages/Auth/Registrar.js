@@ -1,5 +1,10 @@
-import "./Registrar.css"
+import "./Auth.css"
 import React, { useState, useEffect } from 'react'
+
+// Imagem e pré-carregamento
+import imgRegistro from "./paginaregistro.svg"
+import imgPreLoad from './paginaregistro.png'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import Message from "../../components/Message/Message";
 import Botao from '../../components/Botao/Botao'
@@ -8,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Redux
 import { register, reset, } from "../../slices/authSlice";
+import { Link } from "react-router-dom";
 
 const Registrar = () => {
 
@@ -28,19 +34,49 @@ const Registrar = () => {
   const [cep, setCep] = useState();
 
   const [etapa, setEtapa] = useState(1)
+  const [voltando, setVoltando] = useState(false)
 
   const dispatch = useDispatch();
 
   const { loading, error } = useSelector((state) => state.auth);
 
-  const handleProximo = (event) => {
-    event.preventDefault()
-    setEtapa(etapa + 1)
+  const handleProximo = () => {
+    const element = document.querySelector(`#etapa${etapa}`);
+
+    if (element.classList.value === "animacao-entrar") {
+      element.classList.remove("animacao-entrar")
+      element.classList.add("animacao-sair");
+    } else {
+      element.classList.remove("animacao-voltar-entrar")
+      element.classList.add("animacao-sair");
+    }
+
+    setTimeout(() => {
+      setEtapa(etapa + 1);
+      setVoltando(false)
+    }, 600);
+
+
   }
 
-  const handleAnterior = (event) => {
-    event.preventDefault()
-    setEtapa(etapa - 1)
+  const handleAnterior = () => {
+
+    const element = document.querySelector(`#etapa${etapa}`);
+
+    if (element.classList.value === "animacao-entrar") {
+      element.classList.remove("animacao-entrar")
+      element.classList.add("animacao-voltar-sair");
+    } else {
+      element.classList.remove("animacao-voltar-entrar")
+      element.classList.add("animacao-voltar-sair");
+    }
+
+
+    setTimeout(() => {
+      setEtapa(etapa - 1);
+      setVoltando(true)
+    }, 600)
+
   }
 
   const handleSubmit = (event) => {
@@ -52,8 +88,8 @@ const Registrar = () => {
       confirmarSenha,
       tipo,
       ...(tipo === "cpf"
-          ? { nome, cpf }
-          : { razaoSocial, cnpj }),
+        ? { nome, cpf }
+        : { razaoSocial, cnpj }),
       logradouro,
       numero,
       complemento,
@@ -69,34 +105,40 @@ const Registrar = () => {
     dispatch(register(usuario))
   }
 
-  // Clean all auth states
+  // Limpando todos os estados
   useEffect(() => {
     dispatch(reset());
   }, [dispatch]);
 
   return (
 
-    <div className="registrar-container">
-      <div>
-        <div>
+    <>
+      <div className="auth-descricao animacao-voltar-entrar">
+        <div >
           <h2>Cadastre-se agora no</h2>
-          <h2>Inventory</h2>
+          <h2 className="inventory">Inventory</h2>
         </div>
         <div>
           <p>Já tem uma conta?</p>
-          <p>Faça seu <span>Login aqui</span></p>
+          <p>Faça seu <Link to="/login">Login aqui</Link></p>
         </div>
       </div>
 
-      <div>
-        <img src="/assets/img/carrinhoscomcaixas.svg" alt="" />
-        <img src="/assets/img/prancheta.svg" alt="" />
-        <img src="/assets/img/caixaslaranjas.svg" alt="" />
-      </div>
+      <LazyLoadImage
+        src={imgRegistro}
+        alt="Caixas, carrinhos e prancheta"
+        PlaceholderSrc={imgPreLoad}
+        className="imagem-auth"
+      />
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-cadastro">
 
-        <div style={{ display: etapa === 1 ? "block" : "none" }}>
+        <div
+          id="etapa1"
+          className={etapa === 1 && !voltando ? "animacao-entrar" : etapa === 1 && voltando ? "animacao-voltar-entrar" : "animacao-sair"}
+
+          style={{ display: etapa === 1 ? "block" : "none" }}
+        >
           <p>Primeiro coloque seu e-mail e senha</p>
           <input
             type="email"
@@ -120,10 +162,17 @@ const Registrar = () => {
           <div className="botao" onClick={handleProximo}>
             Proximo
           </div>
+
         </div>
 
-        <div style={{ display: etapa === 2 ? "block" : "none" }}>
-          <p><span onClick={handleAnterior}>Voltar</span>Agora que tipo de cliente você é</p>
+        <div
+          id="etapa2"
+          // className={etapa === 2 ? 'animacao-entrar' : 'animacao-sair'}
+          className={etapa === 2 && !voltando ? "animacao-entrar" : etapa === 2 && voltando ? "animacao-voltar-entrar" : "animacao-sair"}
+
+          style={{ display: etapa === 2 ? "block" : "none" }}
+        >
+          <p>Agora que tipo de cliente você é</p>
           <label>
             <input
               type="radio"
@@ -183,10 +232,19 @@ const Registrar = () => {
           <div className="botao" onClick={handleProximo}>
             Proximo
           </div>
+          <div className="botao-voltar" onClick={handleAnterior}>
+            Voltar
+          </div>
         </div>
 
-        <div style={{ display: etapa === 3 ? "block" : "none" }}>
-          <p><span onClick={handleAnterior}>Voltar</span>Por último seu endereço.</p>
+        <div
+          id="etapa3"
+          // className={etapa === 3 ? 'animacao-entrar' : 'animacao-sair'}
+          className={etapa === 3 && !voltando ? "animacao-entrar" : etapa === 3 && voltando ? "animacao-voltar-sair" : "animacao-sair"}
+
+          style={{ display: etapa === 3 ? "block" : "none" }}
+        >
+          <p>Por último seu endereço.</p>
           <input
             type="text"
             placeholder='Logradouro'
@@ -194,12 +252,14 @@ const Registrar = () => {
             value={logradouro}
           />
           <input
+            className="input-menor"
             type="text"
             placeholder='Número'
             onChange={(e) => setNumero(e.target.value)}
             value={numero}
           />
           <input
+            className="input-medio"
             type="text"
             placeholder='Complemento'
             onChange={(e) => setComplemento(e.target.value)}
@@ -218,18 +278,27 @@ const Registrar = () => {
             value={cidade}
           />
           <input
+            className="input-menor"
             type="text"
             placeholder='UF'
             onChange={(e) => setEstado(e.target.value)}
             value={estado}
           />
           <input
+            className="input-medio"
             type="text"
             placeholder='CEP'
             onChange={(e) => setCep(e.target.value)}
             value={cep}
           />
-          {!loading && <Botao>Cadastrar</Botao>}
+          {!loading && (
+            <>
+              <Botao>Cadastrar</Botao>
+              <div className="botao-voltar" onClick={handleAnterior}>
+                Voltar
+              </div>
+            </>
+          )}
           {loading && <Botao>...Aguarde</Botao>}
           {error && <Message msg={[error]} type="error" />}
 
@@ -237,7 +306,7 @@ const Registrar = () => {
 
       </form>
 
-    </div>
+    </>
   )
 }
 

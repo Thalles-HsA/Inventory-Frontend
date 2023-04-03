@@ -1,4 +1,8 @@
-.container {
-    min-height: 70vh;
-  }
-  
+.container-auth {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 6rem;
+    position: relative;
+    height: 90vh;
+    box-sizing: border-box;
+}

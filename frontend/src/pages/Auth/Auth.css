@@ -1,0 +1,249 @@
+/* Imagem de fundo */
+
+body {
+    background-image: url("../../../public/assets/img/fundopoa.svg");
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: 70% 40%;
+}
+
+
+/* Descrição */
+
+.auth-descricao div {
+    margin: 4rem 0;
+}
+
+.container-auth h2 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.container-auth a {
+    color: #1778f2
+}
+
+.container-auth p {
+    font-size: 1.1rem;
+}
+
+/* Imagem */
+.imagem-auth {
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+/* Formulário */
+
+.container-auth form p {
+    margin: 0rem 0 3rem 0;
+    text-align: center;
+}
+
+.container-auth form {
+    margin: 5rem 0 3rem 0;
+    text-align: left;
+    width: 23rem;
+}
+
+.container-auth input {
+    display: block;
+    padding: 12px;
+    width: 21.5rem;
+    height: 1.5rem;
+    border: none;
+    background-color: #eaf0f7;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(23, 120, 242, 0.1);
+    margin: 0 0 1rem auto;
+}
+
+.container-auth input::placeholder {
+    font-size: 0.8rem;
+    color: #A7ADB3;
+
+}
+
+.container-auth input[type="radio"] {
+    display: inline;
+    margin-left: 10px; /*  adiciona um espaço entre os inputs */
+    width: 1rem;
+    box-shadow: none;
+}
+
+.container-auth span {
+    padding: 10px;
+}
+
+.input-menor{
+    display: inline-block !important;
+    width: 3rem !important;
+    margin-right: 1rem !important;
+}
+
+.input-medio {
+    display: inline-block !important;
+    width: 16rem !important;
+}
+
+
+/* Configurações exclusivas do login */
+
+.esqueceu-senha{
+    display: block;
+    font-size: 0.7rem;
+    text-align: right;
+    color: #A7ADB3;
+    margin-top: 3rem;
+}
+
+.continue-redes{
+    display: block;
+    font-size: 0.7rem;
+    color: #A7ADB3;
+    text-align: center;
+    margin: 3rem;
+}
+
+.icons-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    padding: 0 24px;
+}
+
+/* Botões */
+
+.botao {
+    margin: 3rem auto 1rem;
+    padding: 12px;
+    width: 21.5rem;
+    height: 1.5rem;
+    background-color: #1778f2;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(23, 120, 242, 0.5);
+}
+
+.botao-voltar {
+    margin: 1rem 0 1rem auto;
+    padding: 12px;
+    width: 21.5rem;
+    height: 1.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de transição das divs */
+
+@keyframes animacaoEntrar {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animacaoSair {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+@keyframes animacaoVoltarEntrar {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animacaoVoltarSair {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes animacaosubir {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+
+.animacao-entrar {
+    animation: animacaoEntrar 1s;
+}
+
+.animacao-sair {
+    animation: animacaoSair 1s;
+}
+.animacao-voltar-entrar {
+    animation: animacaoVoltarEntrar 1s;
+}
+
+.animacao-voltar-sair {
+    animation: animacaoVoltarSair 1s;
+}
+
+.animacao-subir{
+    animation: animacaoSubir 1s;
+}
+
+/* Animação de mouse */
+
+@keyframes mecherCaixas {
+    0% {
+      transform: translate(0, 0) scale(0.9);
+    }
+    50% {
+        transform: translate(4rem, -10rem) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(0.9);
+      }
+
+}
+
+.animacao-mecher-caixas {
+    animation: mecherCaixas 20s ease-in-out infinite;
+}
+
+

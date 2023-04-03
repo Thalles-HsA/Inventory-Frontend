@@ -1,8 +1,8 @@
 import "./Botao.css"
 
-const Botao = ({children}) => {
+const Botao = ({children, disabled}) => {
   return (
-    <button >
+    <button disabled={disabled}>
         {children}
     </button>
   )

@@ -4,13 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 5rem;
+    margin: 2rem 6rem;
 
 }
 
 .navbar img {
     width: 2rem;
-    padding: 1rem;
+    
 }
 
 .navbar a {
@@ -19,6 +19,7 @@
 
 .navbar h1 {
     margin: 0;
+    padding: 1rem;
 }
 
 .nav-logo {

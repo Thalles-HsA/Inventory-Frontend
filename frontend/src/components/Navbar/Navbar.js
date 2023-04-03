@@ -43,7 +43,7 @@ const Navbar = () => {
 
             <Link to="/" className="nav-logo">
                 <img src={logo} alt="" />
-                <h1>Inventory</h1>
+                <h1 className="inventory">Inventory</h1>
             </Link>
             {auth ?
                 (<>
