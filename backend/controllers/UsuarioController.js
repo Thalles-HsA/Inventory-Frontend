@@ -22,7 +22,7 @@ const registrar = async (req, res) => {
     const usuario = await Usuario.findOne({ email });
 
     if (usuario) {
-        res.status(422).json({ errors: ["Por favor, utilize outro e-mail."] });
+        res.status(422).json({ errors: ["E-mail já cadastrado em nossa base de dados, recupere sua senha ou utilize outro e-mail."] });
         return;
     }
 

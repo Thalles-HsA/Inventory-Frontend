@@ -2,6 +2,8 @@
 import {  Navigate, Route, Routes, } from 'react-router-dom';
 
 // Paginas não autenticadas
+
+import Registrarcopy from './pages/Auth/Registrarcopy';
 import Registrar from './pages/Auth/Registrar';
 import Login from './pages/Auth/Login';
 import Funcionalidades from "./pages/Funcionalidades";
@@ -38,6 +40,10 @@ const Router = ({auth}) => {
             <Route
                 path="/"
                 element={auth ? <Home /> : <Navigate to="/login" />}
+            />
+            <Route
+                path="/cadastro/teste"
+                element={!auth ? <Registrarcopy /> : <Navigate to="/login" />}
             />
             <Route
                 path="/funcionalidades"

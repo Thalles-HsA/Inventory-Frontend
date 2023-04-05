@@ -7,12 +7,11 @@ const register = async (data) => {
     try {
         const res = await fetch(api + "/usuarios/cadastro", config)
             .then((res) => res.json())
-            .catch((err) => err);
+            .catch((err) => console.log(err));
 
         if(res && res.token) {
             localStorage.setItem("usuario", JSON.stringify(res));
         }
-
         return res;
     } catch (error) {
         console.log(error);

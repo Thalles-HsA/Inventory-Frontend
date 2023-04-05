@@ -1,7 +1,10 @@
 import "./Auth.css"
 
-// icons 
+// Validação e criação de formulário
+import { Formik, Form, Field, ErrorMessage, FormikProvider } from "formik";
+import validacaoUsuario from "../../controllers/validacaoUsuario"
 
+// icons 
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF } from "react-icons/fa"
 
@@ -9,7 +12,7 @@ import { FaFacebookF } from "react-icons/fa"
 import imgLogin from "./caixasmarrons.svg"
 
 // Hooks
-import { useEffect, useState } from "react"
+import { useEffect, useRef } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -21,32 +24,30 @@ import Message from "../../components/Message/Message";
 import { login, reset } from "../../slices/authSlice";
 
 const Login = () => {
+ 
+  const emailInputRef = useRef(null);
 
-  const [email, setEmail] = useState("")
-  const [senha, setSenha] = useState("")
+  useEffect(() => {
+    emailInputRef.current.focus();
+  }, []);
 
   const dispatch = useDispatch()
-
-
-  const { loading, error, usuario } = useSelector((state) => state.auth);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const usuarios = {
-      email,
-      senha,
-    };
-
-    console.log(usuario);
-
-    dispatch(login(usuarios))
-
-  };
+  const { loading, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(reset());
   }, [dispatch]);
+
+  const initialValues = {
+    email: "",
+    senha: "",
+  }
+
+  const onSubmit = (values) => {
+    console.log(values);
+    dispatch(login(values))
+  };
+
 
   return (
     <>
@@ -61,48 +62,43 @@ const Login = () => {
         </div>
       </div>
 
-        <img
-          src={imgLogin}
-          alt="Duas caixas marrons"
-          className="imagem-auth animacao-mecher-caixas"
-        />
+      <img src={imgLogin} alt="Duas caixas marrons" className="imagem-auth animacao-mecher-caixas" />
 
+      <FormikProvider>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validacaoUsuario.login}
+          onSubmit={onSubmit}
+        >
+          {({ values, errors, setFieldTouched, touched,
+          }) => (
+            <Form>
+              <Field type="email" placeholder='E-mail' name='email' innerRef={emailInputRef} onBlur={() => setFieldTouched('email')} />
+              {touched.email && errors.email && <ErrorMessage name="email" component="span" />}
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder='E-mail'
-          onChange={(event) => setEmail(event.target.value)}
-          value={email}
-        />
-        <input
-          type="password"
-          placeholder='Senha'
-          onChange={(event) => setSenha(event.target.value)}
-          value={senha}
-        />
+              <Field type="password" placeholder='Senha' name='senha' onBlur={() => setFieldTouched('senha')} />
+              {touched.senha && errors.senha && <ErrorMessage name="senha" component="span" />}
 
-        <Link to="/esqueceuSenha"><span className="esqueceu-senha">Esqueceu sua senha?</span></Link>
+              <Link to="/esqueceuSenha">
+                <span className="esqueceu-senha">Esqueceu sua senha?</span>
+              </Link>
 
-        <Botao disabled={loading}>
-          {loading ? 'Aguarde...' : 'Login'}
-        </Botao>
-        {/* {!loading && <Botao>Login</Botao>}
-        {loading && <Botao disable={true}>Aguarde...</Botao>} */}
-        {error && <Message msg={error} type="error" />}
+              <Botao disabled={loading} type="submit">
+                {loading ? 'Aguarde...' : 'Login'}
+              </Botao>
 
-        <span className="continue-redes">Ou continue com</span>
+              {error && <Message msg={error} type="error" />}
 
-        <div className="icons-login">
-          <FcGoogle style={{ padding: "0 24px" }} />
-          <FaFacebookF color="#1778f2" style={{ padding: "0 24px" }} />
-        </div>
+              <span className="continue-redes">Ou continue com</span>
 
-
-
-
-
-      </form>
+              <div className="icons-login">
+                <FcGoogle style={{ padding: "0 24px" }} />
+                <FaFacebookF color="#1778f2" style={{ padding: "0 24px" }} />
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </FormikProvider>
     </>
   )
 }

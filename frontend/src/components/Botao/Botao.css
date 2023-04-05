@@ -1,4 +1,4 @@
-button {
+.botao-proximo {
     margin: 3rem 0 0 0;
     padding: 12px;
     width: 23rem;
@@ -9,6 +9,21 @@ button {
     cursor: pointer;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(23, 120, 242, 0.5);
+    box-shadow: 4px 4px 8px rgba(23, 120, 242, 0.5);
+    border: none;
+}
+
+.botao-voltar {
+    margin: 1rem 0 1rem 0;
+    padding: 12px;
+    width: 23rem;
+    height: 3rem;
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     border: none;
 }

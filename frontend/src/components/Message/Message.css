@@ -1,18 +1,24 @@
 .message {
   border-radius: 5px;
   padding: 5px 10px;
-  position: relative;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+
+}
+
+.message p {
+  padding: 1rem 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
 }
 
 .error {
-
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+  z-index: 1 !important;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 .success {

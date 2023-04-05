@@ -15,30 +15,24 @@ import Botao from '../../components/Botao/Botao'
 
 // Hooks
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Redux
-import { register, reset } from "../../slices/authSlice";
+import { register, reset, } from "../../slices/authSlice";
 import { Link } from "react-router-dom";
 
-const Registrar = () => {
+const Registrarcopy = () => {
 
   const [etapa, setEtapa] = useState(1);
   const [voltando, setVoltando] = useState(false);
   const [tipo, setTipo] = useState("cnpj")
-  const [valid, setValid] = useState(false)
+  const [fieldBlur, setFieldBlur] = useState(false);
 
   const dispatch = useDispatch();
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
 
   const { loading, error } = useSelector((state) => state.auth);
 
-  const handleProximo = async () => {
-
+  const handleProximo = () => {
     const element = document.querySelector(`#etapa${etapa}`);
 
     if (element.classList.value === "animacao-entrar") {
@@ -52,12 +46,7 @@ const Registrar = () => {
     setTimeout(() => {
       setEtapa(etapa + 1);
       setVoltando(false)
-      setValid(false)
     }, 600);
-
-
-
-
   }
 
   const handleAnterior = () => {
@@ -76,7 +65,6 @@ const Registrar = () => {
     setTimeout(() => {
       setEtapa(etapa - 1);
       setVoltando(true)
-
     }, 600)
 
   }
@@ -85,10 +73,7 @@ const Registrar = () => {
 
   const onSubmit = (values) => {
     console.log(values);
-
-    if (etapa === 3) {
-      dispatch(register(values))
-    }
+    dispatch(register(values))
   }
 
   // Limpando todos os estados
@@ -120,7 +105,6 @@ const Registrar = () => {
       <FormikProvider>
         <Formik
           initialValues={initialValues}
-          validateOnBlur={true}
           validationSchema={() => {
             if (tipo === "cnpj") {
 
@@ -131,8 +115,7 @@ const Registrar = () => {
           }}
           onSubmit={onSubmit}
         >
-          {({ values, setFieldValue, isValid, errors, setFieldTouched, touched,
-          }) => (
+          {({ values, setFieldValue }) => (
             <Form className="form-cadastro">
 
               <div
@@ -142,30 +125,19 @@ const Registrar = () => {
               >
                 <p>Primeiro coloque seu e-mail e senha</p>
 
-                <Field type="email" placeholder='E-mail' name="email" innerRef={inputRef} />
-                {valid && errors.email && <ErrorMessage name="email" component="span" />}
+                <Field type="email" placeholder='E-mail' name="email" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="email" component="span" />}
 
-                <Field type="password" placeholder='Senha' name="senha" />
-                {valid && errors.senha && <ErrorMessage name="senha" component="span" />}
+                <Field type="password" placeholder='Senha' name="senha" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="senha" component="span" />}
 
-                <Field type="password" placeholder='Confirme sua senha' name="confirmarSenha" />
-                {valid && errors.confirmarSenha && <ErrorMessage name="confirmarSenha" component="span" />}
+                <Field type="password" placeholder='Confirme sua senha' name="confirmarSenha" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="confirmarSenha" component="span" />}
 
 
-                <Botao
-                  type="submit"
-                  onClick={() => {
-                    setValid(true)
-                    if (
-                      errors.email === undefined && 
-                      errors.senha === undefined && 
-                      errors.confirmarSenha === undefined) {
-                      handleProximo()
-                    }
-                  }}
-                  className="botao-proximo">
+                <div className="botao" onClick={handleProximo}>
                   Proximo
-                </Botao>
+                </div>
               </div>
 
               <div
@@ -177,7 +149,7 @@ const Registrar = () => {
 
                 <label>
                   <input type="radio" name="tipo" value="cnpj" onClick={() => setFieldValue('tipo', 'cnpj')}
-                    onChange={() => setTipo("cnpj")} />
+                  onChange={() => setTipo("cnpj")}/>
                   <span>CNPJ</span>
                 </label>
                 <label>
@@ -189,47 +161,32 @@ const Registrar = () => {
                   values.tipo === "cnpj"
                     ? (
                       <>
-                        <Field type="text" placeholder='Razão Social' name="razaoSocial" />
-                        {valid && errors.razaoSocial && <ErrorMessage name="razaoSocial" component="span" />}
+                        <Field type="text" placeholder='Razão Social' name="razaoSocial" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                        {fieldBlur && <ErrorMessage name="razaoSocial" component="span" />}
 
-                        <Field type="text" placeholder='**.***.***/****-**' name="cnpj" />
-                        {valid && errors.cnpj && <ErrorMessage name="cnpj" component="span" />}
+                        <Field type="text" placeholder='**.***.***/****-**' name="cnpj" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                        {fieldBlur && <ErrorMessage name="cnpj" component="span" />}
 
                       </>
                     )
                     :
                     (
                       <>
-                        <Field type="text" placeholder='Nome' name="nome" />
-                        {valid && errors.nome && <ErrorMessage name="nome" component="span" />}
+                        <Field type="text" placeholder='Nome' name="nome" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} required />
+                        {fieldBlur && <ErrorMessage name="nome" component="span" />}
 
-                        <Field type="text" placeholder='***.***.***-**' name="cpf" onBlur={() => setFieldTouched('cpf')} />
-                        {valid && errors.cpf && <ErrorMessage name="cpf" component="span" />}
+                        <Field type="text" placeholder='***.***.***-**' name="cpf" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} required />
+                        {fieldBlur && <ErrorMessage name="cpf" component="span" />}
 
                       </>
                     )
                 }
-                <Botao
-                  type="submit"
-                  onClick={() => {
-                    setValid(true)
-                    
-                    if (
-                      errors.cnpj === undefined &&
-                      errors.razaoSocial === undefined &&
-                      errors.cpf === undefined &&
-                      errors.nome === undefined
-                      ) {
-                      handleProximo()
-                    }
-                  }}
-                  className="botao-proximo"
-                >
+                <div className="botao" onClick={handleProximo}>
                   Proximo
-                </Botao >
-                <Botao type="button" className="botao-voltar" onClick={handleAnterior}>
+                </div>
+                <div className="botao-voltar" onClick={handleAnterior}>
                   Voltar
-                </Botao>
+                </div>
               </div>
 
               <div
@@ -239,54 +196,43 @@ const Registrar = () => {
               >
                 <p>Por último seu endereço.</p>
 
-                <Field type="text" placeholder='Logradouro' name="logradouro" />
-                {valid && errors.logradouro && <ErrorMessage name="logradouro" component="span" className="message-error"/>}
+                <Field type="text" placeholder='Logradouro' name="logradouro" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="logradouro" component="span" />}
 
-                <Field className="input-menor" type="text" placeholder='Número' name="numero" />
-                {valid && errors.numero && <ErrorMessage name="numero" component="span" />}
+                <Field className="input-menor" type="text" placeholder='Número' name="numero" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="numero" component="span" />}
 
-                <Field className="input-medio" type="text" placeholder='Complemento' name="complemento" />
-                {valid && errors.complemento && <ErrorMessage name="complemento" component="span" />}
+                <Field className="input-medio" type="text" placeholder='Complemento' name="complemento" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="complemento" component="span" />}
 
-                <Field type="text" placeholder='Bairro' name="bairro" />
-                {valid && errors.bairro && <ErrorMessage name="bairro" component="span" />}
+                <Field type="text" placeholder='Bairro' name="bairro" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="bairro" component="span" />}
 
-                <Field type="text" placeholder='Cidade' name="cidade" />
-                {valid && errors.cidade && <ErrorMessage name="cidade" component="span" />}
+                <Field type="text" placeholder='Cidade' name="cidade" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="cidade" component="span" />}
 
-                <Field className="input-menor" type="text" placeholder='UF' name="estado" />
-                {valid && errors.estado && <ErrorMessage name="estado" component="span" />}
+                <Field className="input-menor" type="text" placeholder='UF' name="estado" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="estado" component="span" />}
 
-                <Field className="input-medio" type="text" placeholder='CEP' name="cep" />
-                {valid && errors.cep && <ErrorMessage name="cep" component="span" />}
+                <Field className="input-medio" type="text" placeholder='CEP' name="cep" onBlur={() => setFieldBlur(true)} onFocus={() => setFieldBlur(false)} />
+                {fieldBlur && <ErrorMessage name="cep" component="span" />}
 
-                <Botao
-                  type="submit"
-                  className="botao-proximo"
-                  onClick={() => {
-                    setValid(true)
-                  }}
-                >
+                <Botao disabled={loading} type="submit">
                   {loading ? 'Aguarde...' : 'Cadastrar'}
                 </Botao>
 
-                <Botao
-                  type="button"
-                  className="botao-voltar"
-                  onClick={handleAnterior}
-                >
+                <div className="botao-voltar" onClick={handleAnterior}>
                   Voltar
-                </Botao>
+                </div>
 
-                {error && <Message msg={error} type="error" />}
+                {error && <Message msg={[error]} type="error" />}
               </div>
             </Form>
           )}
         </Formik>
       </FormikProvider>
-
     </>
   )
 }
 
-export default Registrar
+export default Registrarcopy

@@ -75,6 +75,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to="/cadastro/anuncios" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Anuncios</NavLink>
                                 </li>
+        
                             </ul>}
                         </li>
                         <li>
@@ -224,6 +225,11 @@ const Navbar = () => {
                                 Blog
                             </NavLink>
                         </li>
+                        {/* <li>
+                            <NavLink to="/cadastro/teste">
+                                Blog
+                            </NavLink>
+                        </li> */}
                     </ul>
                     <ul className="nav-auth">
                         <li>
