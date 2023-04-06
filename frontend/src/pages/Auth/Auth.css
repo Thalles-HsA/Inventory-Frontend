@@ -44,7 +44,6 @@ body {
 /* Formulário */
 
 .container-auth form p {
-    margin: 0rem 0 3rem 0;
     text-align: center;
 }
 
@@ -85,18 +84,31 @@ body {
 
 .input-menor{
     display: inline-block !important;
-    width: 3rem !important;
+    width: 3.5rem !important;
     margin-right: 1rem !important;
 }
 
 .input-medio {
     display: inline-block !important;
-    width: 16rem !important;
+    width: 15.5rem !important;
+}
+
+.obrigatorio{
+    display: block;
+    font-size: 0.7rem;
+    text-align: right;
+    color: #A7ADB3;
+    margin: 1.5rem 0;
 }
 
 /* Mensagem de erro na validação fronend do usuário */
 
-
+.message-error{
+    display: block;
+    color: red;
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+}
 
 
 /* Configurações exclusivas do login */

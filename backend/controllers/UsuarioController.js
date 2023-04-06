@@ -73,7 +73,7 @@ const login = async (req, res) => {
 
     // Checando se o usuário existe
     if (!usuario) {
-        res.status(404).json({ errors: ["Usuário não encontrado"] });
+        res.status(404).json({ errors: ["Usuário não cadastrado. Confira seu email ou realize seu cadastro"] });
         return;
     }
 

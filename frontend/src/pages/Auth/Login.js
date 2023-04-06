@@ -1,20 +1,22 @@
 import "./Auth.css"
 
 // Validação e criação de formulário
-import { Formik, Form, Field, ErrorMessage, FormikProvider } from "formik";
-import validacaoUsuario from "../../controllers/validacaoUsuario"
+import { Form, Field, ErrorMessage, Formik } from "formik";
+import validacaoUsuario from "../../controllers/validacaoCadastro"
+import initialValues from "../../controllers/initialValues";
 
-// icons 
+// Icons 
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF } from "react-icons/fa"
 
-//imagens e pré-load
-import imgLogin from "./caixasmarrons.svg"
+// Imagens
+import imgLogin from "./img/caixasmarrons.svg"
 
 // Hooks
 import { useEffect, useRef } from "react"
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+
+// Router
+import { NavLink } from "react-router-dom";
 
 // Components
 import Botao from "../../components/Botao/Botao"
@@ -22,32 +24,29 @@ import Message from "../../components/Message/Message";
 
 //Redux
 import { login, reset } from "../../slices/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
- 
   const emailInputRef = useRef(null);
-
-  useEffect(() => {
-    emailInputRef.current.focus();
-  }, []);
 
   const dispatch = useDispatch()
   const { loading, error } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    dispatch(reset());
-  }, [dispatch]);
-
-  const initialValues = {
-    email: "",
-    senha: "",
+  // A função onSubmit é responsável por enviar o formulário preenchido pelo usuário para o backend. Ela utiliza a validação mais precisa do backend para garantir a integridade dos dados. Ao ser ativada, a função faz um dispatch da função "register" que vem do reducer do Redux presente no arquivo "AuthSlice". Se o registro for bem sucedido, o usuário é cadastrado no banco de dados MongoDB e logado no sistema. Caso contrário, um erro é retornado e exibido ao usuário por meio do componente "Message" adicionado ao final do formulário.
+  const onSubmit = (values) => {
+    dispatch(login(values));
   }
 
-  const onSubmit = (values) => {
-    console.log(values);
-    dispatch(login(values))
-  };
+  // O useEffect é usado em conjunto com o useRef para focar o primeiro input do formulário quando a página é carregada. Isso é feito definindo o elemento a ser focado com o useRef e, em seguida, utilizando o useEffect para disparar a função de foco assim que o componente é montado. Dessa forma, o usuário é direcionado diretamente para o primeiro campo do formulário, facilitando a interação com a página.
+  useEffect(() => {
+    emailInputRef.current.focus();
+  }, []);
 
+  // O useEffect é utilizado para limpar os estados dos reducers do Redux no arquivo "AuthSlice" quando o componente é desmontado. Isso é necessário para garantir que não haja resquícios de dados do usuário anterior na próxima vez que o formulário for carregado. Isso é feito usando o método "cleanup" que faz um dispatch das ações necessárias para limpar os estados dos reducers. O useEffect é acionado quando o componente é desmontado e a função "cleanup" é executada.
+  useEffect(() => {
+    emailInputRef.current.focus();
+    dispatch(reset())
+  }, [dispatch]);
 
   return (
     <>
@@ -58,47 +57,52 @@ const Login = () => {
         </div>
         <div>
           <p>Se você ainda não tem uma conta</p>
-          <p>Faça seu <Link to="/cadastro">cadastro aqui </Link></p>
+          <p>Faça seu <NavLink to="/cadastro">cadastro aqui </NavLink></p>
         </div>
       </div>
 
       <img src={imgLogin} alt="Duas caixas marrons" className="imagem-auth animacao-mecher-caixas" />
 
-      <FormikProvider>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validacaoUsuario.login}
-          onSubmit={onSubmit}
-        >
-          {({ values, errors, setFieldTouched, touched,
-          }) => (
-            <Form>
-              <Field type="email" placeholder='E-mail' name='email' innerRef={emailInputRef} onBlur={() => setFieldTouched('email')} />
-              {touched.email && errors.email && <ErrorMessage name="email" component="span" />}
+      {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
+      <Formik
+        initialValues={initialValues.login}
+        validationSchema={validacaoUsuario.login}
+        onSubmit={onSubmit}
+      >
+        {({ errors }) => (
+          <Form>
 
-              <Field type="password" placeholder='Senha' name='senha' onBlur={() => setFieldTouched('senha')} />
-              {touched.senha && errors.senha && <ErrorMessage name="senha" component="span" />}
+            {/* Este é o formulário de login, onde o usuário fornece seu email e senha. Após a submissão do formulário, é realizada uma validação no backend para verificar se o usuário já está cadastrado no banco de dados e se a senha está correta. Se tudo estiver correto, o usuário é autenticado e redirecionado para a página inicial. Caso contrário, uma mensagem de erro é exibida usando o componente "Message". */}
+            <label>
+              {errors.email && <ErrorMessage name="email" component="span" className="message-error" />}
+              <Field type="email" placeholder='E-mail' name='email' innerRef={emailInputRef} />
+            </label>
 
-              <Link to="/esqueceuSenha">
-                <span className="esqueceu-senha">Esqueceu sua senha?</span>
-              </Link>
+            <label>
+              {errors.senha && <ErrorMessage name="senha" component="span" className="message-error" />}
+              <Field type="password" placeholder='Senha' name='senha' />
+            </label>
 
-              <Botao disabled={loading} type="submit">
-                {loading ? 'Aguarde...' : 'Login'}
-              </Botao>
+            <NavLink to="/esqueceuSenha">
+              <span className="esqueceu-senha">Esqueceu sua senha?</span>
+            </NavLink>
 
-              {error && <Message msg={error} type="error" />}
+            <Botao type="submit" className="botao-proximo">
+              {loading ? 'Aguarde...' : 'Login'}
+            </Botao>
 
-              <span className="continue-redes">Ou continue com</span>
+            {error && <Message msg={error} type="error" />}
 
-              <div className="icons-login">
-                <FcGoogle style={{ padding: "0 24px" }} />
-                <FaFacebookF color="#1778f2" style={{ padding: "0 24px" }} />
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </FormikProvider>
+            <span className="continue-redes">Ou continue com</span>
+
+            <div className="icons-login">
+              <FcGoogle style={{ padding: "0 24px" }} />
+              <FaFacebookF color="#1778f2" style={{ padding: "0 24px" }} />
+            </div>
+          </Form>
+        )}
+      </Formik>
+
     </>
   )
 }

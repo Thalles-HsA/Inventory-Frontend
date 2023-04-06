@@ -37,7 +37,7 @@ const registrarcpf = Yup.object({
         .email("E-mail inválido")
         .required("O e-mail é obrigatório"),
     senha: Yup.string()
-        .min(5, "A senha precisa ter pelo menos 5 caractéres")
+        .min(6, "A senha precisa ter pelo menos 6 caractéres")
         .required("A senha é obrigatória"),
     confirmarSenha: Yup.string()
         .oneOf([Yup.ref('senha'), null], 'As senhas precisam ser iguais')
@@ -64,11 +64,12 @@ const registrarcpf = Yup.object({
         .required("O CEP é obrigatório"),
 })
 
-
-
 const login = Yup.object({
-    email: Yup.string().email("E-mail inválido").required("Campo obrigatório"),
-    senha: Yup.string().required("Campo obrigatório")
+    email: Yup.string()
+        .email("E-mail inválido")
+        .required("O e-mail é obrigatório"),
+    senha: Yup.string()
+        .required("A senha é obrigatória")
 });
 
 

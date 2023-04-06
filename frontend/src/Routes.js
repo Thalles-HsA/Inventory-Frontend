@@ -1,9 +1,7 @@
 // Router
-import {  Navigate, Route, Routes, } from 'react-router-dom';
+import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 
-// Paginas não autenticadas
-
-import Registrarcopy from './pages/Auth/Registrarcopy';
+// Páginas não autenticadas
 import Registrar from './pages/Auth/Registrar';
 import Login from './pages/Auth/Login';
 import Funcionalidades from "./pages/Funcionalidades";
@@ -32,115 +30,60 @@ import RelatorioDeVendas from './pages/Relatorios/RelatorioDeVendas';
 import RelatorioDeCompras from './pages/Relatorios/RelatorioDeCompras';
 import Perfil from "./pages/Perfil/Perfil"
 
-const Router = ({auth}) => {
+const Router = ({ auth }) => {
     return (
 
         < Routes>
 
-            <Route
-                path="/"
-                element={auth ? <Home /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/cadastro/teste"
-                element={!auth ? <Registrarcopy /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/funcionalidades"
-                element={!auth ? <Funcionalidades /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/planos"
-                element={!auth ? <Planos /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/contato"
-                element={!auth ? <Contato /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/blog"
-                element={!auth ? <Blog /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/cadastro"
-                element={!auth ? <Registrar /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/login"
-                element={!auth ? <Login /> : <Navigate to="/" />}
-            />
-            <Route
-                path="/cadastro/clientes"
-                element={auth ? <Clientes /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/cadastro/anuncios"
-                element={auth ? <Anuncios /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/cadastro/fornecedor"
-                element={auth ? <Fornecedor /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/cadastro/produtos"
-                element={auth ? <Produto /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/estoque/controleEstoque"
-                element={auth ? <ControleDeEstoque /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/estoque/entradaNfe"
-                element={auth ? <EntradaDeNfe /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/vendas/orcamento"
-                element={auth ? <Orcamento /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/vendas/notasProdutos"
-                element={auth ? <NotasFiscaisDeProduto /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/vendas/notasServicos"
-                element={auth ? <NotasFiscaisDeServico /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/vendas/pedidosVenda"
-                element={auth ? <PedidoDeVenda /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/vendas/vendasDiaria"
-                element={auth ? <VendasDiarias /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/compras/pedidoCompra"
-                element={auth ? <PedidosDeCompra /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/compras/notasCompra"
-                element={auth ? <NotasDeCompra /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/relatorio/relatorioCadastro"
-                element={auth ? <RelatorioDeCadastro /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/relatorio/relatorioCompras"
-                element={auth ? <RelatorioDeCompras /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/relatorio/relatorioVendas"
-                element={auth ? <RelatorioDeVendas /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/relatorio/relatorioEstoque"
-                element={auth ? <RelatorioDeEstoque /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/perfil"
-                element={auth ? <Perfil /> : <Navigate to="/login" />}
-            />
+            {/* Rotas não autenticadas */}
+            <Route path="/" element={<Outlet />}>
+                <Route path="/" element={auth ? <Home /> : <Navigate to="/login" />} />
+                <Route path="funcionalidades" element={!auth ? <Funcionalidades /> : <Navigate to="/" />} />
+                <Route path="planos" element={!auth ? <Planos /> : <Navigate to="/" />} />
+                <Route path="contato" element={!auth ? <Contato /> : <Navigate to="/" />} />
+                <Route path="blog" element={!auth ? <Blog /> : <Navigate to="/" />} />
+                <Route path="cadastro" element={!auth ? <Registrar /> : <Navigate to="/" />} />
+                <Route path="login" element={!auth ? <Login /> : <Navigate to="/" />} />
+            </Route>
+
+            {/* Rotas de cadastro */}
+            <Route path="/cadastros/" element={<Outlet />}>
+                <Route path="clientes" element={auth ? <Clientes /> : <Navigate to="/login" />} />
+                <Route path="anuncios" element={auth ? <Anuncios /> : <Navigate to="/login" />} />
+                <Route path="fornecedor" element={auth ? <Fornecedor /> : <Navigate to="/login" />} />
+                <Route path="produtos" element={auth ? <Produto /> : <Navigate to="/login" />} />
+            </Route>
+
+            {/* Rotas de estoque*/}
+            <Route path="/estoque/" element={<Outlet />}>
+                <Route path="controleEstoque" element={auth ? <ControleDeEstoque /> : <Navigate to="/login" />} />
+                <Route path="entradaNfe" element={auth ? <EntradaDeNfe /> : <Navigate to="/login" />} />
+            </Route>
+
+            {/* Rotas de vendas*/}
+            <Route path="/vendas/" element={<Outlet />}>
+                <Route path="orcamento" element={auth ? <Orcamento /> : <Navigate to="/login" />} />
+                <Route path="notasProdutos" element={auth ? <NotasFiscaisDeProduto /> : <Navigate to="/login" />} />
+                <Route path="notasServicos" element={auth ? <NotasFiscaisDeServico /> : <Navigate to="/login" />} />
+                <Route path="pedidosVenda" element={auth ? <PedidoDeVenda /> : <Navigate to="/login" />} />
+                <Route path="vendasDiaria" element={auth ? <VendasDiarias /> : <Navigate to="/login" />} />
+            </Route>
+
+            {/* Rotas de compras*/}
+            <Route path="/compras/" element={<Outlet />}>
+                <Route path="pedidoCompra" element={auth ? <PedidosDeCompra /> : <Navigate to="/login" />} />
+                <Route path="notasCompra" element={auth ? <NotasDeCompra /> : <Navigate to="/login" />} />
+            </Route>
+
+            {/* Rotas de relatórios*/}
+            <Route path="/relatorio/" element={<Outlet />}>
+                <Route path="relatorioCadastro" element={auth ? <RelatorioDeCadastro /> : <Navigate to="/login" />} />
+                <Route path="relatorioCompras" element={auth ? <RelatorioDeCompras /> : <Navigate to="/login" />} />
+                <Route path="relatorioVendas" element={auth ? <RelatorioDeVendas /> : <Navigate to="/login" />} />
+                <Route path="relatorioEstoque" element={auth ? <RelatorioDeEstoque /> : <Navigate to="/login" />} />
+            </Route>
+
+            <Route path="/perfil" element={auth ? <Perfil /> : <Navigate to="/login" />} />
 
         </Routes>
     )

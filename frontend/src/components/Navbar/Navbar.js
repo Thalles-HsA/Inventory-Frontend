@@ -41,7 +41,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
 
-            <Link to="/" className="nav-logo">
+            <Link to="/" className="nav-logo" onClick={() => setActiveMenu("") }>
                 <img src={logo} alt="" />
                 <h1 className="inventory">Inventory</h1>
             </Link>
@@ -64,16 +64,16 @@ const Navbar = () => {
                                 onMouseLeave={() => { setHover(false) }}
                             >
                                 <li>
-                                    <NavLink to="/cadastro/clientes" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Clientes</NavLink>
+                                    <NavLink to="/cadastros/clientes" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Clientes</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/cadastro/fornecedor" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Fornecedor</NavLink>
+                                    <NavLink to="/cadastros/fornecedor" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Fornecedor</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/cadastro/produtos" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Produtos</NavLink>
+                                    <NavLink to="/cadastros/produtos" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Produtos</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/cadastro/anuncios" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Anuncios</NavLink>
+                                    <NavLink to="/cadastros/anuncios" activeClassName="" onClick={() => { setActiveMenu("cadastro") }}>Anuncios</NavLink>
                                 </li>
         
                             </ul>}
