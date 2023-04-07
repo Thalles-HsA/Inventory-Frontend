@@ -4,7 +4,6 @@ node_modules
 # backend
 backend/node_modules
 backend/.env.local
-backend/config/db.js
 backend/lembrete.txt
 
 # frontend
