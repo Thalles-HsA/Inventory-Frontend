@@ -5,7 +5,7 @@
     "semantic-release": "^21.0.1"
   },
   "scripts":{
-    "release": "semantic-release --no-ci"
+    "semantic-release": "semantic-release"
   }
 
 }
