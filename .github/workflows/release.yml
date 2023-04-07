@@ -19,7 +19,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-     - name: Semantic Release
+      - name: Semantic Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
