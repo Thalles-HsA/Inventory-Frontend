@@ -8,6 +8,6 @@
     "semantic-release": "^21.0.1"
   },
   "scripts": {
-    "semantic-release": "semantic-release"
+    "release": "semantic-release --no-ci"
   }
 }
