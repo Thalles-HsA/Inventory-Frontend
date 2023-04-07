@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon ./app.js"
+    "server": "nodemon ./app.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Thalles-HsA",
@@ -20,6 +21,7 @@
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "typescript": "^4.4.4"
   }
 }
