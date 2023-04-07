@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+node_modules
+=======
+# dependencies
+node_modules
+>>>>>>> 6c65da5 (revert: :rewind: Padronizando os commits anteriores e introduindo Semantic Release)
