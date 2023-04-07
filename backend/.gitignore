@@ -1,4 +1,0 @@
-node_modules
-.env.local
-config/dbs.js
-lembrete.txt
