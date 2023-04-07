@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: v2.x
+          submodules: 'recursive'
+          fetch-depth: 0
+          node-version: 16.x
 
       - name: Install dependencies
         run: npm install
