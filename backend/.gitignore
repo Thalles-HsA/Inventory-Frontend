@@ -1,4 +1,4 @@
 node_modules
-.env
-config/db.js
-lembretes.txt
+.env.local
+config/dbs.js
+lembrete.txt
