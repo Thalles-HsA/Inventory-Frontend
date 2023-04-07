@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend do Projeto Inventory",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,8 +9,8 @@
     "build": "node app.js"
   },
   "keywords": [],
-  "author": "Thalles-HsA",
-  "license": "ISC",
+  "author": "Thalles-HsA - Thalles Henrique Souza de Almeida",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",

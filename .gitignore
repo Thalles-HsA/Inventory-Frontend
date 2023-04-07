@@ -1,6 +1,7 @@
 # dependencies
 node_modules
 .env
+.env.local
 
 # backend
 backend/node_modules

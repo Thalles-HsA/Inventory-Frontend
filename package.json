@@ -1,6 +1,7 @@
 {
   "name": "inventory",
   "version": "1.0.0",
+  "description": "ERP completo desenvolvido com a stack MERN (MongoDB, Express, React e Nodejs)",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
@@ -9,5 +10,7 @@
   },
   "scripts": {
     "release": "semantic-release --no-ci"
-  }
+  },
+  "author": "Thalles-HsA - Thalles Henrique Souza de Almeida",
+  "license": "MIT"
 }
