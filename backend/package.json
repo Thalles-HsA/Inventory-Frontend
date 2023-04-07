@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon ./app.js",
-    "build": "tsc"
+    "build": "node app.js"
   },
   "keywords": [],
   "author": "Thalles-HsA",
