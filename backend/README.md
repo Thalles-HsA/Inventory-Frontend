@@ -1,7 +1,7 @@
 
 <h1 style="text-align: center;">  
     Projeto Inventory 
-    <img src="./inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
+    <img src="../inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
 </h1>
 
 
@@ -27,13 +27,10 @@
 - [Processo de Desenvolvimento](#processo-de-desenvolvimento)
 - [Funcionalidades Previstas](#funcionalidades-previstas)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-  - [Pacotes do Backend](#pacotes-do-backend)
-  - [Pacotes do Frontend](#pacotes-do-frontend)
 - [Instalação](#instalação)
   - [Backend:](#backend)
   - [Frontend:](#frontend)
 - [Configuração das Variáveis de Ambiente](#configuração-das-variáveis-de-ambiente)
-  - [Script Nodemon](#script-nodemon)
   - [Arquivo .env.local](#arquivo-envlocal)
   - [Arquivo db.js](#arquivo-dbjs)
 - [Contribuição](#contribuição)
@@ -49,15 +46,15 @@ Olá! Me chamo Thalles Henrique e este é um projeto de ERP online que estou des
 
 Estou utilizando a Stack MERN, que consiste em MongoDB, Express, React e Nodejs, para desenvolver o projeto. Acredito que essa escolha irá me permitir explorar diferentes aspectos do desenvolvimento web e me permitir evoluir como programador.
 
-O resultado final deste projeto será um aplicativo que permitirá aos vendedores do Mercado Livre gerenciar suas vendas e estoque de forma mais eficiente, melhorando assim sua produtividade e aumentando seus resultados.
-
 <br>
 
 # Visão Geral
 
-O Inventory é um projeto de ERP online com foco na qualidade de estoque e facilidade de implementação, diferenciando-se de outros sistemas tradicionais do mercado. Como desenvolvedor com experiência na área, estou empenhado em utilizar todo meu conhecimento para construir um produto de excelência.
+Diferentes de outros ERP's tradicionais do mercado o foco do Inventory será na facilidade de implementação e a qualidade de estoque terá grande destaque dentro do projeto.
 
-Este projeto tem como objetivo fornecer uma solução completa para os vendedores do Mercado Livre gerenciarem suas operações de vendas. Além do controle de estoque, o ERP também abrange funções como emissão de notas fiscais, gestão de pedidos, análises de desempenho e gerenciamento de clientes.
+Viso colocar toda minha experiência anterior que teho nessa área para conseguir desenvolver um excelente produto.
+
+Este projeto visa fornecer aos vendedores do Mercado Livre uma solução completa para gerenciar suas operações de vendas, desde o controle de estoque até a emissão de notas fiscais e a gestão de pedidos. O ERP também permitirá que os vendedores gerenciem seus clientes e façam análises de desempenho.
 
 <br>
 
@@ -95,31 +92,6 @@ Nesse projeto utilizei da stack MERN para o desenvolvimento.
 - React;
 - Node.js;
 
-## Pacotes do Backend
-
-
-  - nodemon - (versão 2.0.22) devDepndencies
-  - bcrypt - (versão 5.1.0)
-  - bcryptjs - (versão 2.4.3)
-  - cors - (versão 2.8.5)
-  - cpf-cnpj-validator - (versão 1.0.3)
-  - dotenv - (versão 16.0.3)
-  - express - (versão 4.18.2)
-  - express-validator - (versão 6.15.0)
-  - jsonwebtoken - (versão 9.0.0)
-  - mongoose - (versão 7.0.3)
-  - multer - (versão 1.4.5-lts.1)
-
-## Pacotes do Frontend
-
-  - react-redux - (versão 8.0.5)
-  - react-router-dom - (versão  6.9.0)
-  - react-icons - (versão 4.8.0)
-  - formik - (versão 2.2.9)
-  - yup - (versão 1.0.2)
-  - cpf-cnpj-validator - (versão  1.0.3)
-  - normalize.css - (versão  8.0.1)
-
 <br>
 
 # Instalação
@@ -145,23 +117,12 @@ Para instalar e executar este projeto, siga os seguintes passos:
 
 # Configuração das Variáveis de Ambiente
 
-Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo ao seu banco de dados MongoDB, você precisará configurar as seguintes variáveis de ambiente na sua pasta do backend.
+Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo ao seu banco de dados MongoDB, você precisará configurar as seguintes variáveis de ambiente:
 
-## Script Nodemon
-
-- no package.json crie um script para que o nodemon possa rodar: 
-
-```javascript
-"scripts": {
-    "server": "nodemon ./app.js",
-    // ...restante dos seus scripts
-  },
-```
 
 ## Arquivo .env.local
-- Criar um arquivo .env.local na raiz do seu projeto backend e definir as variáveis lá.
-
-  Exemplo de configuração do .env.local: 
+- Criar um arquivo .env na raiz do seu projeto backend e definir as variáveis lá.
+    exemplo de configuração do .env.local: 
 
     ```javascript
     // Porta usada para conectar ao seu servidor backend
@@ -179,7 +140,7 @@ Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo
 
 ## Arquivo db.js
 
-- Dentro da pasta backend/config você deve criar um arquivo chamado "db.js" e colocar as seguintes configurações.
+- Dentro da pasta backend/config você deve criar um arquivo chamado "db.js" e colocar as seguintes configurações
 
 ```javascript
 //importando o mongoose
