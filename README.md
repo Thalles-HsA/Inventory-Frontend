@@ -1,18 +1,16 @@
 
-<h1 style="text-align: center;">  
+<h1 align="center">  
     Projeto Inventory 
     <img src="./inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
 </h1>
 
 
-<div style="text-align: center">
+<div align="center">
 
-![GitHub](https://img.shields.io/github/license/Thalles-HsA/Inventory-MERN)
-![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Thalles-HsA/Inventory-MERN)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=flat-square&logo=linkedin&link=https://www.linkedin.com/in/seu-nome-aqui/)](https://www.linkedin.com/in/thalleshsa/)
-![GitHub Repo stars](https://img.shields.io/github/stars/Thalles-HsA/Inventory-MERN?style=social)
-
-
+  [![GitHub](https://img.shields.io/github/license/Thalles-HsA/Inventory-MERN)](#licença)
+  ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Thalles-HsA/Inventory-MERN)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=flat-square&logo=linkedin&link=https://www.linkedin.com/in/seu-nome-aqui/)](https://www.linkedin.com/in/thalleshsa/)
+  ![GitHub Repo stars](https://img.shields.io/github/stars/Thalles-HsA/Inventory-MERN?style=social)
 
 </div>
 
@@ -34,7 +32,7 @@
   - [Frontend:](#frontend)
 - [Configuração das Variáveis de Ambiente](#configuração-das-variáveis-de-ambiente)
   - [Script Nodemon](#script-nodemon)
-  - [Arquivo .env.local](#arquivo-envlocal)
+  - [Arquivo .env](#arquivo-env)
   - [Arquivo db.js](#arquivo-dbjs)
 - [Contribuição](#contribuição)
 - [Licença](#licença)
@@ -158,19 +156,20 @@ Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo
   },
 ```
 
-## Arquivo .env.local
-- Criar um arquivo .env.local na raiz do seu projeto backend e definir as variáveis lá.
+## Arquivo .env
+- Criar um arquivo .env na raiz do seu projeto backend e definir as variáveis lá.
 
-  Exemplo de configuração do .env.local: 
+  Exemplo de configuração do .env: 
 
     ```javascript
     // Porta usada para conectar ao seu servidor backend
     PORT= 5000 
     
+    
     // Dados de conexão do MongoDB
     DB_USER= Seu usuario no MongoDB
     DB_PASS= Sua senha no MongoDB
-    DB_DB=<endereço do servidor>/<nome do banco de dados>
+    DB_DB= endereço do servidor/nome do banco de dados // Copie tudo apos o @
 
     ```
   > **ATENÇÃO:** Para manter as suas configurações seguras, é importante não compartilhar este arquivo publicamente no GitHub ou em qualquer outro lugar.
@@ -193,7 +192,7 @@ const dbBanco = process.env.DB_DB;
 const conn = async () => {
   try {
     const dbConn = await mongoose.connect(
-      `mongodb+srv://${dbUser}:${dbPassword}@${dbBanco}` // Lembrando que essa linha de código vem pronta do MongoDB, basta copiar, colar em seu codigo e substituir o seu usuário, senha, endereço do servidor e nome do banco de dados pelos dados do arquivo .env.local (${dbUser}:${dbPassword}@${dbBanco}) como está no exemplo acima.
+      `mongodb+srv://${dbUser}:${dbPassword}@${dbBanco}` // Lembrando que essa linha de código vem pronta do MongoDB, basta copiar, colar em seu codigo e substituir o seu usuário, senha, endereço do servidor e nome do banco de dados pelos dados do arquivo .env (${dbUser}:${dbPassword}@${dbBanco}) como está no exemplo acima.
     );
     console.log("Conectou ao banco de dados!");
 
@@ -208,6 +207,12 @@ conn();
 module.exports = conn;
 
 ```
+
+>NOTA: Com essas configurações feita da maneira correta você já está pronto(a) para começar o desenvolvimento. Para confirmar se tudo está correto rode o comando dentro da pasta backend "npm run server" e vea no seu terminal aparece "Conectou ao banco e dados!"
+
+<br>
+
+![gif](./gif.gif)
 
 <br>
 
