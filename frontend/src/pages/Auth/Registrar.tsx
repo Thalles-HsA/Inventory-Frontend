@@ -1,4 +1,5 @@
 import "./Auth.css"
+import { Usuario } from "../../types/Interface";
 
 // Validação e criação de usuário e formulário
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -19,29 +20,34 @@ import { useState, useEffect, useRef } from 'react'
 // Redux
 import { register, reset } from "../../slices/authSlice";
 import { Link } from "react-router-dom";
+import { RootState } from "../../store";
+
 
 const Registrar = () => {
 
-  const [etapa, setEtapa] = useState(1);
-  const [voltando, setVoltando] = useState(false);
-  const [tipo, setTipo] = useState("cnpj")
-  const [valid, setValid] = useState(false)
+  const [etapa, setEtapa] = useState<number>(1);
+  const [voltando, setVoltando] = useState<boolean>(false);
+  const [tipo, setTipo] = useState<string>("cnpj")
+  const [valid, setValid] = useState<boolean>(false)
 
-  const dispatch = useDispatch();
-  const inputRef = useRef(null);
-  const { loading, error } = useSelector((state) => state.auth);
+  const dispatch: any = useDispatch();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { loading, error } = useSelector((state: RootState) => state.auth);
 
   // A função handleProximo é responsável por ativar o evento do botão "próximo" no formulário. Ela troca as classes CSS das divs para permitir o efeito de transição e adiciona +1 ao state "etapa", levando o usuário para a próxima etapa do formulário. Além disso, ela também ativa a validação do Formik através de um submit. É importante mencionar que um setTimeout foi adicionado para garantir que a animação seja executada corretamente.
   const handleProximo = () => {
     const element = document.querySelector(`#etapa${etapa}`);
 
-    if (element.classList.value === "animacao-entrar") {
-      element.classList.remove("animacao-entrar")
-      element.classList.add("animacao-sair");
-    } else {
-      element.classList.remove("animacao-voltar-entrar")
-      element.classList.add("animacao-sair");
+    if(element !== null){
+      if (element.classList.value === "animacao-entrar") {
+        element.classList.remove("animacao-entrar")
+        element.classList.add("animacao-sair");
+      } else {
+        element.classList.remove("animacao-voltar-entrar")
+        element.classList.add("animacao-sair");
+      }
     }
+    
     setTimeout(() => {
       setEtapa(etapa + 1);
       setVoltando(false)
@@ -53,14 +59,16 @@ const Registrar = () => {
   const handleAnterior = () => {
     const element = document.querySelector(`#etapa${etapa}`);
 
-    if (element.classList.value === "animacao-entrar") {
-      element.classList.remove("animacao-entrar")
-      element.classList.add("animacao-voltar-sair");
-    } else {
-      element.classList.remove("animacao-voltar-entrar")
-      element.classList.add("animacao-voltar-sair");
+    if(element !== null) {
+      if (element.classList.value === "animacao-entrar") {
+        element.classList.remove("animacao-entrar")
+        element.classList.add("animacao-voltar-sair");
+      } else {
+        element.classList.remove("animacao-voltar-entrar")
+        element.classList.add("animacao-voltar-sair");
+      }
     }
-
+    
     setTimeout(() => {
       setEtapa(etapa - 1);
       setVoltando(true)
@@ -69,7 +77,7 @@ const Registrar = () => {
   };
 
  // A função onSubmit é responsável por enviar o formulário preenchido pelo usuário para o backend. Ela utiliza a validação mais precisa do backend para garantir a integridade dos dados. Ao ser ativada, a função faz um dispatch da função "register" que vem do reducer do Redux presente no arquivo "AuthSlice". Se o registro for bem sucedido, o usuário é cadastrado no banco de dados MongoDB e logado no sistema. Caso contrário, um erro é retornado e exibido ao usuário por meio do componente "Message" adicionado ao final do formulário.
-  const onSubmit = (values) => {
+  const onSubmit = (values: Usuario) => {
     console.log(values);
 
     if (etapa === 3) {
@@ -79,7 +87,7 @@ const Registrar = () => {
 
   // O useEffect é usado em conjunto com o useRef para focar o primeiro input do formulário quando a página é carregada. Isso é feito definindo o elemento a ser focado com o useRef e, em seguida, utilizando o useEffect para disparar a função de foco assim que o componente é montado. Dessa forma, o usuário é direcionado diretamente para o primeiro campo do formulário, facilitando a interação com a página.
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []);
 
   // O useEffect é utilizado para limpar os estados dos reducers do Redux no arquivo "AuthSlice" quando o componente é desmontado. Isso é necessário para garantir que não haja resquícios de dados do usuário anterior na próxima vez que o formulário for carregado. Isso é feito usando o método "cleanup" que faz um dispatch das ações necessárias para limpar os estados dos reducers. O useEffect é acionado quando o componente é desmontado e a função "cleanup" é executada.
@@ -108,7 +116,7 @@ const Registrar = () => {
 
        {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
       <Formik
-        initialValues={tipo === "cpf" ? initialValues.cpf() : initialValues.cnpj()}
+        initialValues={tipo === "cpf" ? initialValues.cpf : initialValues.cnpj}
         validationSchema={tipo === "cpf" ? validacaoUsuario.registrarcpf : validacaoUsuario.registrarcnpj}
         onSubmit={onSubmit}
       >
@@ -145,7 +153,6 @@ const Registrar = () => {
               </label>
 
               <Botao
-                type="submit"
                 onClick={() => {
                   setValid(true)
                   if (
@@ -154,6 +161,7 @@ const Registrar = () => {
                     errors.confirmarSenha === undefined
                   ) { handleProximo() }
                 }}
+                type="submit"
                 className="botao-proximo"
               >
                 Proximo
@@ -172,6 +180,7 @@ const Registrar = () => {
 
               <label>
                 <Field
+
                   type="radio" name="tipo" value="cnpj"
                   onClick={() => {
                     setFieldValue('tipo', 'cnpj');
@@ -201,12 +210,12 @@ const Registrar = () => {
                   ? (
                     <>
                       <label>
-                        {valid && errors.razaoSocial && values.tipo === "cnpj" && <ErrorMessage name="razaoSocial" component="span" className="message-error" />}
+                        {valid && errors.cnpj && values.tipo === "cnpj" && <ErrorMessage name="razaoSocial" component="span" className="message-error" />}
                         <Field type="text" placeholder='Razão Social*' name="razaoSocial" onFocus={() => setValid(false)} />
                       </label>
 
                       <label>
-                        {valid && errors.cnpj && values.tipo === "cnpj" && <ErrorMessage name="cnpj" component="span" className="message-error" />}
+                        {valid && errors.razaoSocial && values.tipo === "cnpj" && <ErrorMessage name="cnpj" component="span" className="message-error" />}
                         <Field type="text" placeholder='**.***.***/****-**' name="cnpj" onFocus={() => setValid(false)} />
                       </label>
                     </>
@@ -215,12 +224,12 @@ const Registrar = () => {
                   (
                     <>
                       <label>
-                        {valid && errors.razaoSocial && <ErrorMessage name="nome" component="span" className="message-error" />}
+                        {valid && errors.nome && <ErrorMessage name="nome" component="span" className="message-error" />}
                         <Field type="text" placeholder='Nome*' name="nome" onFocus={() => setValid(false)} />
                       </label>
 
                       <label>
-                        {valid && errors.cnpj && <ErrorMessage name="cpf" component="span" className="message-error" />}
+                        {valid && errors.cpf && <ErrorMessage name="cpf" component="span" className="message-error" />}
                         <Field type="text" placeholder='***.***.***-**' name="cpf" onBlur={() => setFieldTouched('cpf')} onFocus={() => setValid(false)} />
                       </label>
                     </>
@@ -292,6 +301,7 @@ const Registrar = () => {
               </label>
 
               <Botao
+                disabled={loading}
                 type="submit"
                 className="botao-proximo"
                 onClick={() => {
@@ -309,7 +319,7 @@ const Registrar = () => {
                 Voltar
               </Botao>
 
-              {error && <Message msg={error} type="error" />}
+              {Array.isArray(error) && <Message msg={error} type="error" />}
             </div>
 
           </Form>

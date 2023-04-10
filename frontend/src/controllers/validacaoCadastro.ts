@@ -8,7 +8,7 @@ const registrarcnpj = Yup.object({
         .min(5, "A senha precisa ter pelo menos 5 caractéres")
         .required("A senha é obrigatória"),
     confirmarSenha: Yup.string()
-        .oneOf([Yup.ref('senha'), null], 'As senhas precisam ser iguais')
+        .oneOf([Yup.ref('senha'), undefined], 'As senhas precisam ser iguais')
         .required("A confirmação de senha é obrigatória"),
     tipo: Yup.string()
         .required("O tipo de cliente é obrigatório"),
@@ -40,7 +40,7 @@ const registrarcpf = Yup.object({
         .min(6, "A senha precisa ter pelo menos 6 caractéres")
         .required("A senha é obrigatória"),
     confirmarSenha: Yup.string()
-        .oneOf([Yup.ref('senha'), null], 'As senhas precisam ser iguais')
+        .oneOf([Yup.ref('senha'), undefined], 'As senhas precisam ser iguais')
         .required("A confirmação de senha é obrigatória"),
     tipo: Yup.string()
         .required("O tipo de cliente é obrigatório"),

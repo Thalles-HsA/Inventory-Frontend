@@ -1,12 +1,17 @@
+import React from "react";
 import "./Message.css";
 
-const Message = ({ msg, type }) => {
+// Types
+import { MessageProps } from "../../types/Interface"
+
+
+const Message: React.FC<MessageProps> = ({ msg, type }) => {
   return (
     <div className={`message ${type}`}>
       {msg.map((err, index) => {
         return <p key={index}>{err}</p>
       })}
-      
+
     </div>
   );
 };

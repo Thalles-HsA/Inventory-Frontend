@@ -4,13 +4,13 @@ import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 // Páginas não autenticadas
 import Registrar from './pages/Auth/Registrar';
 import Login from './pages/Auth/Login';
-import Funcionalidades from "./pages/Funcionalidades";
-import Planos from "./pages/Planos";
-import Contato from "./pages/Contato";
-import Blog from "./pages/Blog";
+import Funcionalidades from "./pages/Funcionalidades/Funcionalidade";
+import Planos from "./pages/Planos/Planos";
+import Contato from "./pages/Contato/Contato";
+import Blog from "./pages/Blog/Blog";
 
 // Páginas Autenticadas
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Clientes from './pages/Cadastro/Clientes';
 import Anuncios from './pages/Cadastro/Anuncios';
 import Fornecedor from './pages/Cadastro/Fornecedor';
@@ -30,7 +30,11 @@ import RelatorioDeVendas from './pages/Relatorios/RelatorioDeVendas';
 import RelatorioDeCompras from './pages/Relatorios/RelatorioDeCompras';
 import Perfil from "./pages/Perfil/Perfil"
 
-const Router = ({ auth }) => {
+interface Props {
+    auth: boolean;
+}
+
+const Router: React.FC<Props> = ({ auth }) => {
     return (
 
         < Routes>

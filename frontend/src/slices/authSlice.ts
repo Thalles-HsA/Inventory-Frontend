@@ -1,9 +1,14 @@
+// Redux
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "../services/authService";
 
-const usuario = JSON.parse(localStorage.getItem("usuario"));
+// Types
+import { Usuario, AuthState, UsuarioLogin } from "../types/Interface"
 
-const initialState = {
+const usuarioString = localStorage.getItem("usuario");
+const usuario = usuarioString ? JSON.parse(usuarioString) : null;
+
+const initialState: AuthState = {
   usuario: usuario ? usuario : null,
   error: false,
   success: false,
@@ -13,8 +18,8 @@ const initialState = {
 // Registradno e Logando Usuário
 export const register = createAsyncThunk(
   "auth/register",
-  async (usuario, thunkAPI) => {
-    const data = await authService.register(usuario);
+  async (usuario: Usuario, thunkAPI) => {
+    const data: any = await authService.register(usuario);
 
     // Checando erros
     if (data.errors) {
@@ -28,15 +33,15 @@ export const register = createAsyncThunk(
 );
 
 // Logout de usuario
-export const logout = createAsyncThunk("auth/logout", async () => {
+export const logout = createAsyncThunk<void, void>("auth/logout", async () => {
   await authService.logout();
 });
 
 // Login de usuario
 export const login = createAsyncThunk(
   "auth/login",
-  async (usuario, thunkAPI) => {
-    const data = await authService.login(usuario)
+  async (usuario: UsuarioLogin, thunkAPI) => {
+    const data: any = await authService.login(usuario)
 
     //Checando Erros
     if (data.errors) {
@@ -70,8 +75,8 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
-        state.usuario = null;
+        state.error = action.payload as boolean | null;
+        state.usuario = null
       })
       .addCase(logout.fulfilled, (state) => {
         state.usuario = null;
@@ -91,7 +96,7 @@ export const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload as boolean | null;
         state.usuario = null;
       });
   },

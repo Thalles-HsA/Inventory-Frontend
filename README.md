@@ -1,6 +1,5 @@
 
-<h1 align="center">  
-    Projeto Inventory 
+<h1 align="center">
     <img src="./inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
 </h1>
 
@@ -208,7 +207,7 @@ module.exports = conn;
 
 ```
 
->NOTA: Com essas configurações feita da maneira correta você já está pronto(a) para começar o desenvolvimento. Para confirmar se tudo está correto rode o comando dentro da pasta backend "npm run server" e vea no seu terminal aparece "Conectou ao banco e dados!"
+>NOTA: Com essas configurações feita da maneira correta você já está pronto(a) para começar o desenvolvimento. Para confirmar se tudo está correto rode o comando dentro da pasta backend "npm run server" e veja no seu terminal aparecer "Conectou ao banco e dados!"
 
 <br>
 
