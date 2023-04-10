@@ -24,8 +24,8 @@
 - [Processo de Desenvolvimento](#processo-de-desenvolvimento)
 - [Funcionalidades Previstas](#funcionalidades-previstas)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-  - [Pacotes do Backend](#pacotes-do-backend)
-  - [Pacotes do Frontend](#pacotes-do-frontend)
+  - [Dependências do Backend](#dependências-do-backend)
+  - [Dependências do Frontend](#dependências-do-frontend)
 - [Instalação](#instalação)
   - [Backend:](#backend)
   - [Frontend:](#frontend)
@@ -85,14 +85,14 @@ Veja mais sobre o processo de desenvolvimento do frontend e do backend dentro de
 
 # Tecnologias Utilizadas
 
-Nesse projeto utilizei da stack MERN para o desenvolvimento.
+Nesse projeto utilizei da stack MERN em Typecript para o desenvolvimento
 
 - MongoDB;
 - Express;
 - React;
 - Node.js;
 
-## Pacotes do Backend
+## Dependências do Backend
 
 
   - nodemon - (versão 2.0.22) devDepndencies
@@ -107,15 +107,20 @@ Nesse projeto utilizei da stack MERN para o desenvolvimento.
   - mongoose - (versão 7.0.3)
   - multer - (versão 1.4.5-lts.1)
 
-## Pacotes do Frontend
+## Dependências do Frontend
 
   - react-redux - (versão 8.0.5)
   - react-router-dom - (versão  6.9.0)
   - react-icons - (versão 4.8.0)
   - formik - (versão 2.2.9)
   - yup - (versão 1.0.2)
-  - cpf-cnpj-validator - (versão  1.0.3)
-  - normalize.css - (versão  8.0.1)
+  - cpf-cnpj-validator - (versão 1.0.3)
+  - normalize.css - (versão 8.0.1)
+  - typescript - (versão 4.4.4)
+  - @types/jest - (versão 29.5.0)
+  - @types/node - (versão 18.15.11)
+  - @types/react - (versão 18.0.33)
+  - @types/react-dom - (versão 18.0.11)
 
 <br>
 
@@ -137,6 +142,8 @@ Para instalar e executar este projeto, siga os seguintes passos:
 3. Acesse o aplicativo no navegador no endereço `http://localhost:3000`
 
 >Lembrando que as pastas frontend e backend são projetos separados, lembre-se de acessar cada uma delas em seu terminal antes de rodar os camandos. 
+
+>ATENÇÃO: A Versão 5.0.3 do TypeScript tem causado bug com a depêndencia react-script 5.0.1 portanto o projeto está usando a versão antiga 4.4.4. Caso tenha algum problema realacionado a isso desistale a versão recente do TS e instale a v4.4.4 que resolverá o problema. 
 
 <br>
 
@@ -160,18 +167,16 @@ Este projeto utiliza o MongoDB como banco de dados, e para conectar o aplicativo
 
   Exemplo de configuração do .env: 
 
-    ```javascript
-    // Porta usada para conectar ao seu servidor backend
-    PORT= 5000 
-    
-    
-    // Dados de conexão do MongoDB
-    DB_USER= Seu usuario no MongoDB
-    DB_PASS= Sua senha no MongoDB
-    DB_DB= endereço do servidor/nome do banco de dados // Copie tudo apos o @
+```javascript
+  // Porta usada para conectar ao seu servidor backend
+  PORT= 5000 
 
-    ```
-  > **ATENÇÃO:** Para manter as suas configurações seguras, é importante não compartilhar este arquivo publicamente no GitHub ou em qualquer outro lugar.
+  // Dados de conexão do MongoDB
+  DB_USER= Seu usuario no MongoDB
+  DB_PASS= Sua senha no MongoDB
+  DB_DB= endereço do servidor/nome do banco de dados // Copie tudo apos o @
+```
+> **ATENÇÃO:** Para manter as suas configurações seguras, é importante não compartilhar este arquivo publicamente no GitHub ou em qualquer outro lugar.
 
   <br>
 
