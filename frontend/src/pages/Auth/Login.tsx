@@ -90,7 +90,7 @@ const Login = () => {
               <span className="esqueceu-senha">Esqueceu sua senha?</span>
             </NavLink>
 
-            <Botao type="submit" className="botao-proximo">
+            <Botao disabled={loading} type="submit" className="botao-proximo">
               {loading ? 'Aguarde...' : 'Login'}
             </Botao>
 
