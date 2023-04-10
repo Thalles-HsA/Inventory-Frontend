@@ -1,8 +1,9 @@
-require("dotenv").config();
+import { config } from 'dotenv';
+config();
 
-const express = require("express");
-const path = require("path");
-const cors = require("cors");
+import express from 'express';
+import path from 'path'
+import cors from 'cors'
 
 const port = process.env.PORT;
 
@@ -19,7 +20,7 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // db connection
-require("./config/db.js");
+import "./config/db.ts";
 
 // test route
 app.get("/", (req, res) => {
@@ -27,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 // routes
-const router = require("./routes/Router.js");
+import { router } from "./routes/Router";
 
 app.use(router);
 

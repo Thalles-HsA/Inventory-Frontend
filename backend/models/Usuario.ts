@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+import mongoose, { Document, Model } from "mongoose";
+import { UsuarioDocument } from "../types/interface";
 
-const usuarioSchema = new Schema({
+
+const usuarioSchema = new mongoose.Schema<UsuarioDocument>({
 
     email: {
         type: String,
@@ -21,29 +22,28 @@ const usuarioSchema = new Schema({
 
     nome: {
         type: String,
-        required: function () {
+        required: function (this: UsuarioDocument) {
             return this.tipo === "cpf";
         },
     },
     cpf: {
         type: String,
-        required: function () {
+        required: function (this: UsuarioDocument) {
             return this.tipo === "cpf";
         },
     },
     razaoSocial: {
         type: String,
-        required: function () {
+        required: function (this: UsuarioDocument) {
             return this.tipo === "cnpj";
         }
     },
     cnpj: {
         type: String,
-        required: function () {
+        required: function (this: UsuarioDocument) {
             return this.tipo === "cnpj";
         }
     },
-
 
     logradouro: {
         type: String,
@@ -79,6 +79,6 @@ const usuarioSchema = new Schema({
 });
 
 
-const Usuario = mongoose.model("Usuario", usuarioSchema);
+const Usuario: Model<UsuarioDocument> = mongoose.model<UsuarioDocument>("Usuario", usuarioSchema);
 
-module.exports = Usuario;
+export default Usuario;

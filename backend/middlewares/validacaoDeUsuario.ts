@@ -1,7 +1,9 @@
 const { body } = require('express-validator');
 const cpfCnpjValidator = require('cpf-cnpj-validator');
+import { Request } from 'express';
 
-const validacaoDeUsuario = () => {
+
+export const validacaoDeUsuario = () => {
   return [
     body('email')
       .isEmail()
@@ -14,7 +16,7 @@ const validacaoDeUsuario = () => {
     body("confirmarSenha")
       .isString()
       .withMessage("A confirmação de senha é obrigatória.")
-      .custom((value, { req }) => {
+      .custom((value: string, req: Request ) => {
         if (value != req.body.senha) {
           throw new Error("As senhas não são iguais.");
         }
@@ -27,13 +29,13 @@ const validacaoDeUsuario = () => {
       .if(body('tipo').equals('cpf'))
       .notEmpty()
       .withMessage('O CPF é obrigatório.')
-      .custom((value) => cpfCnpjValidator.cpf.isValid(value))
+      .custom((value: string) => cpfCnpjValidator.cpf.isValid(value))
       .withMessage('CPF inválido.'),
     body('cnpj')
       .if(body('tipo').equals('cnpj'))
       .notEmpty()
       .withMessage('O CNPJ é obrigatório.')
-      .custom((value) => cpfCnpjValidator.cnpj.isValid(value))
+      .custom((value: string) => cpfCnpjValidator.cnpj.isValid(value))
       .withMessage('CNPJ inválido.'),
     body('nome')
       .if(body('tipo').equals('cpf'))
@@ -71,7 +73,7 @@ const validacaoDeUsuario = () => {
   ];
 };
 
-const validacaoDeLogin = () => {
+export const validacaoDeLogin = () => {
   return [
     body("email")
       .isString()
@@ -84,7 +86,7 @@ const validacaoDeLogin = () => {
   ];
 };
 
-const atualizacaoDeUsuario = () => {
+export const atualizacaoDeUsuario = () => {
   return [
     body("nome")
       .if(body('tipo').equals('cpf'))
@@ -103,9 +105,3 @@ const atualizacaoDeUsuario = () => {
   ];
 };
 
-
-module.exports = {
-  validacaoDeUsuario,
-  validacaoDeLogin,
-  atualizacaoDeUsuario,
-};
