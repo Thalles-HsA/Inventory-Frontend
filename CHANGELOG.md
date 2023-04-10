@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/Thalles-HsA/Inventory-MERN/compare/v1.0.0...v1.1.0) (2023-04-10)
+
+
+### Features
+
+* :label: Adiciona conversão de arquivo JavaScript para TypeScript ([aff9183](https://github.com/Thalles-HsA/Inventory-MERN/commit/aff91838544fd7d8929cf3c1926aca26a7d85754))
+* :sparkles: Adicionando licença MIT ([34ebf03](https://github.com/Thalles-HsA/Inventory-MERN/commit/34ebf0315658c71da752cdcf2b81692842c615ef))
+
 # 1.0.0 (2023-04-07)
 
 
