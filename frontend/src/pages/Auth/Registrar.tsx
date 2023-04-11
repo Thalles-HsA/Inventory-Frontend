@@ -1,4 +1,4 @@
-import "./Auth.css"
+import "./Auth.scss"
 import { Usuario } from "../../types/Interface";
 
 // Validação e criação de usuário e formulário
@@ -111,7 +111,6 @@ const Registrar = () => {
       <img
         src={imgRegistro}
         alt="Caixas, carrinhos e prancheta"
-        className="imagem-auth"
       />
 
        {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
@@ -121,7 +120,7 @@ const Registrar = () => {
         onSubmit={onSubmit}
       >
         {({ values, setFieldValue, errors, setFieldTouched }) => (
-          <Form className="form-cadastro">
+          <Form>
 
             {/* Esta é a primeira etapa do formulário, onde o usuário deve fornecer o seu e-mail, senha e confirmação de senha. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs.  */}
             <div
@@ -187,7 +186,7 @@ const Registrar = () => {
                     setTipo("cnpj");
                   }}
                 />
-                <span>
+                <span className="tipo">
                   Pessoa Jurídica
                 </span>
               </label>
@@ -200,7 +199,7 @@ const Registrar = () => {
                     setTipo("cpf");
                   }}
                 />
-                <span>
+                <span className="tipo">
                   Pessoa Fisícia
                 </span>
               </label>

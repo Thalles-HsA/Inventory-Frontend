@@ -1,4 +1,4 @@
-import "./Auth.css"
+import "./Auth.scss"
 
 // Types
 import { UsuarioLogin } from "../../types/Interface";
@@ -64,7 +64,7 @@ const Login = () => {
         </div>
       </div>
 
-      <img src={imgLogin} alt="Duas caixas marrons" className="imagem-auth animacao-mecher-caixas" />
+      <img src={imgLogin} alt="Duas caixas marrons" className="animacao-mecher-caixas" />
 
       {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
       <Formik

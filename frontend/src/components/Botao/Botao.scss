@@ -1,0 +1,36 @@
+@import "../../styles/_variaveis.scss";
+@import "../../styles/_funcoes.scss";
+
+.botao {
+    font-family: $font-family-padrao;
+    font-weight: $font-bold;
+    text-align: center;
+    margin: 3rem 0 1rem 0;
+    padding: $espacamento-padrao;
+    width: 23rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: $border-radius-padrao;
+    border: none;
+    @include boxShadow();
+  
+    &-proximo {
+      background-color: $cor-terciaria;
+      color: $cor-quartenaria;
+  
+      &:disabled {
+        background-color: $cor-terciaria-opacity;
+        cursor: default;
+        @include boxShadow($color: corRGBA(0, 173, 181, 0.2));
+      }
+    }
+  
+    &-voltar {
+      margin-top: 0;
+      background-color: $cor-quartenaria;
+      color: $cor-primaria;
+      @include boxShadow($color: corRGBA($opacity: 0.1));
+    }
+  }
+  
+

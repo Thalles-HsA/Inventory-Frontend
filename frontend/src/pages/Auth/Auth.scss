@@ -1,0 +1,155 @@
+@import "../../styles/animacoes";
+@import "../../styles/variaveis";
+@import "../../styles/funcoes";
+
+
+.container-auth {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 6rem;
+    font-family: $font-family-padrao;
+    font-weight: $font-thin;
+
+    .auth-descricao {
+
+        div {
+            margin: 4rem 0;
+        }
+
+        h2 {
+            font-weight: $font-bold;
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        a {
+            color: $cor-terciaria;
+        }
+    }
+
+    img {
+        width: 30%;
+        position: absolute;
+        top: 18rem;
+        left: 22rem;
+    }
+
+    form {
+        margin: 5rem 0 3rem 0;
+        text-align: left;
+        width: 23rem;
+
+        p {
+            text-align: center;
+        }
+
+        input {
+            display: block;
+            padding: $espacamento-padrao;
+            width: 21.5rem;
+            height: 1.5rem;
+            border: none;
+            border-radius: $border-radius-padrao;
+            background-color: corRGBA(221, 239, 239, 0.8);
+            @include boxShadow($color: corRGBA(0, 173, 181, 0.1));
+            margin-bottom: $espacamento-vertical;
+
+            &:focus {
+                outline: none;
+                background-color: corRGBA(221, 239, 239, 1)
+            }
+
+            &::placeholder {
+                font-size: $font-span;
+                color: $cor-secundaria-opacity;
+                font-family: $font-family-padrao;
+                font-weight: $font-thin;
+            }
+
+            &[type="radio"] {
+                display: inline-block;
+                margin: 0 0 0 $espacamento-padrao;
+                width: 1rem;
+                box-shadow: none;
+            }
+
+            &.input-menor {
+                display: inline-block;
+                width: 3.5rem;
+                margin-right: 1rem;
+            }
+
+            &.input-medio {
+                display: inline-block;
+                width: 15.5rem;
+            }
+        }
+
+        span {
+            padding: $espacamento-padrao;
+            display: block;
+            font-size: $font-span;
+            color: $cor-secundaria-opacity;
+
+            &.tipo {
+                display: inline-block;
+
+            }
+
+            &.obrigatorio {
+                text-align: right;
+                margin: 1.5rem 0;
+            }
+
+            &.esqueceu-senha {
+                text-align: right;
+                margin-top: 3rem;
+            }
+
+            &.continue-redes {
+                text-align: center;
+                margin: 3rem;
+            }
+
+            &.message-error {
+                color: red;
+                padding: 0.5rem 0;
+            }
+        }
+
+        .icons-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            padding: 0 $espacamento-padrao*2;
+        }
+    }
+
+    .animacao {
+        &-entrar {
+            animation: animacaoEntrar 1s;
+        }
+
+        &-sair {
+            animation: animacaoSair 1s;
+        }
+
+        &-voltar-entrar {
+            animation: animacaoVoltarEntrar 1s;
+        }
+
+        &-voltar-sair {
+            animation: animacaoVoltarSair 1s;
+        }
+
+        &-subir {
+            animation: animacaoSubir 1s;
+        }
+
+        &-mecher-caixas {
+            animation: mexerCaixas 20s ease-in-out infinite;
+        }
+    }
+
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Message.css";
+import "./Message.scss";
 
 // Types
 import { MessageProps } from "../../types/Interface"

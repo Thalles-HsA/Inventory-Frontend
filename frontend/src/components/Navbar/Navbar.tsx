@@ -1,4 +1,5 @@
-import "./Navbar.css";
+import "./Navbar.scss";
+
 
 // Icons
 import { FaUserCog } from "react-icons/fa"
@@ -19,7 +20,7 @@ import { logout, reset } from "../../slices/authSlice";
 
 const Navbar = (): JSX.Element => {
 
-    const [hover, setHover] = useState<string>("")
+    const [hover, setHover] = useState<string>("cadastro")
     const [activeMenu, setActiveMenu] = useState<string>("");
 
 
@@ -37,26 +38,24 @@ const Navbar = (): JSX.Element => {
     };
 
     return (
-        <nav className="navbar">
-
-            <Link to="/" className="nav-logo" onClick={() => setActiveMenu("")}>
+        <nav>
+            <Link to="/" className="menu-logo menu" onClick={() => setActiveMenu("")}>
                 <img src={logo} alt="" />
                 <h1 className="inventory">Inventory</h1>
             </Link>
             {auth ?
                 (
                     <>
-                        <ul className="nav-link-auth">
+                        <ul className="menu-auth menu">
                             <li >
-                                <a
+                                <p
                                     className={activeMenu === "cadastro" ? "underline" : ""}
                                     onMouseEnter={() => { setHover("cadastro") }}
                                     onMouseLeave={() => { setHover("") }}
                                 >
                                     Cadastro
-                                </a>
+                                </p>
                                 {<ul
-                                    className="submenu"
                                     style={{ display: hover === "cadastro" ? "block" : "none" }}
                                     onMouseEnter={() => { setHover("cadastro") }}
                                     onMouseLeave={() => { setHover("") }}
@@ -68,7 +67,7 @@ const Navbar = (): JSX.Element => {
                                         <NavLink to="/cadastros/fornecedor" onClick={() => { setActiveMenu("cadastro") }}>Fornecedor</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/cadastros/produtos"  onClick={() => { setActiveMenu("cadastro") }}>Produtos</NavLink>
+                                        <NavLink to="/cadastros/produtos" onClick={() => { setActiveMenu("cadastro") }}>Produtos</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/cadastros/anuncios" onClick={() => { setActiveMenu("cadastro") }}>Anuncios</NavLink>
@@ -77,16 +76,14 @@ const Navbar = (): JSX.Element => {
                                 </ul>}
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <p
                                     className={activeMenu === "estoque" ? "underline" : ""}
                                     onMouseEnter={() => { setHover("estoque") }}
                                     onMouseLeave={() => { setHover("") }}
                                 >
                                     Estoque
-                                </a>
+                                </p>
                                 {<ul
-                                    className="submenu"
                                     style={{ display: hover === "estoque" ? "block" : "none" }}
                                     onMouseEnter={() => { setHover("estoque") }}
                                     onMouseLeave={() => { setHover("") }}
@@ -101,16 +98,15 @@ const Navbar = (): JSX.Element => {
                                 </ul>}
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <p
+
                                     className={activeMenu === "vendas" ? "underline" : ""}
                                     onMouseEnter={() => { setHover("vendas") }}
                                     onMouseLeave={() => { setHover("") }}
                                 >
                                     Vendas
-                                </a>
+                                </p>
                                 {<ul
-                                    className="submenu"
                                     style={{ display: hover === "vendas" ? "block" : "none" }}
                                     onMouseEnter={() => { setHover("vendas") }}
                                     onMouseLeave={() => { setHover("") }}
@@ -134,16 +130,14 @@ const Navbar = (): JSX.Element => {
                                 </ul>}
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <p
                                     className={activeMenu === "compras" ? "underline" : ""}
                                     onMouseEnter={() => { setHover("compras") }}
                                     onMouseLeave={() => { setHover("") }}
                                 >
                                     Compras
-                                </a>
+                                </p>
                                 {<ul
-                                    className="submenu"
                                     style={{ display: hover === "compras" ? "block" : "none" }}
                                     onMouseEnter={() => { setHover("compras") }}
                                     onMouseLeave={() => { setHover("") }}
@@ -158,16 +152,14 @@ const Navbar = (): JSX.Element => {
                                 </ul>}
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <p
                                     className={activeMenu === "relatorio" ? "underline" : ""}
                                     onMouseEnter={() => { setHover("relatorio") }}
                                     onMouseLeave={() => { setHover("") }}
                                 >
                                     Relatórios
-                                </a>
+                                </p>
                                 {<ul
-                                    className="submenu"
                                     style={{ display: hover === "relatorio" ? "block" : "none" }}
                                     onMouseEnter={() => { setHover("relatorio") }}
                                     onMouseLeave={() => { setHover("") }}
@@ -188,7 +180,7 @@ const Navbar = (): JSX.Element => {
                                 </ul>}
                             </li>
                         </ul>
-                        <ul className="nav-auth-svg">
+                        <ul className="menu-logout menu">
                             <li>
                                 <NavLink to="/perfil" >
                                     <FaUserCog />
@@ -203,7 +195,7 @@ const Navbar = (): JSX.Element => {
                 ) :
                 (
                     <>
-                        <ul className="nav-link">
+                        <ul className="menu-no-auth menu">
                             <li>
                                 <NavLink to="/funcionalidades">
                                     Funcionalidades
@@ -225,7 +217,7 @@ const Navbar = (): JSX.Element => {
                                 </NavLink>
                             </li>
                         </ul>
-                        <ul className="nav-auth">
+                        <ul className="menu-sign menu">
                             <li>
                                 <NavLink to="/login">
                                     Entrar

@@ -1,4 +1,4 @@
-import "./Plano.css"
+import "./Plano.scss"
 
 const Planos = () => {
   return (

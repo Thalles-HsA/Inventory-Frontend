@@ -1,4 +1,4 @@
-import "./Funcionalidades.css"
+import "./Funcionalidades.scss"
 
 const Funcionalidades = () => {
   return (

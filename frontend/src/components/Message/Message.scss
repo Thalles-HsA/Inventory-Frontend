@@ -1,0 +1,32 @@
+@import "../../styles/variaveis";
+@import "../../styles/funcoes";
+
+.message {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0;
+  text-align: center;
+
+  p {
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .error {
+    color: $cor-message-erro-text;
+    background-color: $cor-message-erro-backgroud;
+    border-color: $cor-message-erro-border;
+    z-index: 1 !important;
+    @include boxShadow();
+  
+  }
+  
+  .success {
+    color: $cor-message-sucess-text;
+    background-color: $cor-message-sucess-backgroud;
+    border-color: $cor-message-sucess-border;
+  }
+
+}
+

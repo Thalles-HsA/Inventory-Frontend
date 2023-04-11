@@ -1,4 +1,4 @@
-import "./Contato.css"
+import "./Contato.scss"
 
 const Contato = () => {
   return (

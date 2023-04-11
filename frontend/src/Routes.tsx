@@ -4,7 +4,7 @@ import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 // Páginas não autenticadas
 import Registrar from './pages/Auth/Registrar';
 import Login from './pages/Auth/Login';
-import Funcionalidades from "./pages/Funcionalidades/Funcionalidade";
+import Funcionalidades from "./pages/Funcionalidades/Funcionalidades";
 import Planos from "./pages/Planos/Planos";
 import Contato from "./pages/Contato/Contato";
 import Blog from "./pages/Blog/Blog";
