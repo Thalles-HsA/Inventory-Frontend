@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/Thalles-HsA/Inventory-MERN/compare/v1.1.0...v1.2.0) (2023-04-11)
+
+
+### Features
+
+* :label: Adiciona conversão de arquivo JavaScript para TypeScript ([5d59087](https://github.com/Thalles-HsA/Inventory-MERN/commit/5d59087b6e7ea0a4da4bb179ae707e3900947ad4))
+* :lipstick: Migração completa do projeto de CSS para SCSS ([b66d88c](https://github.com/Thalles-HsA/Inventory-MERN/commit/b66d88c788f876e5c96b7ed653246197eb74b8a1))
+
 # [1.1.0](https://github.com/Thalles-HsA/Inventory-MERN/compare/v1.0.0...v1.1.0) (2023-04-10)
 
 
