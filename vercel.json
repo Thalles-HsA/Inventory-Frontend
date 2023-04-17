@@ -2,17 +2,17 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
+        "src": "frontend-react/package.json",
         "use": "@vercel/node"
       },
       {
-        "src": "build/**",
+        "src": "frontend-react/build/**",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
+        "src": "frontend-react/(.*)",
         "dest": "/index.html"
       }
     ]
