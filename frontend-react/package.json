@@ -54,5 +54,7 @@
     ]
   },
   "author": "Thalles-HsA - Thalles Henrique Souza de Almeida",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "index.tsx",
+  "repository": "https://github.com/Thalles-HsA/Inventory-MERN.git"
 }
