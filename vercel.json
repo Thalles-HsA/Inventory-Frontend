@@ -2,18 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "frontend-react/package.json",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "frontend-react/build/**",
-        "use": "@vercel/static"
+        "src": "frontend-next/",
+        "use": "@vercel/next"
       }
     ],
     "routes": [
       {
-        "src": "frontend-react/(.*)",
-        "dest": "/index.html"
+        "src": "/(.*)",
+        "dest": "frontend-next/"
       }
     ]
   }

@@ -1,0 +1,75 @@
+/* Animação de transição das divs */
+
+@keyframes animacaoEntrar {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animacaoSair {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+@keyframes animacaoVoltarEntrar {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animacaoVoltarSair {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes animacaosubir {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes mexerCaixas {
+    0% {
+      transform: translate(0, 0) scale(0.9);
+    }
+    50% {
+        transform: translate(4rem, -10rem) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(0.9);
+      }
+
+}

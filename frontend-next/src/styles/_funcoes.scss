@@ -1,0 +1,3 @@
+@function corRGBA($red: 0, $green: 0, $blue: 0, $opacity: 1) {
+    @return rgba($red, $green, $blue, $opacity)
+}

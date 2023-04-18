@@ -1,0 +1,42 @@
+// Cor RGBA padrão azul 'Facebook" opacity 0.5"
+@import "./funcoes";
+
+// Cores
+$cor-primaria:  #1e2022;
+$cor-primaria-opacity:  corRGBA(30, 32, 34, 0.2);
+
+$cor-secundaria: #52616b;
+$cor-secundaria-opacity:  corRGBA(82, 97, 107, 0.8);
+$cor-terciaria:  #c9d6df;
+$cor-terciaria-opacity: corRGBA(201, 214, 223, 0.1);
+$cor-quartenaria:  #f0f5f9;
+$cor-quartenaria-opacity:  corRGBA(240, 245, 249, 0.5);
+$azul: #1778f2;
+
+$cor-message-erro-text: #721c24;
+$cor-message-erro-backgroud: #f8d7da;
+$cor-message-erro-border: #f8d7da;
+
+$cor-message-sucess-text: #155724;
+$cor-message-sucess-backgroud: #d4edda;
+$cor-message-sucess-border: #c3e6cb;
+
+
+// Box
+@mixin boxShadow($h-shadow: 4px, $v-shadow: 4px, $blur: 8px, $spread: 0px, $color: $cor-terciaria-opacity) {
+
+  box-shadow: $h-shadow $v-shadow $blur $spread $color;
+}
+
+$border-radius-padrao: 10px;
+
+// Font
+$font-family-padrao: 'Outfit', sans-serif;
+$font-span: 0.8rem;
+$font-thin: 400;
+$font-bold: 700;
+
+// Espaçamentos
+$espacamento-padrao: 0.75rem;
+$espacamento-vertical: 1.1rem;
+

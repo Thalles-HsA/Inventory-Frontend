@@ -13,7 +13,6 @@ const usuarioSchema = new mongoose.Schema<UsuarioDocument>({
         type: String,
         required: true
     },
-
     tipo: {
         type: String,
         enum: ["cpf", "cnpj"],

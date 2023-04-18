@@ -9,14 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
+    "cpf-cnpj-validator": "^1.0.3",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "formik": "^2.2.9",
     "next": "13.3.0",
+    "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
-  }
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
+    "sass": "^1.61.0",
+    "typescript": "5.0.4",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.2"
+  },
+  "author": "Thalles-HsA - Thalles Henrique Souza de Almeida",
+  "license": "MIT",
+  "main": "index.tsx",
+  "repository": "https://github.com/Thalles-HsA/Inventory-MERN.git"
 }

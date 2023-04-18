@@ -15,13 +15,7 @@ export const validacaoDeUsuario = () => {
       .withMessage('A senha deve ter pelo menos 6 caracteres.'),
     body("confirmarSenha")
       .isString()
-      .withMessage("A confirmação de senha é obrigatória.")
-      .custom((value: string, req: Request ) => {
-        if (value != req.body.senha) {
-          throw new Error("As senhas não são iguais.");
-        }
-        return true;
-      }),
+      .withMessage("A confirmação de senha é obrigatória."),
     body('tipo')
       .isString()
       .withMessage('O tipo é obrigatório.'),

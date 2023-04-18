@@ -12,6 +12,6 @@ import { authGuard } from "../middlewares/authGuard";
  
 // Routes
 router.post("/cadastro", validacaoDeUsuario(), validate, registrar);
-router.get("/perfil", authGuard, usuarioAtivo);
 router.post("/login", validacaoDeLogin(), validate, login);
+router.get("/perfil", authGuard, usuarioAtivo);
 router.put("/", authGuard, atualizacaoDeUsuario(), validate, atualizacao);

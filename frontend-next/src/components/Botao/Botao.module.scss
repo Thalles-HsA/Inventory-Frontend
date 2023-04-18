@@ -1,0 +1,57 @@
+@import "../../styles/_variaveis.scss";
+@import "../../styles/_funcoes.scss";
+
+.botao {
+    font-family: $font-family-padrao;
+    font-weight: $font-bold;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 3rem 0 1rem 0;
+    padding: $espacamento-padrao;
+    width: 23rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: $border-radius-padrao;
+    border: none;
+  
+    &-proximo {
+      background-color: #e8e8e8;
+      color: $cor-primaria;
+      border: 1px solid #e8e8e8;
+      transition: all .3s;
+      box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+      
+  
+      &:disabled {
+        background-color: $cor-terciaria-opacity;
+        cursor: default;
+        @include boxShadow($color: corRGBA(0, 173, 181, 0.2));
+      }
+      &:hover {
+        border: 1px solid white;
+  
+      }
+      &:active{
+        box-shadow: 4px 4px 12px #c5c5c5,
+             -4px -4px 12px #ffffff;
+      }
+    
+    }
+  
+    &-voltar {
+      margin-top: 0;
+      background-color: #fff;
+      color: $cor-primaria;
+      border: 1px solid #fff;
+      box-shadow: 6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+      transition: all .3s;
+      
+      &:hover {
+        border: 1px solid #e8e8e8;
+      }
+    }
+  }
+  
+

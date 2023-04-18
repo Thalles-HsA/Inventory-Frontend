@@ -1,0 +1,161 @@
+@import "../../styles/variaveis";
+@import "../../styles/funcoes";
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 6rem;
+    a {
+        color: $cor-primaria;
+
+        img{
+            height: 2rem;
+        }
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+
+        li{
+            a{
+                padding: 1rem 1.5rem;
+                color: $cor-primaria;
+                border-radius: 1.5rem;
+                transition: all 0.3s ease-out;
+            }
+        }
+
+        &-logo {
+            img {
+                width: 2rem;
+            }
+
+            h1 {
+                margin: 0;
+                padding: 1rem;
+            }
+        }
+
+        &-no-auth {
+            li {
+                &:not(:last-child) {
+                    a {
+                        margin-right: 1.5rem;
+                    }
+                }
+
+                a {
+                    position: relative;
+                    padding: 1rem;
+                    font-size: 1rem;
+
+                    &.active::before {
+                        background-color: $cor-primaria;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 30%;
+                        height: 2px;
+                        transition: all 0.3s ease-out;
+                    }
+                    
+                    &:hover{
+                        font-weight: $font-bold;
+                    }
+                }
+            }
+        }
+
+        &-sign {
+            a {
+
+                &.active {
+                    background-color: #fff;
+                }
+            }
+        }
+
+        &-auth {
+            li {
+                p {
+                    margin: 0;
+                    position: relative;
+                    padding: 1rem 2rem;
+                    font-size: 1rem;
+
+                    &.underline::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 30%;
+                        height: 2px;
+                        transition: all 0.3s ease-out;
+                        background-color: $cor-primaria;
+                    }
+
+                    &.underline {
+                        font-weight: $font-bold;
+                    }
+                }
+
+                ul {
+                    min-width: 17%;
+                    position: absolute;
+                    text-align: left;
+                    padding: $espacamento-padrao;
+                    list-style: none;
+                    background-color: $cor-quartenaria;
+                    border-radius: $border-radius-padrao;
+                    @include boxShadow($color: corRGBA(0,0,0,0.2) );
+                    z-index: 1;
+
+                    li {
+                        padding: 1rem;
+                        border-radius: $border-radius-padrao;
+
+                        &:hover {
+                            font-weight: $font-bold;
+                            background-color: corRGBA(0,0,0,0.1);
+                        }
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        a{
+                            padding: 0;
+                        }
+                    }
+
+                    .active {
+                        font-weight: $font-bold
+                    }
+                }
+
+            }
+        }
+
+        &-logout {
+
+            svg {
+                font-size: 1.5rem;
+                color: $cor-terciaria;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+}
