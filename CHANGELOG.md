@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/Thalles-HsA/Inventory-MERN/compare/v1.2.0...v1.3.0) (2023-04-19)
+
+
+### Features
+
+* :lipstick: Adiciona a pagina inicial e nova estilização padrão ([b0a5dba](https://github.com/Thalles-HsA/Inventory-MERN/commit/b0a5dbabbacfa62b11cce0868c9094253df0d5d9))
+* :lipstick: Finaliza a pagina inicial e as estiizações ([2a03e11](https://github.com/Thalles-HsA/Inventory-MERN/commit/2a03e11518e0a860e47f0db4971773c21ac8ea97))
+* :sparkles: Adiciona configurações iniciais para migração do React para Next.JS ([91ba9a8](https://github.com/Thalles-HsA/Inventory-MERN/commit/91ba9a88b99b62fdb21509c977acd12254d64d33))
+* :sparkles: Aplica migração para NextJs ([d3f6fdd](https://github.com/Thalles-HsA/Inventory-MERN/commit/d3f6fddba4c95b3b0ff65122436f20823b0aa431))
+* :sparkles: Finaliza a migração para Next.js ([a624510](https://github.com/Thalles-HsA/Inventory-MERN/commit/a624510fe49a2b758d90ada8a981fde8bbca7e73))
+
 # [1.2.0](https://github.com/Thalles-HsA/Inventory-MERN/compare/v1.1.0...v1.2.0) (2023-04-11)
 
 
