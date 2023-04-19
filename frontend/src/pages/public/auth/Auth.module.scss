@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     margin: 1rem 6rem;
+    min-height: 85vh ;
 
     .auth-descricao {
 
@@ -37,8 +38,8 @@
 
     .image-cadastro {
         position: absolute;
-        top: 16rem;
-        left: 26rem;
+        top: 15rem;
+        left: 22rem;
         width: 22rem;
         height: 22rem;
     }

@@ -110,7 +110,6 @@ Nesse projeto utilizei da stack MERN em Typecript para o desenvolvimento
 ## Dependências do Frontend
 
   - react-redux - (versão 8.0.5)
-  - react-router-dom - (versão  6.9.0)
   - react-icons - (versão 4.8.0)
   - formik - (versão 2.2.9)
   - yup - (versão 1.0.2)
