@@ -129,7 +129,10 @@ const Registrar = () => {
           </div>
           <div>
             <p>Já tem uma conta?</p>
-            <p>Faça seu <Link href="/public/auth/login" as="/login">login aqui</Link></p>
+            <p>Faça seu login abaixo</p>
+            <Botao className="botao-cadastro-login" type="button">
+              <Link href="/login">Login</Link>
+            </Botao>
           </div>
         </div>
 
@@ -138,7 +141,7 @@ const Registrar = () => {
           alt="Caixas, carrinhos e prancheta"
           priority
           loading="eager"
-          className={styles.image}
+          className={styles["image-cadastro"]}
         />
 
         {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}

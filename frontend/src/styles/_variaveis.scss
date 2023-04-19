@@ -21,6 +21,12 @@ $cor-message-sucess-text: #155724;
 $cor-message-sucess-backgroud: #d4edda;
 $cor-message-sucess-border: #c3e6cb;
 
+$cor-de-fundo: #e7e6e1;
+$cor-secundaria-verde: #314e52;
+$cor-terciaria-laranja: #f2a154;
+
+
+
 
 // Box
 @mixin boxShadow($h-shadow: 4px, $v-shadow: 4px, $blur: 8px, $spread: 0px, $color: $cor-terciaria-opacity) {

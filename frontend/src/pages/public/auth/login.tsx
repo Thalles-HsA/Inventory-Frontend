@@ -15,6 +15,8 @@ import { FaFacebookF } from "react-icons/fa"
 
 // Imagens
 import imgLogin from "./img/caixasmarrons.svg"
+import homem3d from 'public/img/homemcomcaixa.svg'
+
 
 // Hooks
 import { useEffect, useRef } from "react"
@@ -67,14 +69,19 @@ const Login = () => {
           </div>
           <div>
             <p>Se você ainda não tem uma conta</p>
-            <p>Faça seu <Link href="/public/auth/cadastro" as="/cadastro">cadastro aqui </Link></p>
+            <p>Faça seu cadastro abaixo</p>
+            <Botao className="botao-cadastro-login" type="button">
+              <Link href="/cadastro">Cadastre-se</Link>
+            </Botao>
           </div>
         </div>
 
         <Image
-          src={imgLogin}
+          src={homem3d}
           alt="Duas caixas marrons"
-          className={`${styles["animacao-mecher-caixas"]} ${styles.image}`}
+          // className={`${styles["animacao-mecher-caixas"]} ${styles.image}`}
+          className={styles["image-login"]}
+
           priority
           loading="eager"
         />

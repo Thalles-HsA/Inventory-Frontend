@@ -38,7 +38,7 @@ interface MessageProps {
 // Botão.tsx
 
 export interface BotaoProps {
-  children: string;
+  children: string | React.ForwardRefExoticComponent;
   disabled?: boolean;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";

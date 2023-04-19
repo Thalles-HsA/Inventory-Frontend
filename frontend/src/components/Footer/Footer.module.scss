@@ -1,16 +1,19 @@
 @import "../../styles/variaveis";
 
 .footer {
-    color: $cor-primaria;
-    height: 3rem;
+    background-color: $cor-secundaria-verde;
+    font-size: 1rem;
+    color: $cor-de-fundo;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
+    margin: 2rem 0 0 0 ;
     top: 100%;
     text-align: center;
     z-index: 2;
-    a {
-      color: $cor-primaria;
+    a{
+    color: $cor-de-fundo;
+    font-weight: $font-bold;
     }
   }

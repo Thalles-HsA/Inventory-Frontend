@@ -4,23 +4,24 @@ body {
     font-family: $font-family-padrao;
     font-weight: $font-thin;
     color: $cor-primaria;
-    background-color: $cor-quartenaria-opacity;
-    background-image: url("/img/fundopoa.svg");
+    background-color: $cor-de-fundo;
+    // background-image: url("/img/curve-line.svg");
     background-size: 100rem;
     background-repeat: no-repeat;
     background-position: -25rem -16rem;
+    margin: 0;
+   
 
     &::-webkit-scrollbar {
         width: 3px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: $cor-terciaria-opacity
+        background-color: $cor-terciaria-laranja;
     }
 
     .inventory {
         font-weight: 300;
-        /* Font-weight padrão da logo*/
     }
 
     a {

@@ -39,7 +39,7 @@ const Navbar = (): JSX.Element => {
 
     return (
         <nav className={styles.navbar}>
-            <Link href="/private/dashboard/dashboard" as="/dashboard" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
+            <Link href="/" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
                 <Image src={logo} alt="Logo do Inventory" />
                 <h1 className="inventory">Inventory</h1>
             </Link>

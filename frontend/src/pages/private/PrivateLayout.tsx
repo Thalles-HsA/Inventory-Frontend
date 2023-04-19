@@ -15,7 +15,7 @@ const PrivateLayout = ({ children }: Props) => {
   }
 
   if (!auth) {
-    router.push('/public/auth/login', "/login") // redireciona para a página de login caso o usuário não esteja autenticado
+    router.push("/login") // redireciona para a página de login caso o usuário não esteja autenticado
     return null
   }
 
