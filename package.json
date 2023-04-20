@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "release": "semantic-release --no-ci"
+    "release": "semantic-release"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
