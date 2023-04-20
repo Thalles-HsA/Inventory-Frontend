@@ -1,4 +1,3 @@
-
 <h1 align="center">
     <img src="./inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
 </h1>
@@ -6,10 +5,10 @@
 
 <div align="center">
 
-  [![GitHub](https://img.shields.io/github/license/Thalles-HsA/Inventory-MERN)](#licença)
-  ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Thalles-HsA/Inventory-MERN)
+  [![GitHub](https://img.shields.io/github/license/Thalles-HsA/Inventory-Frontend)](#licença)
+  ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Thalles-HsA/Inventory-Frontend)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=flat-square&logo=linkedin&link=https://www.linkedin.com/in/seu-nome-aqui/)](https://www.linkedin.com/in/thalleshsa/)
-  ![GitHub Repo stars](https://img.shields.io/github/stars/Thalles-HsA/Inventory-MERN?style=social)
+  ![GitHub Repo stars](https://img.shields.io/github/stars/Thalles-HsA/Inventory-Frontend?style=social)
 
 </div>
 
@@ -39,9 +38,17 @@
 
 Olá! Me chamo Thalles Henrique e este é um projeto de ERP online que estou desenvolvendo voltado para vendedores do Mercado Livre. Sou um desenvolvedor júnior em busca da minha primeira vaga, e estou criando este projeto como uma carta de apresentação do meu trabalho. Meu objetivo é demonstrar minhas habilidades na construção de um aplicativo completo, desde a concepção até a implementação.
 
-Estou utilizando a Stack MERN, que consiste em MongoDB, Express, React e Nodejs, para desenvolver o projeto. Acredito que essa escolha irá me permitir explorar diferentes aspectos do desenvolvimento web e me permitir evoluir como programador.
+O Frontend foi construído usando a tecnologia NextJS, que é uma biblioteca baseada em React para desenvolvimento de aplicações web. O uso do NextJS permite a construção de aplicações de página única (SPA) e servidor-side rendering (SSR) de forma fácil e eficiente.
 
-O resultado final deste projeto será um aplicativo que permitirá aos vendedores do Mercado Livre gerenciar suas vendas e estoque de forma mais eficiente, melhorando assim sua produtividade e aumentando seus resultados.
+O gerenciamento de estados no frontend foi feito com o Redux, que é uma biblioteca para gerenciamento de estados global na aplicação. Isso permite que os dados da aplicação possam ser compartilhados entre componentes de forma eficiente e organizada.
+
+Para a criação e validação de formulários, foram utilizadas as bibliotecas Formik e Yup. O Formik é uma biblioteca que ajuda a gerenciar o estado do formulário e simplifica o processo de manipulação dos dados de entrada. O Yup é uma biblioteca de validação de schema que permite definir as regras de validação de formulário de forma simples e clara.
+
+Para a comunicação com a API, foi utilizado o Fetch, que é uma API nativa do JavaScript para fazer requisições HTTP. O Fetch permite enviar e receber dados de forma assíncrona e é compatível com a maioria dos navegadores modernos.
+
+A estilização do aplicativo foi feita usando o SASS, que é uma extensão do CSS que permite escrever código mais organizado e eficiente. O SASS é compatível com o CSS e permite a criação de estilos reutilizáveis e modulares.
+
+O código do frontend foi escrito em TypeScript, que é um superset do JavaScript que adiciona recursos como tipagem estática, interfaces e outros recursos avançados de programação orientada a objetos. O TypeScript ajuda a garantir a integridade do código, evita erros de digitação e melhora a manutenibilidade e escalabilidade do projeto.
 
 <br>
 
