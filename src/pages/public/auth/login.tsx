@@ -72,7 +72,7 @@ const Login = () => {
         </div>
 
         <Image
-          src="/img/homemcomcaixa.png"
+          src="/img/homemcomcaixa.jpg"
           alt="Duas caixas marrons"
           // className={`${styles["animacao-mecher-caixas"]} ${styles.image}`}
           className={styles["image-login"]}
