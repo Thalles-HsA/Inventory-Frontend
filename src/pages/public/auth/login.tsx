@@ -13,11 +13,6 @@ import initialValues from "../../../controllers/initialValues";
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF } from "react-icons/fa"
 
-// Imagens
-import imgLogin from "./img/caixasmarrons.svg"
-import homem3d from 'public/img/homemcomcaixa.svg'
-
-
 // Hooks
 import { useEffect, useRef } from "react"
 
@@ -77,13 +72,13 @@ const Login = () => {
         </div>
 
         <Image
-          src={homem3d}
+          src="/img/homemcomcaixa.png"
           alt="Duas caixas marrons"
           // className={`${styles["animacao-mecher-caixas"]} ${styles.image}`}
           className={styles["image-login"]}
-
+          width={500}
+          height={500}
           priority
-          loading="eager"
         />
 
         {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}

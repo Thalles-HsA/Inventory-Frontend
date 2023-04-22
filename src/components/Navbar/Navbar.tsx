@@ -10,9 +10,6 @@ import Image from 'next/image'
 import { FaUserCog } from "react-icons/fa"
 import { IoExitOutline } from "react-icons/io5"
 
-// Img
-import logo from "./umacaixa.svg";
-
 // Hooks
 import { useAuth } from "../../hooks/useAuth";
 import { useDispatch } from "react-redux";
@@ -40,7 +37,12 @@ const Navbar = (): JSX.Element => {
     return (
         <nav className={styles.navbar}>
             <Link href="/" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
-                <Image src={logo} alt="Logo do Inventory" />
+                <Image 
+                src="/img/umacaixa.png" 
+                alt="Logo do Inventory" 
+                width={32}
+                height={32}
+                />
                 <h1 className="inventory">Inventory</h1>
             </Link>
             {auth ?

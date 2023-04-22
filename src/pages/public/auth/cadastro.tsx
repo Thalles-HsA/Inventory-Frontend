@@ -8,7 +8,7 @@ import validacaoUsuario from "../../../controllers/validacaoCadastro"
 import initialValues from "../../../controllers/initialValues";
 
 // Imagem e pré-carregamento
-import imgRegistro from "./img/paginaregistro.png"
+import imgRegistro from "/img-auth/paginaregistro.png"
 
 // Componentes
 import Message from "../../../components/Message/Message";
@@ -33,7 +33,7 @@ const Registrar = () => {
   const [tipo, setTipo] = useState<string>("cnpj")
   const [valid, setValid] = useState<boolean>(false)
 
-  const [animationStep1, setAnimationStep1] = useState(styles['animacao-entrar']);
+  const [animationStep1, setAnimationStep1] = useState(styles['']);
   const [animationStep2, setAnimationStep2] = useState('');
   const [animationStep3, setAnimationStep3] = useState('');
 
@@ -122,7 +122,7 @@ const Registrar = () => {
   return (
     <PublicLayout>
       <div className={styles["container-auth"]}>
-        <div className={`${styles["auth-descricao"]} ${styles["animacao-voltar-entrar"]}`}>
+        <div className={styles["auth-descricao"]}>
           <div >
             <h2>Cadastre-se agora no</h2>
             <h2 className="inventory">Inventory</h2>
@@ -136,12 +136,14 @@ const Registrar = () => {
           </div>
         </div>
 
+
         <Image
-          src={imgRegistro}
+          src="/img/paginaregistro.jpg"
           alt="Caixas, carrinhos e prancheta"
-          priority
-          loading="eager"
           className={styles["image-cadastro"]}
+          width={500}
+          height={500}
+          priority
         />
 
         {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
