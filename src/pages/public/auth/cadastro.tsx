@@ -26,6 +26,7 @@ import { RootState } from "../../../store";
 import Link from "next/link";
 import Image from "next/image";
 import PublicLayout from "../PublicLayout";
+import { useRouter } from "next/router";
 
 const Registrar = () => {
 
@@ -40,6 +41,7 @@ const Registrar = () => {
   const dispatch: any = useDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
   const { loading, error } = useSelector((state: RootState) => state.auth);
+  const router = useRouter();
 
   // A função handleProximo é responsável por ativar o evento do botão "próximo" no formulário. Ela troca as classes CSS das divs para permitir o efeito de transição e adiciona +1 ao state "etapa", levando o usuário para a próxima etapa do formulário. Além disso, ela também ativa a validação do Formik através de um submit. É importante mencionar que um setTimeout foi adicionado para garantir que a animação seja executada corretamente.
   const handleNextDiv = () => {
@@ -99,11 +101,16 @@ const Registrar = () => {
   }
 
   // A função onSubmit é responsável por enviar o formulário preenchido pelo usuário para o backend. Ela utiliza a validação mais precisa do backend para garantir a integridade dos dados. Ao ser ativada, a função faz um dispatch da função "register" que vem do reducer do Redux presente no arquivo "AuthSlice". Se o registro for bem sucedido, o usuário é cadastrado no banco de dados MongoDB e logado no sistema. Caso contrário, um erro é retornado e exibido ao usuário por meio do componente "Message" adicionado ao final do formulário.
-  const onSubmit = (values: Usuario) => {
+  const onSubmit = async (values: Usuario) => {
     console.log(values);
 
     if (etapa === 3) {
-      dispatch(register(values))
+      try {
+        await dispatch(register(values));
+      } catch (error) {
+        console.log(error);
+        // Lógica para tratamento de erros, caso ocorra algum problema no login
+      }
     }
   };
 
@@ -120,6 +127,7 @@ const Registrar = () => {
 
 
   return (
+    <PublicLayout>
       <div className={styles["container-auth"]}>
         <div className={styles["auth-descricao"]}>
           <div >
@@ -460,6 +468,7 @@ const Registrar = () => {
           )}
         </Formik>
       </div>
+    </PublicLayout>
   )
 }
 

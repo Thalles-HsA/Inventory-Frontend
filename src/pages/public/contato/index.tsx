@@ -20,7 +20,7 @@ const Contato = () => {
 
         <div>
           <h2>Entre em contato</h2>
-          <p>Acesse as redes de Thalles Henrique criador de desenvolvedor do projeto inventor</p>
+          <p>Acesse as redes de Thalles Henrique, criador e desenvolvedor do Projeto Inventory</p>
         </div>
 
         <div>

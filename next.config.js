@@ -34,7 +34,7 @@ const nextConfig = {
       { source: '/relatorio/relatorioVendas', destination: '/private/relatorio/relatorioVendas', },
       { source: '/relatorio/relatorioCompras', destination: '/private/relatorio/relatorioCompras', },
 
-      { source: '/perfil', destination: '/public/perfil', },
+      { source: '/perfil', destination: '/private/perfil', },
     ]
   },
 }

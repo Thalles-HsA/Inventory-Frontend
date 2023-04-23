@@ -28,6 +28,7 @@ import Message from "../../../components/Message/Message";
 //Redux
 import { login, reset } from "../../../slices/authSlice";
 import { useSelector, useDispatch } from "react-redux";
+import PublicLayout from "../PublicLayout";
 
 const Login = () => {
 
@@ -37,23 +38,23 @@ const Login = () => {
   const router = useRouter();
 
   // A função onSubmit é responsável por enviar o formulário preenchido pelo usuário para o backend. Ela utiliza a validação mais precisa do backend para garantir a integridade dos dados. Ao ser ativada, a função faz um dispatch da função "register" que vem do reducer do Redux presente no arquivo "AuthSlice". Se o registro for bem sucedido, o usuário é cadastrado no banco de dados MongoDB e logado no sistema. Caso contrário, um erro é retornado e exibido ao usuário por meio do componente "Message" adicionado ao final do formulário.
-  const onSubmit = (values: UsuarioLogin) => {
-    dispatch(login(values));
-
-    router.push("/dashboard")
+  const onSubmit = async (values: UsuarioLogin) => {
+    try {
+      await dispatch(login(values));
+    } catch (error) {
+      console.log(error);
+      // Lógica para tratamento de erros, caso ocorra algum problema no login
+    }
   }
-
-  // O useEffect é usado em conjunto com o useRef para focar o primeiro input do formulário quando a página é carregada. Isso é feito definindo o elemento a ser focado com o useRef e, em seguida, utilizando o useEffect para disparar a função de foco assim que o componente é montado. Dessa forma, o usuário é direcionado diretamente para o primeiro campo do formulário, facilitando a interação com a página.
-  useEffect(() => {
-    emailInputRef.current?.focus();
-  }, []);
 
   // O useEffect é utilizado para limpar os estados dos reducers do Redux no arquivo "AuthSlice" quando o componente é desmontado. Isso é necessário para garantir que não haja resquícios de dados do usuário anterior na próxima vez que o formulário for carregado. Isso é feito usando o método "cleanup" que faz um dispatch das ações necessárias para limpar os estados dos reducers. O useEffect é acionado quando o componente é desmontado e a função "cleanup" é executada.
   useEffect(() => {
     dispatch(reset())
+    emailInputRef.current?.focus();
   }, [dispatch]);
 
   return (
+    <PublicLayout>
       <div className={styles["container-auth"]}>
         <div className={styles["auth-descricao"]}>
           <div>
@@ -119,6 +120,7 @@ const Login = () => {
           )}
         </Formik>
       </div>
+    </PublicLayout>
   )
 }
 

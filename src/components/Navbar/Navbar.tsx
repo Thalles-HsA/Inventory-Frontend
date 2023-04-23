@@ -1,4 +1,4 @@
-import styles from "./Navbar.module.scss";
+import styles from "../../styles/navbar.module.scss";
 
 // Next
 import { useRouter } from 'next/router'
@@ -29,22 +29,33 @@ const Navbar = (): JSX.Element => {
 
     const handleLogout = (): void => {
         dispatch(logout());
-        dispatch(reset());
-
         router.push("/login");
+        dispatch(reset());
     };
 
     return (
         <nav className={styles.navbar}>
-            <Link href="/" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
-                <Image 
-                src="/img/umacaixa.png" 
-                alt="Logo do Inventory" 
-                width={32}
-                height={32}
-                />
-                <h1 className="inventory">Inventory</h1>
-            </Link>
+            {auth ?
+                <Link href="/dashboard" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
+                    <Image
+                        src="/img/umacaixa.png"
+                        alt="Logo do Inventory"
+                        width={32}
+                        height={32}
+                    />
+                    <h1 className="inventory">Inventory</h1>
+                </Link>
+                :
+                <Link href="/" className={`${styles['menu-logo']} ${styles['menu']}`} onClick={() => setActiveMenu("")}>
+                    <Image
+                        src="/img/umacaixa.png"
+                        alt="Logo do Inventory"
+                        width={32}
+                        height={32}
+                    />
+                    <h1 className="inventory">Inventory</h1>
+                </Link>
+            }
             {auth ?
                 (
                     <>

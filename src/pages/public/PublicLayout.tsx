@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
 import { useAuth } from '../../hooks/useAuth';
 
 import styles from "../../styles/publicLayout.module.scss";

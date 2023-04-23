@@ -1,5 +1,5 @@
-@import "../../styles/variaveis";
-@import "../../styles/funcoes";
+@import "./variaveis";
+@import "./funcoes";
 
 .navbar {
     display: flex;
@@ -144,7 +144,7 @@
 
             svg {
                 font-size: 1.5rem;
-                color: $cor-terciaria;
+                color: $cor-secundaria-verde;
                 cursor: pointer;
             }
         }

@@ -34,16 +34,12 @@ const Blog = () => {
             <p>
               Veja abaixo as tecnologias aplicadas e um pouco processo de desenvolvimento.
             </p>
-
-
           </div>
-
-
         </div>
 
         <div className={styles["dependencias-utilizadas"]}>
           <Image
-            src="/img/carrinhoscomcaixas.svg"
+            src="/img/carrinhocomcaixas.jpg"
             alt='Carrinho com caixas'
             width={500}
             height={500}

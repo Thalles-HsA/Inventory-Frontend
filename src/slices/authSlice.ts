@@ -9,6 +9,8 @@ import { Usuario, AuthState, UsuarioLogin } from "../types/Interface"
 const usuarioString = typeof window !== "undefined" ? localStorage.getItem("usuario") : null;
 const usuario = usuarioString ? JSON.parse(usuarioString) : null;
 
+
+
 const initialState: AuthState = {
   usuario: usuario ? usuario : null,
   error: false,
@@ -28,7 +30,6 @@ export const register = createAsyncThunk(
     }
 
     console.log(data.errors)
-
     return data;
   }
 );
