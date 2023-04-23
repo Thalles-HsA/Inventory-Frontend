@@ -2,11 +2,10 @@
 
 .container {
     display: flex;
-    margin: 3rem 6rem;
+    margin: 2rem 6rem;
 
     div {
-        margin: 1rem 0;
-        flex-basis: 33.33%;
+        flex-basis: 50%;
     }
 
     h2 {
@@ -26,118 +25,5 @@
         color: $cor-primaria;
     }
 
-    .saiba-sobre {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        a {
-            margin: 2rem 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            transition: all 1s;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        svg {
-            margin: 0 1rem;
-
-        }
-    }
 
 }
-
-.container-2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem 6rem;
-    text-align: justify;
-    flex-wrap: wrap;
-    
-    .container-cards{
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .tecnologias-cards {
-        background-color: #f8f8f8;
-        padding: 1rem 2rem;
-        margin: 2rem;
-        box-shadow: 16px 16px 0px #292929;
-        border: 1px solid white;
-        width: 400px;
-
-        div {
-            display: flex;
-            align-items: center;
-            padding: 0;
-            box-shadow: none;
-            margin: 0;
-
-            h3 {
-                color: $cor-secundaria-verde;
-                padding: 0 1rem 0 0;
-            }
-
-            svg {
-                color: $cor-terciaria-laranja !important;
-                width: 1.5rem !important;
-            }
-        }
-    }
-
-    h2 {
-
-        font-weight: $font-bold;
-        color: $cor-secundaria-verde;
-        font-size: 3.5rem;
-        margin: 0;
-    }
-
-    p {
-        line-height: 2;
-        font-size: 1.1rem;
-        margin: 0 0 1rem 0;
-
-    }
-}
-
-.container-3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3rem 6rem;
-
-    div {
-        margin: 1rem 0;
-        flex-basis: 33.33%;
-    }
-
-    h2 {
-        font-weight: $font-bold;
-        color: $cor-secundaria-verde;
-        font-size: 3.5rem;
-        margin: 0;
-    }
-
-    p {
-        line-height: 2;
-        font-size: 1.1rem;
-    }
-
-    li {
-        padding: 0.5rem 1rem;
-    }
-
-    .descricao{
-        flex-basis: 60%;
-    }
-
-}
-

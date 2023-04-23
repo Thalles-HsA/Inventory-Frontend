@@ -6,7 +6,7 @@ const nextConfig = {
       { source: '/funcionalidades', destination: '/public/funcionalidades', },
       { source: '/planos', destination: '/public/planos', },
       { source: '/contato', destination: '/public/contato', },
-      { source: '/blog', destination: '/public/blog', },
+      { source: '/sobre', destination: '/public/sobre', },
       { source: '/login', destination: '/public/auth/login', },
       { source: '/cadastro', destination: '/public/auth/cadastro', },
 

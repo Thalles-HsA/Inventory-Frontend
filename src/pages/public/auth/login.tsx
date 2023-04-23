@@ -28,7 +28,6 @@ import Message from "../../../components/Message/Message";
 //Redux
 import { login, reset } from "../../../slices/authSlice";
 import { useSelector, useDispatch } from "react-redux";
-import PublicLayout from "../PublicLayout";
 
 const Login = () => {
 
@@ -55,7 +54,6 @@ const Login = () => {
   }, [dispatch]);
 
   return (
-    <PublicLayout>
       <div className={styles["container-auth"]}>
         <div className={styles["auth-descricao"]}>
           <div>
@@ -121,7 +119,6 @@ const Login = () => {
           )}
         </Formik>
       </div>
-    </PublicLayout>
   )
 }
 

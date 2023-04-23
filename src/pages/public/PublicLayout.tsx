@@ -1,17 +1,19 @@
-import { ReactNode } from 'react'
-import { useRouter } from 'next/router'
-import { useAuth } from '../../hooks/useAuth'
+import { ReactNode, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useAuth } from '../../hooks/useAuth';
+
+import styles from "../../styles/publicLayout.module.scss";
 
 type Props = {
   children: ReactNode
 }
 
 const PublicLayout = ({ children }: Props) => {
-  const { loading, auth } = useAuth()
-  const router = useRouter()
+  const { loading, auth } = useAuth();
+  const router = useRouter();
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div className={styles['loading-spinner']}></div>
   }
 
   if (auth) {

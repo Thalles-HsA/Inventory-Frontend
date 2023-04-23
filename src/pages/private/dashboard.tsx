@@ -21,7 +21,6 @@ export default function Dashboard() {
         <title>Projeto Inventory</title>
       </Head>
       <PrivateLayout>
-
         <div className={styles["container"]}>
           <div >
             <div>
@@ -34,20 +33,18 @@ export default function Dashboard() {
               </Botao>
             </div>
           </div>
+
           <div>
             <Image
               src={homem3d}
               alt="homem com caixa 3d"
             />
           </div>
-
+          
           <div className={styles["saiba-sobre"]}>
             <p>Saiba mais sobre Thalles Henrique, o criador e desenvolvedor do Projeto Inventory.</p>
-
             <a href="https://www.linkedin.com/in/thalleshsa/" target="_blank"><AiFillLinkedin size="32px" color="#314e52" /></a>
-
             <a href="https://github.com/Thalles-HsA" target="_blank"><AiFillGithub size="32px" color="#314e52"/></a>
-
             <a href="mailto:thsa.henrique@gmail.com" target="_blank"><MdAlternateEmail size="32px" color="#314e52" /></a>
           </div>
         </div>

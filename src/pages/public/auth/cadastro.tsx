@@ -120,7 +120,6 @@ const Registrar = () => {
 
 
   return (
-    <PublicLayout>
       <div className={styles["container-auth"]}>
         <div className={styles["auth-descricao"]}>
           <div >
@@ -461,7 +460,6 @@ const Registrar = () => {
           )}
         </Formik>
       </div>
-    </PublicLayout>
   )
 }
 

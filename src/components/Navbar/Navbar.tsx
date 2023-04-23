@@ -214,8 +214,8 @@ const Navbar = (): JSX.Element => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/public/blog" as="/blog">
-                                    Blog
+                                <Link href="/public/sobre" as="/sobre">
+                                    Sobre
                                 </Link>
                             </li>
                         </ul>

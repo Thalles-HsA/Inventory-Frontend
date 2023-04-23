@@ -2,6 +2,8 @@ import { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../../hooks/useAuth'
 
+import styles from "../../styles/publicLayout.module.scss";
+
 type Props = {
   children: ReactNode
 }
@@ -11,7 +13,7 @@ const PrivateLayout = ({ children }: Props) => {
   const router = useRouter()
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div className={styles['loading-spinner']}></div>
   }
 
   if (!auth) {

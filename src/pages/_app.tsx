@@ -14,16 +14,11 @@ import type { AppProps } from 'next/app'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer';
 
-// Hooks 
-// import { useAuth } from "../hooks/useAuth"
-import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
 
   return (
-
     <Provider store={store}>
-
       <Head>
         <meta charSet="utf-8" />
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
