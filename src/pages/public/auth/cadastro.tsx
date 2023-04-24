@@ -132,346 +132,348 @@ const Registrar = () => {
       <Head>
         <title>cadastro | Projeto Inventory</title>
       </Head>
-      <div className={styles["container-auth"]}>
-        <div className={styles["auth-descricao"]}>
-          <div >
-            <h2>Cadastre-se agora no</h2>
-            <h2 className="inventory">Inventory</h2>
+      <PublicLayout>
+        <div className={styles["container-auth"]}>
+          <div className={styles["auth-descricao"]}>
+            <div >
+              <h2>Cadastre-se agora no</h2>
+              <h2 className="inventory">Inventory</h2>
+            </div>
+            <div>
+              <p>Já tem uma conta?</p>
+              <p>Faça seu login abaixo</p>
+              <Botao className="botao-cadastro-login" type="button">
+                <Link href="/login">Login</Link>
+              </Botao>
+            </div>
           </div>
-          <div>
-            <p>Já tem uma conta?</p>
-            <p>Faça seu login abaixo</p>
-            <Botao className="botao-cadastro-login" type="button">
-              <Link href="/login">Login</Link>
-            </Botao>
-          </div>
+
+
+          <Image
+            src="/img/paginaregistro.jpg"
+            alt="Caixas, carrinhos e prancheta"
+            className={styles["image-cadastro"]}
+            width={500}
+            height={500}
+            priority
+          />
+
+          {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
+          <Formik
+            initialValues={tipo === "cpf" ? initialValues.cpf : initialValues.cnpj}
+            validationSchema={tipo === "cpf" ? validacaoUsuario.registrarcpf : validacaoUsuario.registrarcnpj}
+            onSubmit={onSubmit}
+          >
+            {({ values, setFieldValue, errors, setFieldTouched }) => (
+              <Form>
+
+                {/* Esta é a primeira etapa do formulário, onde o usuário deve fornecer o seu e-mail, senha e confirmação de senha. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs.  */}
+                <div
+                  id="etapa1"
+                  className={animationStep1}
+
+                  // A lógica do estilo é simples: se a etapa corresponder à lógica, o display é "block", exibindo a div atual. Caso contrário, o display é "none", ocultando a div atual. Essa lógica é implementada por meio de uma expressão ternária dentro do objeto style, que é passado como propriedade para cada div correspondente a uma etapa do formulário.
+                  style={{ display: etapa === 1 ? "block" : "none" }}
+                >
+                  <p>Primeiro coloque seu e-mail e senha</p>
+
+                  <span className={styles.obrigatorio}>(*) Campos obrigatórios</span>
+
+                  <label>
+                    {valid && errors.email &&
+                      <ErrorMessage name="email" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="email"
+                      placeholder='E-mail*'
+                      name="email"
+                      innerRef={inputRef}
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.senha &&
+                      <ErrorMessage name="senha" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="password"
+                      placeholder='Senha*'
+                      name="senha"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.confirmarSenha &&
+                      <ErrorMessage name="confirmarSenha" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="password"
+                      placeholder='Confirme sua senha*'
+                      name="confirmarSenha"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <Botao
+                    onClick={() => {
+                      setValid(true)
+                      if (
+                        errors.email === undefined &&
+                        errors.senha === undefined &&
+                        errors.confirmarSenha === undefined
+                      ) { handleNextDiv() }
+                    }}
+                    type="submit"
+                    className="botao-proximo"
+                  >
+                    Próximo
+                  </Botao>
+                </div>
+
+                {/* Esta é a segunda etapa do formulário, onde o usuário deve fornecer o tipo de cliente que é e colocar seu nome e documento. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs.  */}
+                <div
+                  id="etapa2"
+                  className={animationStep2}
+                  style={{ display: etapa === 2 ? "block" : "none" }}
+                >
+                  <p>Agora que tipo de cliente você é</p>
+
+                  <span className={styles.obrigatorio}>(*) Campos obrigatórios</span>
+
+                  <label>
+                    <Field
+                      type="radio"
+                      name="tipo"
+                      value="cnpj"
+                      onClick={() => {
+                        setFieldValue('tipo', 'cnpj');
+                        setTipo("cnpj");
+                      }}
+                    />
+                    <span className={styles.tipo}>
+                      Pessoa Jurídica
+                    </span>
+                  </label>
+
+                  <label>
+                    <Field
+                      type="radio"
+                      name="tipo"
+                      value="cpf"
+                      onClick={() => {
+                        setFieldValue('tipo', 'cpf');
+                        setTipo("cpf");
+                      }}
+                    />
+                    <span className={styles.tipo}>
+                      Pessoa Fisícia
+                    </span>
+                  </label>
+
+                  {
+                    tipo === "cnpj"
+                      ? (
+                        <>
+                          <label>
+                            {valid && errors.cnpj && values.tipo === "cnpj" &&
+                              <ErrorMessage name="razaoSocial" component="span" className={styles["message-error"]} />
+                            }
+                            <Field
+                              type="text"
+                              placeholder='Razão Social*'
+                              name="razaoSocial"
+                              onFocus={() => setValid(false)} />
+                          </label>
+
+                          <label>
+                            {valid && errors.razaoSocial && values.tipo === "cnpj" &&
+                              <ErrorMessage name="cnpj" component="span" className={styles["message-error"]} />
+                            }
+                            <Field
+                              type="text"
+                              placeholder='**.***.***/****-**'
+                              name="cnpj"
+                              onFocus={() => setValid(false)} />
+                          </label>
+                        </>
+                      )
+                      :
+                      (
+                        <>
+                          <label>
+                            {valid && errors.nome &&
+                              <ErrorMessage name="nome" component="span" className={styles["message-error"]} />
+                            }
+                            <Field
+                              type="text"
+                              placeholder='Nome*'
+                              name="nome"
+                              onFocus={() => setValid(false)}
+                            />
+                          </label>
+
+                          <label>
+                            {valid && errors.cpf &&
+                              <ErrorMessage name="cpf" component="span" className={styles["message-error"]} />
+                            }
+                            <Field
+                              type="text"
+                              placeholder='***.***.***-**'
+                              name="cpf"
+                              onBlur={() => setFieldTouched('cpf')}
+                              onFocus={() => setValid(false)}
+                            />
+                          </label>
+                        </>
+                      )
+                  }
+                  <Botao
+                    type="submit"
+                    onClick={() => {
+                      setValid(true)
+                      if (
+                        errors.cnpj === undefined &&
+                        errors.razaoSocial === undefined &&
+                        errors.cpf === undefined &&
+                        errors.nome === undefined
+                      ) { handleNextDiv() }
+                    }}
+                    className="botao-proximo"
+                  >
+                    Próximo
+                  </Botao >
+
+                  <Botao
+                    type="button"
+                    className="botao-voltar" onClick={() => handleProviousDiv()}>
+                    Voltar
+                  </Botao>
+                </div>
+
+                {/* Nesta etapa, o usuário deve fornecer informações de endereço, incluindo CEP, número da residência, complemento, cidade e estado. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs. Aqui realizamos a valições tambem vindas do backend ao clicar no botao "Concluir", se estiver tudo certo o formulário é enviado e o cliente cadastrado e logado, do contrario uma messagem de erro é exibida atrávez do componente "Message"   */}
+                <div
+                  id="etapa3"
+                  className={animationStep3}
+                  style={{ display: etapa === 3 ? "block" : "none" }}
+                >
+                  <p>Por último seu endereço.</p>
+
+                  <span className={styles["obrigatorio"]}>(*) Campos obrigatórios</span>
+                  <label>
+                    {valid && errors.logradouro &&
+                      <ErrorMessage name="logradouro" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="text"
+                      placeholder='Logradouro*'
+                      name="logradouro"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.numero &&
+                      <ErrorMessage name="numero" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      className={styles["input-menor"]}
+                      type="text" placeholder='Número*'
+                      name="numero"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.complemento &&
+                      <ErrorMessage name="complemento" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      className={styles["input-medio"]}
+                      type="text"
+                      placeholder='Complemento'
+                      name="complemento"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.bairro &&
+                      <ErrorMessage name="bairro" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="text"
+                      placeholder='Bairro*'
+                      name="bairro"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.cidade &&
+                      <ErrorMessage name="cidade" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      type="text"
+                      placeholder='Cidade*'
+                      name="cidade"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.estado &&
+                      <ErrorMessage name="estado" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      className={styles["input-menor"]}
+                      type="text"
+                      placeholder='UF*'
+                      name="estado"
+                      onFocus={() => setValid(false)}
+                    />
+                  </label>
+
+                  <label>
+                    {valid && errors.cep &&
+                      <ErrorMessage name="cep" component="span" className={styles["message-error"]} />
+                    }
+                    <Field
+                      className={styles["input-medio"]}
+                      type="text"
+                      placeholder='CEP*'
+                      name="cep"
+                      onFocus={() => setValid(false)} />
+                  </label>
+
+                  <Botao
+                    disabled={loading}
+                    type="submit"
+                    className="botao-proximo"
+                    onClick={() => {
+                      setValid(true)
+                    }}
+                  >
+                    {loading ? 'Aguarde...' : 'Cadastrar'}
+                  </Botao>
+
+                  <Botao
+                    type="button"
+                    className="botao-voltar"
+                    onClick={handleProviousDiv}
+                  >
+                    Voltar
+                  </Botao>
+
+                  {Array.isArray(error) && <Message msg={error} type="error" />}
+                </div>
+
+              </Form>
+            )}
+          </Formik>
         </div>
-
-
-        <Image
-          src="/img/paginaregistro.jpg"
-          alt="Caixas, carrinhos e prancheta"
-          className={styles["image-cadastro"]}
-          width={500}
-          height={500}
-          priority
-        />
-
-        {/* Nesta pagina, foi utilizado o Formik, que ajuda a reduzir a quantidade de código escrita, simplificando a aplicação. Além disso, ele oferece validações importantes e em caso de erro, o componente "ErrorMessage" exibe o erro acima dos inputs. */}
-        <Formik
-          initialValues={tipo === "cpf" ? initialValues.cpf : initialValues.cnpj}
-          validationSchema={tipo === "cpf" ? validacaoUsuario.registrarcpf : validacaoUsuario.registrarcnpj}
-          onSubmit={onSubmit}
-        >
-          {({ values, setFieldValue, errors, setFieldTouched }) => (
-            <Form>
-
-              {/* Esta é a primeira etapa do formulário, onde o usuário deve fornecer o seu e-mail, senha e confirmação de senha. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs.  */}
-              <div
-                id="etapa1"
-                className={animationStep1}
-
-                // A lógica do estilo é simples: se a etapa corresponder à lógica, o display é "block", exibindo a div atual. Caso contrário, o display é "none", ocultando a div atual. Essa lógica é implementada por meio de uma expressão ternária dentro do objeto style, que é passado como propriedade para cada div correspondente a uma etapa do formulário.
-                style={{ display: etapa === 1 ? "block" : "none" }}
-              >
-                <p>Primeiro coloque seu e-mail e senha</p>
-
-                <span className={styles.obrigatorio}>(*) Campos obrigatórios</span>
-
-                <label>
-                  {valid && errors.email &&
-                    <ErrorMessage name="email" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="email"
-                    placeholder='E-mail*'
-                    name="email"
-                    innerRef={inputRef}
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.senha &&
-                    <ErrorMessage name="senha" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="password"
-                    placeholder='Senha*'
-                    name="senha"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.confirmarSenha &&
-                    <ErrorMessage name="confirmarSenha" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="password"
-                    placeholder='Confirme sua senha*'
-                    name="confirmarSenha"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <Botao
-                  onClick={() => {
-                    setValid(true)
-                    if (
-                      errors.email === undefined &&
-                      errors.senha === undefined &&
-                      errors.confirmarSenha === undefined
-                    ) { handleNextDiv() }
-                  }}
-                  type="submit"
-                  className="botao-proximo"
-                >
-                  Próximo
-                </Botao>
-              </div>
-
-              {/* Esta é a segunda etapa do formulário, onde o usuário deve fornecer o tipo de cliente que é e colocar seu nome e documento. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs.  */}
-              <div
-                id="etapa2"
-                className={animationStep2}
-                style={{ display: etapa === 2 ? "block" : "none" }}
-              >
-                <p>Agora que tipo de cliente você é</p>
-
-                <span className={styles.obrigatorio}>(*) Campos obrigatórios</span>
-
-                <label>
-                  <Field
-                    type="radio"
-                    name="tipo"
-                    value="cnpj"
-                    onClick={() => {
-                      setFieldValue('tipo', 'cnpj');
-                      setTipo("cnpj");
-                    }}
-                  />
-                  <span className={styles.tipo}>
-                    Pessoa Jurídica
-                  </span>
-                </label>
-
-                <label>
-                  <Field
-                    type="radio"
-                    name="tipo"
-                    value="cpf"
-                    onClick={() => {
-                      setFieldValue('tipo', 'cpf');
-                      setTipo("cpf");
-                    }}
-                  />
-                  <span className={styles.tipo}>
-                    Pessoa Fisícia
-                  </span>
-                </label>
-
-                {
-                  tipo === "cnpj"
-                    ? (
-                      <>
-                        <label>
-                          {valid && errors.cnpj && values.tipo === "cnpj" &&
-                            <ErrorMessage name="razaoSocial" component="span" className={styles["message-error"]} />
-                          }
-                          <Field
-                            type="text"
-                            placeholder='Razão Social*'
-                            name="razaoSocial"
-                            onFocus={() => setValid(false)} />
-                        </label>
-
-                        <label>
-                          {valid && errors.razaoSocial && values.tipo === "cnpj" &&
-                            <ErrorMessage name="cnpj" component="span" className={styles["message-error"]} />
-                          }
-                          <Field
-                            type="text"
-                            placeholder='**.***.***/****-**'
-                            name="cnpj"
-                            onFocus={() => setValid(false)} />
-                        </label>
-                      </>
-                    )
-                    :
-                    (
-                      <>
-                        <label>
-                          {valid && errors.nome &&
-                            <ErrorMessage name="nome" component="span" className={styles["message-error"]} />
-                          }
-                          <Field
-                            type="text"
-                            placeholder='Nome*'
-                            name="nome"
-                            onFocus={() => setValid(false)}
-                          />
-                        </label>
-
-                        <label>
-                          {valid && errors.cpf &&
-                            <ErrorMessage name="cpf" component="span" className={styles["message-error"]} />
-                          }
-                          <Field
-                            type="text"
-                            placeholder='***.***.***-**'
-                            name="cpf"
-                            onBlur={() => setFieldTouched('cpf')}
-                            onFocus={() => setValid(false)}
-                          />
-                        </label>
-                      </>
-                    )
-                }
-                <Botao
-                  type="submit"
-                  onClick={() => {
-                    setValid(true)
-                    if (
-                      errors.cnpj === undefined &&
-                      errors.razaoSocial === undefined &&
-                      errors.cpf === undefined &&
-                      errors.nome === undefined
-                    ) { handleNextDiv() }
-                  }}
-                  className="botao-proximo"
-                >
-                  Próximo
-                </Botao >
-
-                <Botao
-                  type="button"
-                  className="botao-voltar" onClick={() => handleProviousDiv()}>
-                  Voltar
-                </Botao>
-              </div>
-
-              {/* Nesta etapa, o usuário deve fornecer informações de endereço, incluindo CEP, número da residência, complemento, cidade e estado. Essas informações são capturadas por meio de inputs e validadas pelo Formik. Caso haja algum erro de validação, o ErrorMessage é exibido acima dos inputs. Aqui realizamos a valições tambem vindas do backend ao clicar no botao "Concluir", se estiver tudo certo o formulário é enviado e o cliente cadastrado e logado, do contrario uma messagem de erro é exibida atrávez do componente "Message"   */}
-              <div
-                id="etapa3"
-                className={animationStep3}
-                style={{ display: etapa === 3 ? "block" : "none" }}
-              >
-                <p>Por último seu endereço.</p>
-
-                <span className={styles["obrigatorio"]}>(*) Campos obrigatórios</span>
-                <label>
-                  {valid && errors.logradouro &&
-                    <ErrorMessage name="logradouro" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="text"
-                    placeholder='Logradouro*'
-                    name="logradouro"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.numero &&
-                    <ErrorMessage name="numero" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    className={styles["input-menor"]}
-                    type="text" placeholder='Número*'
-                    name="numero"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.complemento &&
-                    <ErrorMessage name="complemento" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    className={styles["input-medio"]}
-                    type="text"
-                    placeholder='Complemento'
-                    name="complemento"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.bairro &&
-                    <ErrorMessage name="bairro" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="text"
-                    placeholder='Bairro*'
-                    name="bairro"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.cidade &&
-                    <ErrorMessage name="cidade" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    type="text"
-                    placeholder='Cidade*'
-                    name="cidade"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.estado &&
-                    <ErrorMessage name="estado" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    className={styles["input-menor"]}
-                    type="text"
-                    placeholder='UF*'
-                    name="estado"
-                    onFocus={() => setValid(false)}
-                  />
-                </label>
-
-                <label>
-                  {valid && errors.cep &&
-                    <ErrorMessage name="cep" component="span" className={styles["message-error"]} />
-                  }
-                  <Field
-                    className={styles["input-medio"]}
-                    type="text"
-                    placeholder='CEP*'
-                    name="cep"
-                    onFocus={() => setValid(false)} />
-                </label>
-
-                <Botao
-                  disabled={loading}
-                  type="submit"
-                  className="botao-proximo"
-                  onClick={() => {
-                    setValid(true)
-                  }}
-                >
-                  {loading ? 'Aguarde...' : 'Cadastrar'}
-                </Botao>
-
-                <Botao
-                  type="button"
-                  className="botao-voltar"
-                  onClick={handleProviousDiv}
-                >
-                  Voltar
-                </Botao>
-
-                {Array.isArray(error) && <Message msg={error} type="error" />}
-              </div>
-
-            </Form>
-          )}
-        </Formik>
-      </div>
+      </PublicLayout>
     </>
   )
 }
