@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 import styles from '../../styles/index.module.scss';
 
-import { getCookies } from 'cookies-next';
 import PrivateLayout from './PrivateLayout';
 
 export default function Dashboard() {
