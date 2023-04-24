@@ -1,5 +1,4 @@
 import Botao from '@/components/Botao/Botao';
-import PrivateLayout from './PrivateLayout';
 
 import Head from 'next/head';
 import Image from 'next/image';
@@ -7,15 +6,20 @@ import Link from 'next/link';
 
 import styles from '../../styles/index.module.scss';
 
+import { getCookies } from 'cookies-next';
+import PrivateLayout from './PrivateLayout';
+
 export default function Dashboard() {
+
   return (
     <>
+
       <Head>
-        <title>Projeto Inventory</title>
+        <title>dashboard | Projeto Inventory</title>
       </Head>
       <PrivateLayout>
         <div className={styles["container"]}>
-          <div >
+          <div>
             <div>
               <h2>Muito bem você realizou o seu login</h2>
             </div>
@@ -27,7 +31,6 @@ export default function Dashboard() {
               </Botao>
             </div>
           </div>
-
           <div>
             <Image
               src="/img/homemcomcaixa2.jpg"
@@ -42,3 +45,30 @@ export default function Dashboard() {
     </>
   )
 }
+
+// export const getServerSideProps = async ({req, res}: any) => {
+
+//   try{
+//     const token = getCookies('usuario', {req, res})?.token;
+
+//     console.log(token)
+
+//     if (!token || token.trim().length === 0) {
+//       return {
+//         redirect: {
+//           destination: '/login',
+//           permanent: false,
+//         },
+//       };
+//     }
+
+//     return {
+//       props: {},
+//     };
+//   } catch (err) {
+//     console.error(err);
+//     return {
+//       props: {}
+//     }
+//   }
+// }

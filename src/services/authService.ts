@@ -1,9 +1,9 @@
 import { api, requestConfig } from "../utils/config";
-
 import { Usuario } from "../types/Interface"
 
 // Registrando usuário
 const register = async (data: any): Promise<Usuario | undefined> => {
+
   const config = requestConfig("POST", data);
 
   try {
@@ -13,6 +13,7 @@ const register = async (data: any): Promise<Usuario | undefined> => {
 
     if (res && res.token) {
       localStorage.setItem("usuario", JSON.stringify(res));
+
     }
     return res;
   } catch (error) {
@@ -33,6 +34,7 @@ const login = async (data: any): Promise<Usuario | undefined> => {
     const res = await fetch(api + "/usuarios/login", config)
       .then((res) => res.json())
       .catch((err) => err);
+
 
     if (res && res.token) {
       localStorage.setItem("usuario", JSON.stringify(res));

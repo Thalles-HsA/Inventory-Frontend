@@ -43,6 +43,7 @@ const Blog = () => {
             alt='Carrinho com caixas'
             width={500}
             height={500}
+            priority
           />
 
         </div>

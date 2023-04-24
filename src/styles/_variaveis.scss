@@ -1,10 +1,8 @@
-// Cor RGBA padrão azul 'Facebook" opacity 0.5"
 @import "./funcoes";
 
 // Cores
 $cor-primaria:  #1e2022;
 $cor-primaria-opacity:  corRGBA(30, 32, 34, 0.2);
-
 $cor-secundaria: #52616b;
 $cor-secundaria-opacity:  corRGBA(82, 97, 107, 0.8);
 $cor-terciaria:  #c9d6df;
@@ -16,7 +14,6 @@ $azul: #1778f2;
 $cor-message-erro-text: #721c24;
 $cor-message-erro-backgroud: #f8d7da;
 $cor-message-erro-border: #f8d7da;
-
 $cor-message-sucess-text: #155724;
 $cor-message-sucess-backgroud: #d4edda;
 $cor-message-sucess-border: #c3e6cb;
@@ -25,15 +22,10 @@ $cor-de-fundo: #e7e6e1;
 $cor-secundaria-verde: #314e52;
 $cor-terciaria-laranja: #f2a154;
 
-
-
-
 // Box
 @mixin boxShadow($h-shadow: 4px, $v-shadow: 4px, $blur: 8px, $spread: 0px, $color: $cor-terciaria-opacity) {
-
   box-shadow: $h-shadow $v-shadow $blur $spread $color;
 }
-
 $border-radius-padrao: 10px;
 
 // Font

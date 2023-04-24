@@ -12,12 +12,9 @@ export const useAuth = (): UseAuthReturnType => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (usuario) {
-      setAuth(true);
-    } else {
-      setAuth(false);
+    if (usuario !== undefined) {
+      setAuth(!!usuario);
     }
-
     setLoading(false);
   }, [usuario]);
 

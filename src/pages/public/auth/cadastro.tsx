@@ -27,6 +27,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PublicLayout from "../PublicLayout";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const Registrar = () => {
 
@@ -127,7 +128,10 @@ const Registrar = () => {
 
 
   return (
-    <PublicLayout>
+    <>
+      <Head>
+        <title>cadastro | Projeto Inventory</title>
+      </Head>
       <div className={styles["container-auth"]}>
         <div className={styles["auth-descricao"]}>
           <div >
@@ -468,7 +472,7 @@ const Registrar = () => {
           )}
         </Formik>
       </div>
-    </PublicLayout>
+    </>
   )
 }
 

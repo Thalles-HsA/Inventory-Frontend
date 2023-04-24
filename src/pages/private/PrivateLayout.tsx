@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useAuth } from '../../hooks/useAuth'
 
@@ -9,16 +9,17 @@ type Props = {
 }
 
 const PrivateLayout = ({ children }: Props) => {
-  const { loading, auth } = useAuth()
-  const router = useRouter()
+  const { loading, auth } = useAuth();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  if (loading) {
+  if (loading || isLoading) {
     return <div className={styles['loading-spinner']}></div>
   }
 
   if (!auth) {
-    router.push("/login") // redireciona para a página de login caso o usuário não esteja autenticado
-    return null
+    setIsLoading(true);
+    router.push("/login");
   }
 
   return <div>{children}</div> // renderiza as rotas privadas caso o usuário esteja autenticado

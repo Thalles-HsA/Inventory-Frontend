@@ -1,4 +1,4 @@
-import styles from "../../styles/navbar.module.scss";
+import styles from "../styles/navbar.module.scss";
 
 // Next
 import { useRouter } from 'next/router'
@@ -11,12 +11,12 @@ import { FaUserCog } from "react-icons/fa"
 import { IoExitOutline } from "react-icons/io5"
 
 // Hooks
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 // Redux
-import { logout, reset } from "../../slices/authSlice";
+import { logout, reset } from "../slices/authSlice";
 
 const Navbar = (): JSX.Element => {
 
@@ -29,8 +29,9 @@ const Navbar = (): JSX.Element => {
 
     const handleLogout = (): void => {
         dispatch(logout());
-        router.push("/login");
         dispatch(reset());
+
+        router.push("/login")
     };
 
     return (

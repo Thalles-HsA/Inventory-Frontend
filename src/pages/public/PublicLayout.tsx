@@ -1,6 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useSelector } from "react-redux";
 import { useAuth } from '../../hooks/useAuth';
 
 import styles from "../../styles/publicLayout.module.scss";
@@ -12,14 +11,15 @@ type Props = {
 const PublicLayout = ({ children }: Props) => {
   const { loading, auth } = useAuth();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  if (loading) {
+  if (loading || isLoading) {
     return <div className={styles['loading-spinner']}></div>
   }
 
   if (auth) {
-    router.push('/dashboard') // redireciona para a página de login caso o usuário não esteja autenticado
-    return null
+    setIsLoading(true);
+    router.push("/dashboard");
   }
 
   return <div>{children}</div> // renderiza as rotas privadas caso o usuário esteja autenticado

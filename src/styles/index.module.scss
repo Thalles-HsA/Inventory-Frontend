@@ -3,6 +3,7 @@
 .container {
     display: flex;
     margin: 2rem 6rem;
+    min-height: 85vh;
 
     div {
         flex-basis: 50%;

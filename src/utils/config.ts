@@ -1,8 +1,6 @@
 // export const api = "http://localhost:5000/api";
 export const api = "https://backend-projeto-inventory.herokuapp.com/api";
 
-
-
 export const requestConfig = (
   method: "GET" | "POST" | "PUT" | "DELETE",
   data: unknown,
