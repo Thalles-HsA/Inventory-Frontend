@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import styles from '@/styles/Message.module.scss';
+import styles from '@/styles/message.module.scss';
 
 import { MessageProps } from '@/types/Interface';
 

@@ -1,4 +1,4 @@
-import styles from '@/styles/Botao.module.scss';
+import styles from '@/styles/botao.module.scss';
 
 import { BotaoProps } from '@/types/Interface';
 
