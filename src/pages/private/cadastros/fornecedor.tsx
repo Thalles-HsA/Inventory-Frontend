@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Fornecedor = () => {
-  return (
-    <div>Fornecedor</div>
-  )
-}
+const Fornecedor = () => (
+  <div>Fornecedor</div>
+);
 
-export default Fornecedor
+export default Fornecedor;

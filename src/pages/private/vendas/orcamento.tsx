@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Orcamento = () => {
-  return (
-    <div>Orcamento</div>
-  )
-}
+const Orcamento = () => (
+  <div>Orcamento</div>
+);
 
-export default Orcamento
+export default Orcamento;

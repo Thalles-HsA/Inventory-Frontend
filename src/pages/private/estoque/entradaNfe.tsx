@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const EntradaDeNFe = () => {
-  return (
-    <div>EntradaDeNFe</div>
-  )
-}
+const EntradaDeNFe = () => (
+  <div>EntradaDeNFe</div>
+);
 
-export default EntradaDeNFe
+export default EntradaDeNFe;

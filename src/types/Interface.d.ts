@@ -40,8 +40,8 @@ interface MessageProps {
 export interface BotaoProps {
   children: string | React.ForwardRefExoticComponent;
   disabled?: boolean;
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
+  onClick?: () => void | string;
+  type?: 'button' | 'submit' | 'reset';
   className?: string;
 }
 
@@ -50,4 +50,11 @@ export interface BotaoProps {
 interface UseAuthReturnType {
   auth: boolean;
   loading: boolean;
+}
+
+interface animation {
+  etapa: number;
+  setAnimationStep1: SetStateAction<string>;
+  setAnimationStep2: SetStateAction<string>;
+  setAnimationStep3: SetStateAction<string>;
 }

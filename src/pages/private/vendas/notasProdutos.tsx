@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const NotasFiscaisDeProdutos = () => {
-  return (
-    <div>NotasFiscaisDeProdutos</div>
-  )
-}
+const NotasFiscaisDeProdutos = () => (
+  <div>NotasFiscaisDeProdutos</div>
+);
 
-export default NotasFiscaisDeProdutos
+export default NotasFiscaisDeProdutos;

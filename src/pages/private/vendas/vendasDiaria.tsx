@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const VendasDiarias = () => {
-  return (
-    <div>VendasDiarias</div>
-  )
-}
+const VendasDiarias = () => (
+  <div>VendasDiarias</div>
+);
 
-export default VendasDiarias
+export default VendasDiarias;

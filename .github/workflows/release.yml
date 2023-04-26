@@ -28,3 +28,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: yarn release
+      - name: Pull changes
+        run: |
+          git config --global user.email "thsa.henrique@gmail.com"
+          git config --global user.name "Thalles-HsA"
+          git pull

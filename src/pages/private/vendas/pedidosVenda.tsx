@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const PedidoDeVenda = () => {
-  return (
-    <div>PedidoDeVenda</div>
-  )
-}
+const PedidoDeVenda = () => (
+  <div>PedidoDeVenda</div>
+);
 
-export default PedidoDeVenda
+export default PedidoDeVenda;

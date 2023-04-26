@@ -1,3 +1,56 @@
 {
-  "extends": "next/core-web-vitals"
-}
+    "extends": [
+      "airbnb",
+      "next",
+      "standard",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "import",
+      "next",
+      "jsx-a11y",
+      "react",
+      "react-hooks",
+      "@typescript-eslint"
+    ],
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "rules": {
+      "react/jsx-max-props-per-line": [2, { "maximum": 1, "when": "multiline" }],
+      "react/jsx-one-expression-per-line": [2, { "allow": "literal" }],
+      "react/prop-types": "off",
+      "react/function-component-definition": ["error", {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
+          }],
+      "semi": ["error", "always"],
+      "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+      "react/react-in-jsx-scope": "off",
+      "import/extensions": [
+        "error",
+        "never",
+        {
+          "scss": "always"
+        }
+      ],
+      "import/no-unresolved": [2, { "ignore": ["^@/"] }]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+  }
+  

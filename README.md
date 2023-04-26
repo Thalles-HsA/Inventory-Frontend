@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
+    <img src="./public/img/inventory.png" alt="Descrição da imagem" width="300" style="margin-top: 32px; display:block; margin: auto" >
 </h1>
 
 

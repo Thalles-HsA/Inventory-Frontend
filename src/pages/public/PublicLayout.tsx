@@ -1,8 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '@/hooks/useAuth';
 
-import styles from "../../styles/publicLayout.module.scss";
+import styles from '@/styles/publicLayout.module.scss';
 
 type Props = {
   children: ReactNode
@@ -14,15 +14,19 @@ const PublicLayout = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   if (loading || isLoading) {
-    return <div className={styles['loading-spinner']}></div>
+    return <div className={styles['loading-spinner']} />;
   }
 
   if (auth) {
     setIsLoading(true);
-    router.push("/dashboard");
+    router.push('/dashboard');
   }
 
-  return <div>{children}</div> // renderiza as rotas privadas caso o usuário esteja autenticado
-}
+  return (
+    <div>
+      {children}
+    </div>
+  ); // renderiza as rotas privadas caso o usuário esteja autenticado
+};
 
-export default PublicLayout
+export default PublicLayout;

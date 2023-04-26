@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const RelatorioDeCadastro = () => {
-  return (
-    <div>RelatorioDeCadastro</div>
-  )
-}
+const RelatorioDeCadastro = () => (
+  <div>RelatorioDeCadastro</div>
+);
 
-export default RelatorioDeCadastro
+export default RelatorioDeCadastro;

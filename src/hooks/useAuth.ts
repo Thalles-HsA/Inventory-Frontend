@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
 // Type
-import { AuthState, UseAuthReturnType } from "../types/Interface";
+import { AuthState, UseAuthReturnType } from '@/types/Interface';
 
-export const useAuth = (): UseAuthReturnType => {
+const useAuth = (): UseAuthReturnType => {
   const { usuario } = useSelector<RootState, AuthState>((state: RootState) => state.auth);
 
   const [auth, setAuth] = useState<boolean>(false);
@@ -20,3 +20,5 @@ export const useAuth = (): UseAuthReturnType => {
 
   return { auth, loading };
 };
+
+export default useAuth;

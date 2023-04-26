@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const ControleDeEstoque = () => {
-  return (
-    <div>ControleDeEstoque</div>
-  )
-}
+const ControleDeEstoque = () => (
+  <div>ControleDeEstoque</div>
+);
 
-export default ControleDeEstoque
+export default ControleDeEstoque;
