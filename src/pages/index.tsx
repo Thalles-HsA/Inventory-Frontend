@@ -18,7 +18,7 @@ const Home = () => (
         </div>
         <div>
           <p>
-            Conheça um pouco mais sobre esse incrível ERP e mergulhe em sua jornada de desenvolvimento, conhecendo os bastidores do processo de criação e os desafios enfrentados pelo desenvolvedor para entregá-lo aos usuários. Descubra como cada funcionalidade foi meticulosamente pensada e implementada. Venha teste e descobrir o que torna esse ERP tão especial e o que o diferencia de outras soluções do mercado.
+            Conheça um pouco mais sobre esse incrível ERP e mergulhe em sua jornada de desenvolvimento, conhecendo os bastidores do processo de criação e os desafios enfrentados pelo desenvolvedor para entregá-lo aos usuários. Descubra como cada funcionalidade foi meticulosamente pensada e implementada. Venha testar e descobrir o que torna esse ERP tão especial e o que o diferencia de outras soluções do mercado.
           </p>
           <Botao className="botao-cadastro-login" type="button">
             <Link href="/sobre">Ver mais</Link>

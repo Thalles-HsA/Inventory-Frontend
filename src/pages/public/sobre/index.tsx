@@ -14,7 +14,7 @@ import Botao from '@/components/Botao';
 const Blog = () => (
   <>
     <Head>
-      <title>Projeto Inventory | Blog</title>
+      <title>Sobre | Projeto Inventory</title>
     </Head>
     <div className={styles['container-2']}>
       <div className={styles.descricao}>

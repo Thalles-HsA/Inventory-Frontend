@@ -84,7 +84,7 @@ const Registrar = () => {
   return (
     <>
       <Head>
-        <title>cadastro | Projeto Inventory</title>
+        <title>Cadastro | Projeto Inventory</title>
       </Head>
       <PublicLayout>
         <div className={styles['container-auth']}>

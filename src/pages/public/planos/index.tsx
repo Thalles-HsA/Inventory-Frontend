@@ -4,7 +4,7 @@ import Head from 'next/head';
 const Planos = () => (
   <>
     <Head>
-      <title>Projeto Inventory | Planos</title>
+      <title>Planos | Projeto Inventory</title>
     </Head>
     <div>Planos</div>
   </>

@@ -62,7 +62,7 @@ const Login = () => {
             </div>
             <div>
               <p>Se você ainda não tem uma conta</p>
-              <p>Faça seu cadastro abaixo</p>
+              <p>faça seu cadastro abaixo</p>
               <Botao className="botao-cadastro-login" type="button">
                 <Link href="/cadastro">Cadastre-se</Link>
               </Botao>

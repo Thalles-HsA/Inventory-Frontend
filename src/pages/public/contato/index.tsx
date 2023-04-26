@@ -8,7 +8,7 @@ import styles from '../../../styles/contato.module.scss';
 const Contato = () => (
   <>
     <Head>
-      <title>Projeto Inventory | Contato</title>
+      <title>Contato| Projeto Inventory</title>
     </Head>
     <div className={styles['saiba-sobre']}>
       <div>
