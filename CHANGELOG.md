@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.6...v1.0.7) (2023-04-26)
+
+
+### Bug Fixes
+
+* :lipstick: Corrigi erros ortográficos ([6369073](https://github.com/Thalles-HsA/Inventory-Frontend/commit/6369073cbd155f6e6a889932d7b126959ec93c63))
+
 ## [1.0.6](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.5...v1.0.6) (2023-04-26)
 
 
