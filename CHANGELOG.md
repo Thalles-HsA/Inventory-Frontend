@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.2...v1.0.3) (2023-04-24)
+
+
+### Bug Fixes
+
+* :bug: Corrige erro no arquivo .releaserc.json ([cf82e55](https://github.com/Thalles-HsA/Inventory-Frontend/commit/cf82e55e6a9bc0b35b3be881b684ae1514ac0fcb))
+
 ## [1.0.2](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.1...v1.0.2) (2023-04-23)
 
 
