@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.5...v1.0.6) (2023-04-26)
+
+
+### Bug Fixes
+
+* :bug: Corrige erros de import nas imagens do Readme ([2acf809](https://github.com/Thalles-HsA/Inventory-Frontend/commit/2acf8097b870bc3713db19753077775aa62b4b2d))
+
 ## [1.0.5](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.4...v1.0.5) (2023-04-26)
 
 
