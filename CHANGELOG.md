@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.4...v1.0.5) (2023-04-26)
+
+
+### Bug Fixes
+
+* :bug: Corrige erro com imports dos components ([82ce409](https://github.com/Thalles-HsA/Inventory-Frontend/commit/82ce40930e6a7d39ce68b471ccac40446fe05e39))
+
 ## [1.0.4](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.3...v1.0.4) (2023-04-26)
 
 ## [1.0.3](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.2...v1.0.3) (2023-04-24)
