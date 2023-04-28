@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.0...v1.1.1) (2023-04-28)
+
 # [1.1.0](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.7...v1.1.0) (2023-04-28)
 
 
