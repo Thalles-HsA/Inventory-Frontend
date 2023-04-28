@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.7...v1.1.0) (2023-04-28)
+
+
+### Features
+
+* :sparkles: Adicionar página de perfil do usuário ([5c49143](https://github.com/Thalles-HsA/Inventory-Frontend/commit/5c49143552bb18c863046fc3de698feb9e52d69e))
+
 ## [1.0.7](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.0.6...v1.0.7) (2023-04-26)
 
 
