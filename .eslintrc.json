@@ -1,7 +1,6 @@
 {
     "extends": [
       "airbnb",
-      "next",
       "standard",
       "plugin:@typescript-eslint/recommended",
       "plugin:react/recommended",
@@ -14,7 +13,6 @@
     },
     "plugins": [
       "import",
-      "next",
       "jsx-a11y",
       "react",
       "react-hooks",

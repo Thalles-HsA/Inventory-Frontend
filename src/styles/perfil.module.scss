@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    margin: 2rem 6rem;
+    min-height: 85vh;
+
+    h3 {
+        margin: 0 0 2rem 0;
+    }
+
+    h4 {
+        margin: 0 0 2rem 0;
+    }
+    
+    .descricao {
+        min-width: 15vw;
+        flex-basis: 30%;
+        li {
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+    }
+
+    .formulario {
+        margin: 0rem 2rem;
+        padding: 2rem;
+        min-width: 60vw;
+        background-color: #fff;
+
+        label {
+            display: inline-block;
+            margin: 1rem;
+            span{
+                display: block;
+            }
+        }
+
+    }
+}

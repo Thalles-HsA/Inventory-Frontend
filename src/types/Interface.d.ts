@@ -29,14 +29,12 @@ export interface AuthState {
 }
 
 // Message.tsx
-
-interface MessageProps {
+export interface MessageProps {
   msg: string[];
   type: string;
 }
 
 // Botão.tsx
-
 export interface BotaoProps {
   children: string | React.ForwardRefExoticComponent;
   disabled?: boolean;
@@ -46,15 +44,22 @@ export interface BotaoProps {
 }
 
 // useAuth.ts
-
-interface UseAuthReturnType {
+export interface UseAuthReturnType {
   auth: boolean;
   loading: boolean;
 }
 
-interface animation {
+export interface animation {
   etapa: number;
   setAnimationStep1: SetStateAction<string>;
   setAnimationStep2: SetStateAction<string>;
   setAnimationStep3: SetStateAction<string>;
+}
+
+export interface InitialStateUserSlice {
+  usuario: Usuario;
+  error: boolean | null;
+  success: boolean;
+  loading: boolean;
+  message: string | null;
 }
