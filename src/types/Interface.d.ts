@@ -7,6 +7,17 @@ export interface Usuario {
   razaoSocial?: string;
   nome?: string;
   cpf?: string;
+  nomeFantasia?: string;
+  inscricaoEstadual?: string;
+  isento?: boolean;
+  inscricaoMunicipal?: string;
+  cnae?: string;
+  atividadePrincipal?: string;
+  regimeTributario?: string;
+  tamanhoEmpresa?: string;
+  segmento?: string;
+  faturamentoAnual?: string;
+  quantidadeFuncionario?: string;
   logradouro: string;
   numero: string;
   complemento: string;
