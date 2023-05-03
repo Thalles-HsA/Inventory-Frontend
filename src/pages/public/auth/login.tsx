@@ -19,8 +19,8 @@ import styles from '@/styles/auth.module.scss';
 import { UsuarioLogin } from '@/types/Interface';
 import { RootState } from '../../../store';
 import { loginUser, reset } from '@/slices/authSlice';
-import validacaoUsuario from '@/controllers/validacaoCadastro';
-import initialValues from '@/controllers/initialValues';
+import validacaoUsuario from '@/utils/validacaoCadastro';
+import initialValues from '@/utils/initialValues';
 
 import Botao from '@/components/Botao';
 import Message from '@/components/Message';

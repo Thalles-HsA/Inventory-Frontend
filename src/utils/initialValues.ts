@@ -1,4 +1,4 @@
-import { Usuario } from '@/types/Interface';
+import { UpdateUser, Usuario } from '@/types/Interface';
 
 const initialValuesCPF: Usuario = {
   email: '',
@@ -32,13 +32,40 @@ const initialValuesCNPJ: Usuario = {
   cep: ''
 };
 
+const initialStateUpdateUser: UpdateUser = {
+  tipo: '',
+  nome: '',
+  razaoSocial: '',
+  cpf: '',
+  cnpj: '',
+  logradouro: '',
+  numero: '',
+  bairro: '',
+  cidade: '',
+  estado: '',
+  cep: '',
+  complemento: '',
+  nomeFantasia: '',
+  inscricaoEstadual: '',
+  isento: false,
+  inscricaoMunicipal: '',
+  cnae: '',
+  atividadePrincipal: '',
+  regimeTributario: '',
+  tamanhoEmpresa: '',
+  segmento: [''],
+  faturamentoAnual: '',
+  quantidadeFuncionario: ''
+};
+
 const initialValues = {
   cpf: initialValuesCPF,
   cnpj: initialValuesCNPJ,
   login: {
     email: '',
     senha: ''
-  }
+  },
+  update: initialStateUpdateUser
 };
 
 export default initialValues;

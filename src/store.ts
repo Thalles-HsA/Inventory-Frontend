@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '@/slices/authSlice';
 import usuarioReducer from '@/slices/userSlice';
-import tipoReducer from '@/slices/typeSlice';
+import updateReducer from '@/slices/updateUser';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     usuario: usuarioReducer,
-    tipo: tipoReducer
+    update: updateReducer
   }
 });
 

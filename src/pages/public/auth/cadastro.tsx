@@ -12,8 +12,8 @@ import styles from '@/styles/auth.module.scss';
 
 import { Usuario } from '@/types/Interface';
 
-import validacaoUsuario from '@/controllers/validacaoCadastro';
-import initialValues from '@/controllers/initialValues';
+import validacaoUsuario from '@/utils/validacaoCadastro';
+import initialValues from '@/utils/initialValues';
 
 import Message from '@/components/Message';
 import Botao from '@/components/Botao';

@@ -67,8 +67,34 @@ export interface animation {
   setAnimationStep3: SetStateAction<string>;
 }
 
+export interface UpdateUser {
+  tipo: string;
+  nome: string;
+  razaoSocial: string;
+  cpf: string;
+  cnpj: string;
+  logradouro: string;
+  numero: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+  complemento: string;
+  nomeFantasia: string;
+  inscricaoEstadual: string;
+  isento: boolean;
+  inscricaoMunicipal: string;
+  cnae: string;
+  atividadePrincipal: string;
+  regimeTributario: string;
+  tamanhoEmpresa: string;
+  segmento: Array<string>;
+  faturamentoAnual: string;
+  quantidadeFuncionario: string;
+}
+
 export interface InitialStateUserSlice {
-  usuario: Usuario;
+  usuario: UpdateUser | null;
   error: boolean | null;
   success: boolean;
   loading: boolean;

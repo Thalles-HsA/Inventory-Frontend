@@ -1,56 +1,75 @@
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userProfile } from '@/slices/userSlice';
 import { RootState } from '@/store';
 import formatCnpjCpf from '@/utils/formatCpfAndCnpj';
-import { mudaTipoDeCliente } from '@/slices/typeSlice';
+import { updateUserFields } from '@/slices/updateUser';
 
 const FormularioCPF = () => {
-  const [nome, setNome] = useState('');
-  const [cpf, setCpf] = useState('');
-
-  const { tipoDeClienteSelecionado } = useSelector((state: RootState) => state.tipo);
-  const { usuario } = useSelector((state: RootState) => state.usuario);
+  const {
+    tipo,
+    nome,
+    cpf,
+    nomeFantasia,
+    atividadePrincipal
+  } = useSelector((state: RootState) => state.update);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
 
-  useEffect(() => {
-    dispatch(userProfile());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setNome(usuario.nome ? usuario.nome : '');
-    setCpf(usuario.cpf ? usuario.cpf : '');
-  }, [usuario, tipoDeClienteSelecionado]);
-
-  function handleSelectTypeUser (event: React.ChangeEvent<HTMLSelectElement>) {
-    dispatch(mudaTipoDeCliente(event.target.value));
-  }
+  const handleInputChange = (
+    event:
+      React.ChangeEvent<HTMLInputElement> |
+      React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
+    dispatch(updateUserFields({ [name]: value }));
+  };
 
   return (
     <>
       <label htmlFor="nome">
         <span>Nome</span>
-        <input type="text" value={nome || usuario.razaoSocial} id="nome" />
+        <input
+          type="text"
+          name="nome"
+          value={nome}
+          onChange={handleInputChange}
+        />
       </label>
       <label htmlFor="nomeFantasia">
         <span>Nome Fantasia</span>
-        <input type="text" id="nomeFantasia" name="nomeFantasia" />
+        <input
+          type="text"
+          name="nomeFantasia"
+          value={nomeFantasia}
+          onChange={handleInputChange}
+        />
       </label>
       <label htmlFor="tipo">
         <span>Tipo</span>
-        <select id="tipo" value={tipoDeClienteSelecionado} onChange={handleSelectTypeUser}>
+        <select
+          name="tipo"
+          value={tipo}
+          onChange={handleInputChange}
+        >
           <option value="cpf">CPF</option>
           <option value="cnpj">CNPJ</option>
         </select>
       </label>
       <label htmlFor="cpf">
         <span>CPF</span>
-        <input type="text" value={formatCnpjCpf(cpf ?? usuario.cnpj ?? '', tipoDeClienteSelecionado)} id="cpf" />
+        <input
+          type="text"
+          name="cpf"
+          value={formatCnpjCpf(cpf ?? '', tipo)}
+          onChange={handleInputChange}
+        />
       </label>
       <label htmlFor="atividadePrincipal">
         <span>Atividade Principal</span>
-        <select id="atividadePrincipal">
+        <select
+          name="atividadePrincipal"
+          value={atividadePrincipal}
+          onChange={handleInputChange}
+        >
           <option value="alimentosBebidas">Alimentos e Bebidas</option>
           <option value="modaAcessorios">Moda e acessórios</option>
           <option value="artesanato">Artesanato</option>
