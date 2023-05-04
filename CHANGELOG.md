@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.4...v1.1.5) (2023-05-04)
+
+
+### Bug Fixes
+
+* :bug: Corrigi erro de tipagem ([b8de55e](https://github.com/Thalles-HsA/Inventory-Frontend/commit/b8de55e4d2bb4cc7fa9a206a949353ddff25c266))
+
 ## [1.1.4](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.3...v1.1.4) (2023-05-04)
 
 ## [1.1.3](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.2...v1.1.3) (2023-05-03)
