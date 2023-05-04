@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
@@ -16,8 +17,8 @@ const FormularioCPF = () => {
 
   const handleInputChange = (
     event:
-      React.ChangeEvent<HTMLInputElement> |
-      React.ChangeEvent<HTMLSelectElement>
+      ChangeEvent<HTMLInputElement> |
+      ChangeEvent<HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     dispatch(updateUserFields({ [name]: value }));
@@ -70,6 +71,7 @@ const FormularioCPF = () => {
           value={atividadePrincipal}
           onChange={handleInputChange}
         >
+          <option value={undefined}>Selecione uma opção</option>
           <option value="alimentosBebidas">Alimentos e Bebidas</option>
           <option value="modaAcessorios">Moda e acessórios</option>
           <option value="artesanato">Artesanato</option>

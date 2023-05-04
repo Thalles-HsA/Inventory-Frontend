@@ -34,7 +34,7 @@ const initialValuesCNPJ: Usuario = {
 
 const initialStateUpdateUser: UpdateUser = {
   tipo: '',
-  nome: '',
+  nome: 'null',
   razaoSocial: '',
   cpf: '',
   cnpj: '',

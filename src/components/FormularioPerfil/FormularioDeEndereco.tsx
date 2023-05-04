@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
@@ -12,14 +13,13 @@ const FormularioEndereco = () => {
     estado,
     cep,
     complemento
-
   } = useSelector((state: RootState) => state.update);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
 
   const handleInputChange = (
     event:
-      React.ChangeEvent<HTMLInputElement> |
-      React.ChangeEvent<HTMLSelectElement>
+      ChangeEvent<HTMLInputElement> |
+      ChangeEvent<HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     dispatch(updateUserFields({ [name]: value }));

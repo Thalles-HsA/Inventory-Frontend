@@ -41,8 +41,8 @@ export interface AuthState {
 
 // Message.tsx
 export interface MessageProps {
-  msg: string[];
-  type: string;
+  msg: string[] | null;
+  type: 'success' | 'error' | 'warning';
 }
 
 // Botão.tsx
@@ -79,24 +79,63 @@ export interface UpdateUser {
   cidade: string;
   estado: string;
   cep: string;
-  complemento: string;
-  nomeFantasia: string;
-  inscricaoEstadual: string;
-  isento: boolean;
-  inscricaoMunicipal: string;
-  cnae: string;
-  atividadePrincipal: string;
-  regimeTributario: string;
-  tamanhoEmpresa: string;
-  segmento: Array<string>;
-  faturamentoAnual: string;
-  quantidadeFuncionario: string;
+  complemento?: string;
+  nomeFantasia?: string;
+  inscricaoEstadual?: string;
+  isento?: boolean;
+  inscricaoMunicipal?: string;
+  cnae?: string;
+  atividadePrincipal?: string;
+  regimeTributario?: string;
+  tamanhoEmpresa?: string;
+  segmento?: Array<string>;
+  faturamentoAnual?: string;
+  quantidadeFuncionario?: string;
 }
 
 export interface InitialStateUserSlice {
   usuario: UpdateUser | null;
-  error: boolean | null;
+  error: string[] | null;
   success: boolean;
   loading: boolean;
-  message: string | null;
+  message: string[] | null;
+}
+
+interface UserDataCPF {
+  tipo: string;
+  nome: string;
+  cpf: string;
+  atividadePrincipal?: string;
+  nomeFantasia?: string;
+  logradouro: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
+}
+
+interface UserDataCNPJ {
+  tipo: string;
+  razaoSocial: string;
+  cnpj: string;
+  nomeFantasia?: string;
+  inscricaoEstadual?: string;
+  isento?: boolean;
+  inscricaoMunicipal?: string;
+  cnae?: string;
+  atividadePrincipal?: string;
+  regimeTributario?: string;
+  tamanhoEmpresa?: string;
+  segmento?: string | string[];
+  faturamentoAnual?: string;
+  quantidadeFuncionario?: string;
+  logradouro: string;
+  numero: string;
+  complemento?: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  cep: string;
 }

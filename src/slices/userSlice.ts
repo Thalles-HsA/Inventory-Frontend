@@ -4,7 +4,7 @@ import { InitialStateUserSlice, UpdateUser } from '@/types/Interface';
 
 const initialState: InitialStateUserSlice = {
   usuario: {} as UpdateUser,
-  error: false,
+  error: null,
   success: false,
   loading: false,
   message: null
@@ -39,24 +39,24 @@ export const updateUserProfile = createAsyncThunk(
       bairro: formData.get('bairro') as string,
       cidade: formData.get('cidade') as string,
       estado: formData.get('estado') as string,
-      nomeFantasia: formData.get('noomeFantasia') as string,
-      inscricaoEstadual: formData.get('incricaoEstadual') as string,
+      nomeFantasia: formData.get('nomeFantasia') as string,
+      inscricaoEstadual: formData.get('inscricaoEstadual') as string,
       isento: formData.get('isento') !== null ? formData.get('isento') === 'true' : false,
-      inscricaoMunicipal: formData.get('inscricaoMuncipal') as string,
+      inscricaoMunicipal: formData.get('inscricaoMunicipal') as string,
       cnae: formData.get('cnae') as string,
       atividadePrincipal: formData.get('atividadePrincipal') as string,
       regimeTributario: formData.get('regimeTributario') as string,
-      tamanhoEmpresa: formData.get('tamnhoEmpresa') as string,
+      tamanhoEmpresa: formData.get('tamanhoEmpresa') as string,
       segmento: formData.get('segmento') !== null ? formData.getAll('segmento').map((value) => value as string) : [],
       faturamentoAnual: formData.get('faturamentoAnual') as string,
       quantidadeFuncionario: formData.get('quantidadeFuncionario') as string
     };
 
     const data = await userService.updateUserProfile(usuario, token);
-    console.log(usuario);
     if (data.errors) {
-      return thunkAPI.rejectWithValue(data.errors[0]);
+      return thunkAPI.rejectWithValue(data.errors);
     }
+
     return data;
   }
 );
@@ -95,12 +95,12 @@ export const userSlice = createSlice({
         success: true,
         error: null,
         usuario: action.payload,
-        message: 'Usuário atualizado com sucesso!'
+        message: ['Usuário atualizado com sucesso!']
       }))
       .addCase(updateUserProfile.rejected, (state, action) => ({
         ...state,
         loading: false,
-        error: action.payload as boolean | null,
+        error: action.payload as null,
         usuario: null
       }));
   }

@@ -8,6 +8,9 @@ export const userProfile = createAsyncThunk(
   async (usuario: void, thunkAPI: any) => {
     const { token } = thunkAPI.getState().auth.usuario;
     const data = await userService.userProfile(usuario, token);
+    if (data.errors) {
+      return thunkAPI.rejectWithValue(data.errors);
+    }
     return data;
   }
 );
@@ -30,59 +33,63 @@ export const updateUser = createSlice({
     })
   },
   extraReducers: (builder) => {
-    builder.addCase(userProfile.fulfilled, (state, action) => {
-      const {
-        tipo,
-        nome,
-        razaoSocial,
-        cpf,
-        cnpj,
-        logradouro,
-        numero,
-        bairro,
-        cidade,
-        estado,
-        cep,
-        complemento,
-        nomeFantasia,
-        inscricaoEstadual,
-        isento,
-        inscricaoMunicipal,
-        cnae,
-        atividadePrincipal,
-        regimeTributario,
-        tamanhoEmpresa,
-        segmento,
-        faturamentoAnual,
-        quantidadeFuncionario
-      } = action.payload;
-      return {
-        ...state,
-        tipo,
-        nome,
-        razaoSocial,
-        cpf,
-        cnpj,
-        logradouro,
-        numero,
-        bairro,
-        cidade,
-        estado,
-        cep,
-        complemento,
-        nomeFantasia,
-        inscricaoEstadual,
-        isento,
-        inscricaoMunicipal,
-        cnae,
-        atividadePrincipal,
-        regimeTributario,
-        tamanhoEmpresa,
-        segmento,
-        faturamentoAnual,
-        quantidadeFuncionario
-      };
-    });
+    builder
+      .addCase(userProfile.fulfilled, (state, action) => {
+        if (action.payload.tipo === null) {
+          return state;
+        }
+        const {
+          tipo,
+          nome,
+          razaoSocial,
+          cpf,
+          cnpj,
+          logradouro,
+          numero,
+          bairro,
+          cidade,
+          estado,
+          cep,
+          complemento,
+          nomeFantasia,
+          inscricaoEstadual,
+          isento,
+          inscricaoMunicipal,
+          cnae,
+          atividadePrincipal,
+          regimeTributario,
+          tamanhoEmpresa,
+          segmento,
+          faturamentoAnual,
+          quantidadeFuncionario
+        } = action.payload;
+        return {
+          ...state,
+          tipo,
+          nome,
+          razaoSocial,
+          cpf,
+          cnpj,
+          logradouro,
+          numero,
+          bairro,
+          cidade,
+          estado,
+          cep,
+          complemento,
+          nomeFantasia,
+          inscricaoEstadual,
+          isento,
+          inscricaoMunicipal,
+          cnae,
+          atividadePrincipal,
+          regimeTributario,
+          tamanhoEmpresa,
+          segmento,
+          faturamentoAnual,
+          quantidadeFuncionario
+        };
+      });
   }
 });
 
