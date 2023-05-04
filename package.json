@@ -3,10 +3,10 @@
   "version": "1.1.5",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "git pull && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "git pull && next lint",
     "release": "semantic-release",
     "release:dry": "semantic-release --dry-run"
   },
