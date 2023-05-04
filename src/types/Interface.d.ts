@@ -88,7 +88,7 @@ export interface UpdateUser {
   atividadePrincipal?: string;
   regimeTributario?: string;
   tamanhoEmpresa?: string;
-  segmento?: Array<string>;
+  segmento: Array<string>;
   faturamentoAnual?: string;
   quantidadeFuncionario?: string;
 }
