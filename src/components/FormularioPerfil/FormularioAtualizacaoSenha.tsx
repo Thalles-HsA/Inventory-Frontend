@@ -9,7 +9,7 @@ const FormularioAtualizacaoSenha = () => {
     senha,
     novaSenha,
     confirmarSenha
-  } = useSelector((state: RootState) => state.update);
+  } = useSelector((state: RootState) => state.password);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
 
   const handleInputChange = (

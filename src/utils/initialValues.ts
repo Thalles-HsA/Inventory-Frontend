@@ -1,4 +1,4 @@
-import { UpdateUser, Usuario } from '@/types/Interface';
+import { UpdatePassword, UpdateUser, Usuario } from '@/types/Interface';
 
 const initialValuesCPF: Usuario = {
   email: '',
@@ -55,7 +55,10 @@ const initialStateUpdateUser: UpdateUser = {
   tamanhoEmpresa: '',
   segmento: [''],
   faturamentoAnual: '',
-  quantidadeFuncionario: '',
+  quantidadeFuncionario: ''
+};
+
+const initialValuePasswordRecovery: UpdatePassword = {
   senha: '',
   novaSenha: '',
   confirmarSenha: ''
@@ -72,11 +75,7 @@ const initialValues = {
   requestPasswordRecovery: {
     email: ''
   },
-  passwordRecovery: {
-    email: '',
-    novaSenha: '',
-    confirmarSenha: ''
-  }
+  passwordRecovery: initialValuePasswordRecovery
 };
 
 export default initialValues;
