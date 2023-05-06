@@ -49,10 +49,7 @@ export const updateUserProfile = createAsyncThunk(
       tamanhoEmpresa: formData.get('tamanhoEmpresa') as string,
       segmento: formData.get('segmento') !== null ? formData.getAll('segmento').map((value) => value as string) : [],
       faturamentoAnual: formData.get('faturamentoAnual') as string,
-      quantidadeFuncionario: formData.get('quantidadeFuncionario') as string,
-      senha: formData.get('senha') as string,
-      novaSenha: formData.get('novaSenha') as string,
-      confirmarSenha: formData.get('confirmarSenha') as string
+      quantidadeFuncionario: formData.get('quantidadeFuncionario') as string
     };
 
     const data = await userService.updateUserProfile(usuario, token);

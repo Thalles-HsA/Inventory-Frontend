@@ -92,9 +92,6 @@ export interface UpdateUser {
   segmento: Array<string>;
   faturamentoAnual?: string;
   quantidadeFuncionario?: string;
-  senha: string;
-  novaSenha: string;
-  confirmarSenha: string;
 }
 
 export interface InitialStateUserSlice {
