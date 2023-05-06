@@ -38,12 +38,13 @@ const Perfil = () => {
     tamanhoEmpresa,
     segmento,
     faturamentoAnual,
-    quantidadeFuncionario,
+    quantidadeFuncionario
+  } = useSelector((state: RootState) => state.update);
+  const {
     senha,
     novaSenha,
     confirmarSenha
-
-  } = useSelector((state: RootState) => state.update);
+  } = useSelector((state: RootState) => state.password);
   const { loading, error, message } = useSelector((state: RootState) => state.usuario);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
 
