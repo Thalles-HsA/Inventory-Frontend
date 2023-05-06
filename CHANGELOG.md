@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.7...v1.2.0) (2023-05-06)
+
+
+### Features
+
+* :sparkles: Introduz a funcionalidade de recuperar senha. ([b6aa5e3](https://github.com/Thalles-HsA/Inventory-Frontend/commit/b6aa5e36e9e2a2abdc84aae49c940de33bc06790))
+
 ## [1.1.7](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.6...v1.1.7) (2023-05-04)
 
 ## [1.1.6](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.1.5...v1.1.6) (2023-05-04)
