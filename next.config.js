@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
+require('dotenv').config();
+
 const nextConfig = {
   reactStrictMode: true,
   async rewrites () {
@@ -9,6 +12,7 @@ const nextConfig = {
       { source: '/sobre', destination: '/public/sobre' },
       { source: '/login', destination: '/public/auth/login' },
       { source: '/cadastro', destination: '/public/auth/cadastro' },
+      { source: '/esqueci-minha-senha', destination: '/public/auth/esqueciMinhaSenha' },
 
       { source: '/dashboard', destination: '/private/dashboard' },
 
@@ -36,6 +40,9 @@ const nextConfig = {
 
       { source: '/perfil', destination: '/private/perfil/perfil' }
     ];
+  },
+  env: {
+    JWT_SECRET: process.env.JWT_SECRET
   }
 };
 

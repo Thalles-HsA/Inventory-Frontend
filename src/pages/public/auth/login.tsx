@@ -10,7 +10,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 
@@ -30,14 +29,10 @@ const Login = () => {
   const emailInputRef = useRef<HTMLInputElement>(null);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
   const { loading, error } = useSelector((state: RootState) => state.auth);
-  const router = useRouter();
 
   const onSubmit = async (values: UsuarioLogin) => {
     try {
-      await dispatch(loginUser(values));
-      if (!error) {
-        router.push('/dashboard');
-      }
+      dispatch(loginUser(values));
     } catch {
       throw new Error('Houve um erro ao realizar o Login');
     }
@@ -93,7 +88,7 @@ const Login = () => {
                   <Field type="password" placeholder="Senha" name="senha" />
                 </label>
 
-                <Link href="/esqueceuSenha">
+                <Link href="/esqueci-minha-senha">
                   <span className={styles['esqueceu-senha']}>Esqueceu sua senha?</span>
                 </Link>
 

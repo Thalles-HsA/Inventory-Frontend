@@ -72,10 +72,29 @@ const login = Yup.object({
     .required('A senha é obrigatória')
 });
 
+const requestPasswordRecovery = Yup.object({
+  email: Yup.string()
+    .email('E-mail inválido')
+    .required('O e-mail é obrigatório')
+});
+
+const passwordRecovery = Yup.object({
+  email: Yup.string()
+    .email('E-mail inválido'),
+  novaSenha: Yup.string()
+    .min(6, 'A senha precisa ter pelo menos 6 caractéres')
+    .required('A senha é obrigatória'),
+  confirmarSenha: Yup.string()
+    .oneOf([Yup.ref('novaSenha'), undefined], 'As senhas precisam ser iguais')
+    .required('A confirmação de senha é obrigatória')
+});
+
 const validacaoUsuario = {
   registrarcnpj,
   registrarcpf,
-  login
+  login,
+  requestPasswordRecovery,
+  passwordRecovery
 };
 
 export default validacaoUsuario;

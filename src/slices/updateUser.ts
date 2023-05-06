@@ -61,7 +61,10 @@ export const updateUser = createSlice({
           tamanhoEmpresa,
           segmento,
           faturamentoAnual,
-          quantidadeFuncionario
+          quantidadeFuncionario,
+          senha,
+          novaSenha,
+          confirmarSenha
         } = action.payload;
         return {
           ...state,
@@ -87,7 +90,10 @@ export const updateUser = createSlice({
           tamanhoEmpresa,
           segmento,
           faturamentoAnual,
-          quantidadeFuncionario
+          quantidadeFuncionario,
+          senha,
+          novaSenha,
+          confirmarSenha
         };
       });
   }

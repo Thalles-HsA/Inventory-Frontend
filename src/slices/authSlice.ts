@@ -10,7 +10,8 @@ const initialState: AuthState = {
   usuario: usuario || null,
   error: false,
   success: false,
-  loading: false
+  loading: false,
+  message: []
 };
 
 export const registerUser = createAsyncThunk(

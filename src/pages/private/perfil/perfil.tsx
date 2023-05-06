@@ -1,16 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, FormEvent } from 'react';
+import { useEffect, FormEvent, useState } from 'react';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
-import { resetMessage, updateUserProfile, userProfile } from '@/slices/userSlice';
+import { resetMessage, updateUserPassword, updateUserProfile, userProfile } from '@/slices/userSlice';
 import styles from '@/styles/perfil.module.scss';
 import FormularioCPF from '@/components/FormularioPerfil/FormularioCPF';
 import FormularioCNPJ from '@/components/FormularioPerfil/FormularioCNPJ';
 import Botao from '@/components/Botao';
 import FormularioEndereco from '@/components/FormularioPerfil/FormularioDeEndereco';
 import Message from '@/components/Message';
-import { UserDataCNPJ, UserDataCPF } from '@/types/Interface';
+import { UpdatePassword, UserDataCNPJ, UserDataCPF } from '@/types/Interface';
+import FormularioAtualizacaoSenha from '@/components/FormularioPerfil/FormularioAtualizacaoSenha';
+import { updateUserFields } from '@/slices/updateUser';
 
 const Perfil = () => {
   const {
@@ -36,11 +38,16 @@ const Perfil = () => {
     tamanhoEmpresa,
     segmento,
     faturamentoAnual,
-    quantidadeFuncionario
+    quantidadeFuncionario,
+    senha,
+    novaSenha,
+    confirmarSenha
 
   } = useSelector((state: RootState) => state.update);
   const { loading, error, message } = useSelector((state: RootState) => state.usuario);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
+
+  const [selectDiv, setSelectDiv] = useState('alterar-senha');
 
   useEffect(() => {
     dispatch(userProfile());
@@ -93,6 +100,31 @@ const Perfil = () => {
       formData.append(key, userData[key] ?? '');
     });
     await dispatch(updateUserProfile(formData));
+    setTimeout(() => {
+      dispatch(resetMessage());
+    }, 3000);
+  };
+
+  const handleSubmitUpdatePassword = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const UserDataPassword: UpdatePassword = {
+      senha: senha || '',
+      novaSenha: novaSenha || '',
+      confirmarSenha: confirmarSenha || ''
+    };
+
+    const formData = new FormData();
+    const userData: any = UserDataPassword;
+    Object.keys(userData).forEach((key) => {
+      formData.append(key, userData[key] ?? '');
+    });
+    await dispatch(updateUserPassword(formData));
+    if (error) {
+      await dispatch(updateUserFields({ senha: '' }));
+      await dispatch(updateUserFields({ novaSenha: '' }));
+      await dispatch(updateUserFields({ confirmarSenha: '' }));
+    }
 
     setTimeout(() => {
       dispatch(resetMessage());
@@ -105,14 +137,22 @@ const Perfil = () => {
         <h3>Minha conta</h3>
         <ul>
           <li>
-            Dados da empresa
+            <button onClick={() => setSelectDiv('dados-empresa')} type="button">
+              Dados da empresa
+            </button>
           </li>
           <li>
-            Alterar senha
+            <button onClick={() => setSelectDiv('alterar-senha')} type="button">
+              Alterar Senha
+            </button>
           </li>
         </ul>
       </div>
-      <div className={styles.formulario}>
+
+      <div
+        className={styles['dados-empresa']}
+        style={{ display: selectDiv === 'dados-empresa' ? 'block' : 'none' }}
+      >
         <h3>Dados da empresa</h3>
         <form onSubmit={handleSubmit}>
           {
@@ -130,6 +170,24 @@ const Perfil = () => {
           </div>
         </form>
       </div>
+
+      <div
+        className={styles['alterar-senha']}
+        style={{ display: selectDiv === 'alterar-senha' ? 'block' : 'none' }}
+      >
+        <h3>Atualize sua senha</h3>
+        <form onSubmit={handleSubmitUpdatePassword}>
+          <FormularioAtualizacaoSenha />
+          <div>
+            <Botao disabled={loading} type="submit" className="botao-proximo">
+              {loading ? 'Aguarde...' : 'Salvar'}
+            </Botao>
+            {error && <Message msg={error} type="error" />}
+            {message && <Message msg={message} type="success" />}
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 };

@@ -37,6 +37,7 @@ export interface AuthState {
   error: boolean | null;
   success: boolean;
   loading: boolean;
+  message: string[];
 }
 
 // Message.tsx
@@ -91,6 +92,9 @@ export interface UpdateUser {
   segmento: Array<string>;
   faturamentoAnual?: string;
   quantidadeFuncionario?: string;
+  senha: string;
+  novaSenha: string;
+  confirmarSenha: string;
 }
 
 export interface InitialStateUserSlice {
@@ -101,7 +105,7 @@ export interface InitialStateUserSlice {
   message: string[] | null;
 }
 
-interface UserDataCPF {
+export interface UserDataCPF {
   tipo: string;
   nome: string;
   cpf: string;
@@ -116,7 +120,7 @@ interface UserDataCPF {
   cep: string;
 }
 
-interface UserDataCNPJ {
+export interface UserDataCNPJ {
   tipo: string;
   razaoSocial: string;
   cnpj: string;
@@ -138,4 +142,15 @@ interface UserDataCNPJ {
   cidade: string;
   estado: string;
   cep: string;
+}
+
+export interface UpdatePassword {
+  senha: string;
+  novaSenha: string;
+  confirmarSenha: string;
+}
+
+export interface RecoveryPassword {
+  novaSenha: string;
+  confirmarSenha: string;
 }

@@ -55,7 +55,10 @@ const initialStateUpdateUser: UpdateUser = {
   tamanhoEmpresa: '',
   segmento: [''],
   faturamentoAnual: '',
-  quantidadeFuncionario: ''
+  quantidadeFuncionario: '',
+  senha: '',
+  novaSenha: '',
+  confirmarSenha: ''
 };
 
 const initialValues = {
@@ -65,7 +68,15 @@ const initialValues = {
     email: '',
     senha: ''
   },
-  update: initialStateUpdateUser
+  update: initialStateUpdateUser,
+  requestPasswordRecovery: {
+    email: ''
+  },
+  passwordRecovery: {
+    email: '',
+    novaSenha: '',
+    confirmarSenha: ''
+  }
 };
 
 export default initialValues;
