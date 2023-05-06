@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.2.4...v1.2.5) (2023-05-06)
+
+
+### Bug Fixes
+
+* :bug: Resolve erro com import de estados do Redux ([4662e78](https://github.com/Thalles-HsA/Inventory-Frontend/commit/4662e7857184381b326e578edd17eca54102a35c))
+
 ## [1.2.4](https://github.com/Thalles-HsA/Inventory-Frontend/compare/v1.2.3...v1.2.4) (2023-05-06)
 
 
