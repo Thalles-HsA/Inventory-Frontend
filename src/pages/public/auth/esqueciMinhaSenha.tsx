@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Head from 'next/head';
