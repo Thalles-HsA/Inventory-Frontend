@@ -6,7 +6,8 @@ import { RootState } from '../store';
 import { AuthState, UseAuthReturnType } from '@/types/Interface';
 
 const useAuth = (): UseAuthReturnType => {
-  const { usuario } = useSelector<RootState, AuthState>((state: RootState) => state.auth);
+  const usuarioAuth = useSelector<RootState, AuthState>((state: RootState) => state.auth);
+  const { usuario } = usuarioAuth || {};
 
   const [auth, setAuth] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);

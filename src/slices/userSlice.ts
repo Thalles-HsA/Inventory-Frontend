@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import userService from '@/services/userService';
+import userService from '../services/userService';
 import { InitialStateUserSlice, RecoveryPassword, UpdatePassword, UpdateUser } from '@/types/Interface';
 
 const initialState: InitialStateUserSlice = {

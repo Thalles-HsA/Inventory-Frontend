@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -22,13 +22,16 @@
       "@/*": [
         "./src/*"
       ]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/pages/public/auth/token/[token].tsx.tsxn].tsx"
+    "src/pages/public/auth/token/[token].tsx.tsxn].tsx",
+    "src/**/*", 
+    "src/styles/*",
+    "src/hooks/*"
   ],
   "exclude": [
     "node_modules"

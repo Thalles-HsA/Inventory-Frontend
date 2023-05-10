@@ -6,7 +6,7 @@ import { MessageProps } from '@/types/Interface';
 
 const Message: React.FC<MessageProps> = ({ msg, type }) => (
 
-  <div className={`${styles.message} ${styles[type]}`}>
+  <div className={`${styles.message} ${styles[type]}`} data-testid="message">
     {msg
       ? msg.map((err) => (
         <p key={uuidv4()}>

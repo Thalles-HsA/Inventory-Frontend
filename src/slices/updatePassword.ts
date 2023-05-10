@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import userService from '@/services/userService';
-import initialValues from '@/utils/initialValues';
+import userService from '../services/userService';
+import initialValues from '../utils/initialValues';
 
 export const userProfile = createAsyncThunk(
   'usuario/perfil',

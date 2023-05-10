@@ -1,15 +1,16 @@
+/* eslint-disable react/button-has-type */
 import styles from '@/styles/botao.module.scss';
 
 import { BotaoProps } from '@/types/Interface';
 
-const Botao: React.FC<BotaoProps> = ({ children, disabled = false, onClick, type = 'button', className = '' }) => (
+const Botao: React.FC<BotaoProps> = ({ children, disabled = false, onClick, type = 'button', className = 'botao-proximo' }) => (
 
   <button
     disabled={disabled}
-    // eslint-disable-next-line react/button-has-type
     type={type}
     onClick={onClick}
     className={`${styles.botao} ${styles[className]}`}
+    data-testid="button"
   >
     {children}
   </button>

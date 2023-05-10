@@ -1,4 +1,4 @@
-import { api, requestConfig } from '@/utils/config';
+import { api, requestConfig } from '../utils/config';
 import { Usuario, UsuarioLogin } from '@/types/Interface';
 
 const cadastroDeUsusario = async (data: Usuario) => {

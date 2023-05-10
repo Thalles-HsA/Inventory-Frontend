@@ -24,6 +24,7 @@
       "node": true
     },
     "rules": {
+      "indent": ["error", 2],
       "react/jsx-max-props-per-line": [2, { "maximum": 1, "when": "multiline" }],
       "react/jsx-one-expression-per-line": [2, { "allow": "literal" }],
       "react/prop-types": "off",

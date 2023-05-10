@@ -1,5 +1,5 @@
 import { RecoveryPassword, UpdatePassword, UpdateUser } from '@/types/Interface';
-import { api, requestConfig } from '@/utils/config';
+import { api, requestConfig } from '../utils/config';
 
 const userProfile = async (data: void, token: string) => {
   const config = requestConfig('GET', data, token);

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Usuario, AuthState, UsuarioLogin } from '@/types/Interface';
 
-import authService from '@/services/authService';
+import authService from '../services/authService';
 
 const usuarioString = typeof window !== 'undefined' ? localStorage.getItem('usuario') : null;
 const usuario = usuarioString ? JSON.parse(usuarioString) : null;

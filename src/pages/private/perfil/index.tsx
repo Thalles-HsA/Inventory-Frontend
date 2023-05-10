@@ -1,17 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, FormEvent, useState } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
+
 import { resetMessage, updateUserPassword, updateUserProfile, userProfile } from '@/slices/userSlice';
+
 import styles from '@/styles/perfil.module.scss';
-import FormularioCPF from '@/components/FormularioPerfil/FormularioCPF';
-import FormularioCNPJ from '@/components/FormularioPerfil/FormularioCNPJ';
+
+import FormularioCPF from './FormularioCPF';
+import FormularioCNPJ from './FormularioCNPJ';
+import FormularioAtualizacaoSenha from './FormularioAtualizacaoSenha';
+import FormularioEndereco from './FormularioDeEndereco';
 import Botao from '@/components/Botao';
-import FormularioEndereco from '@/components/FormularioPerfil/FormularioDeEndereco';
 import Message from '@/components/Message';
+
 import { UpdatePassword, UserDataCNPJ, UserDataCPF } from '@/types/Interface';
-import FormularioAtualizacaoSenha from '@/components/FormularioPerfil/FormularioAtualizacaoSenha';
 import { updateUserFields } from '@/slices/updateUser';
 
 const Perfil = () => {
