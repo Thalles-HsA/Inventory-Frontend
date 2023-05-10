@@ -109,7 +109,7 @@ const FormularioCNPJ = () => {
                 value={inscricaoEstadual}
                 disabled
               />
-              )
+            )
             : (
               <input
                 type="text"
@@ -117,7 +117,7 @@ const FormularioCNPJ = () => {
                 value={inscricaoEstadual}
                 onChange={handleInputChange}
               />
-              )
+            )
         }
       </label>
       <label htmlFor="isento">

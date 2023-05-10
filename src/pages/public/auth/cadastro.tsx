@@ -219,16 +219,16 @@ const Registrar = () => {
                       Pessoa Fisícia
                     </span>
                   </label>
-                  { tipo === 'cnpj'
+                  {tipo === 'cnpj'
                     ? (
                       <>
                         <label>
                           {valid && errors.cnpj && values.tipo === 'cnpj' && (
-                          <ErrorMessage
-                            name="razaoSocial"
-                            component="span"
-                            className={styles['message-error']}
-                          />
+                            <ErrorMessage
+                              name="razaoSocial"
+                              component="span"
+                              className={styles['message-error']}
+                            />
                           )}
                           <Field
                             type="text"
@@ -239,11 +239,11 @@ const Registrar = () => {
                         </label>
                         <label>
                           {valid && errors.razaoSocial && values.tipo === 'cnpj' && (
-                          <ErrorMessage
-                            name="cnpj"
-                            component="span"
-                            className={styles['message-error']}
-                          />
+                            <ErrorMessage
+                              name="cnpj"
+                              component="span"
+                              className={styles['message-error']}
+                            />
                           )}
                           <Field
                             type="text"
@@ -253,16 +253,16 @@ const Registrar = () => {
                           />
                         </label>
                       </>
-                      )
+                    )
                     : (
                       <>
                         <label>
                           {valid && errors.nome && (
-                          <ErrorMessage
-                            name="nome"
-                            component="span"
-                            className={styles['message-error']}
-                          />
+                            <ErrorMessage
+                              name="nome"
+                              component="span"
+                              className={styles['message-error']}
+                            />
                           )}
                           <Field
                             type="text"
@@ -273,11 +273,11 @@ const Registrar = () => {
                         </label>
                         <label>
                           {valid && errors.cpf && (
-                          <ErrorMessage
-                            name="cpf"
-                            component="span"
-                            className={styles['message-error']}
-                          />
+                            <ErrorMessage
+                              name="cpf"
+                              component="span"
+                              className={styles['message-error']}
+                            />
                           )}
                           <Field
                             type="text"
@@ -288,7 +288,7 @@ const Registrar = () => {
                           />
                         </label>
                       </>
-                      )}
+                    )}
                   <Botao
                     type="submit"
                     onClick={() => {
