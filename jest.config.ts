@@ -170,7 +170,7 @@ const config: Config = {
   // testRegex: [],
 
   // This option allows the use of a custom results processor
-  // testResultsProcessor: undefined,
+  // testResultsProcessor: 'jest-sonar-reporter',
 
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",

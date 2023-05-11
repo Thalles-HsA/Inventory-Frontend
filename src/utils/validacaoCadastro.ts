@@ -5,7 +5,7 @@ const registrarcnpj = Yup.object({
     .email('E-mail inválido')
     .required('O e-mail é obrigatório'),
   senha: Yup.string()
-    .min(5, 'A senha precisa ter pelo menos 5 caractéres')
+    .min(6, 'A senha precisa ter pelo menos 6 caractéres')
     .required('A senha é obrigatória'),
   confirmarSenha: Yup.string()
     .oneOf([Yup.ref('senha'), undefined], 'As senhas precisam ser iguais')

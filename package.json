@@ -8,6 +8,7 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:fail": "jest --onlyFailures",
     "lint": "git pull && next lint",
     "release": "semantic-release",
     "release:dry": "semantic-release --dry-run"

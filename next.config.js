@@ -4,9 +4,6 @@ require('dotenv').config();
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    reactRoot: true
-  },
   async rewrites () {
     return [
       { source: '/funcionalidades', destination: '/public/funcionalidades' },
