@@ -9,7 +9,8 @@
   ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/Thalles-HsA/Inventory-Frontend)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=flat-square&logo=linkedin&link=https://www.linkedin.com/in/seu-nome-aqui/)](https://www.linkedin.com/in/thalleshsa/)
   ![GitHub Repo stars](https://img.shields.io/github/stars/Thalles-HsA/Inventory-Frontend?style=social)
-
+  ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Thalles-HsA/Inventory-Frontend/release.yml)
+  
 </div>
 
 
