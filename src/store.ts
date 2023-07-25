@@ -7,7 +7,7 @@ import passwordReducer from './slices/updatePassword';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    usuario: usuarioReducer,
+    user: usuarioReducer,
     update: updateReducer,
     password: passwordReducer
   }

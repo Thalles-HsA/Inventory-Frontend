@@ -139,6 +139,7 @@ const Registrar = () => {
                       onFocus={() => setValid(false)}
                     />
                   </label>
+
                   <label>
                     {valid && errors.senha && (
                       <ErrorMessage

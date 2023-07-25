@@ -22,7 +22,7 @@ interface TokenValidationPageProps {
 
 const TokenValidationPage = ({ token, email }: TokenValidationPageProps) => {
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
-  const { loading, success, error, message } = useSelector((state: RootState) => state.usuario);
+  const { loading, success, error, message } = useSelector((state: RootState) => state.user);
   const router = useRouter();
 
   useEffect(() => {

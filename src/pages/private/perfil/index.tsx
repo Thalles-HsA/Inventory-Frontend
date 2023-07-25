@@ -50,7 +50,7 @@ const Perfil = () => {
     novaSenha,
     confirmarSenha
   } = useSelector((state: RootState) => state.password);
-  const { loading, error, message } = useSelector((state: RootState) => state.usuario);
+  const { loading, error, message } = useSelector((state: RootState) => state.user);
   const dispatch: ThunkDispatch<RootState, unknown, AnyAction> = useDispatch();
 
   const [selectDiv, setSelectDiv] = useState('alterar-senha');
