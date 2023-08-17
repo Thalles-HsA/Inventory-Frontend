@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Head from 'next/head';
 import Image from 'next/image';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import { useRouter } from 'next/router';
+import { GetServerSidePropsContext } from 'next';
 import Botao from '@/components/Botao';
 import { passwordRecovery, resetMessage, validateToken } from '@/slices/userSlice';
 import { RootState } from '@/store';
@@ -37,7 +38,7 @@ const TokenValidationPage = ({ token, email }: TokenValidationPageProps) => {
         if (success) {
           router.push('/login');
         }
-      }, 3000);
+      }, 2000);
     } catch (errors) {
       throw new Error('Houve um erro ao realizar o Login');
     }
@@ -101,10 +102,17 @@ const TokenValidationPage = ({ token, email }: TokenValidationPageProps) => {
   return <p>Invalid token!</p>;
 };
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { token } = context.query;
-  const decodedToken: any = jwt.decode(token);
-  const { email } = decodedToken;
+  let email = '';
+
+  try {
+    const decodedToken = jwt.decode(token as string) as JwtPayload;
+    email = decodedToken.email as string;
+  } catch (error) {
+    throw new Error(`Erro ao decodificar o token: ${error}`);
+  }
+
   return {
     props: { token, email }
   };
